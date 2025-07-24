@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Padaria do Pão - Pães frescos todos os dias. Tradição e sabor desde 1985. Os melhores pães, doces e salgados da cidade.">
+  <meta name="keywords" content="padaria, pães, doces, salgados, café da manhã, delivery">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="Casa do pão - Pães Frescos Todos os Dias">
+  <meta property="og:description" content="Tudo a padaria Casa do Pão, cardápio, pedidos, história, galeria, depoimentos e muito mais!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+
+  <title>Trabalhe Conosco | Casa do pão</title>
+</head>
+<body>
+
+  <!-- Cabeçalho-->
+  <header>
+    <!-- Logo -->
+    <a href="">
+      <img src="/assets/img/logo.png" alt="Logo da padaria Casa do Pão">
+    </a>
+    <!-- Navegação principal -->
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#sobre-nos">Sobre nós</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+        <li><a href="#horario">Horário</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <h1>Fale Conosco</h1>
+    <p>Tem alguma dúvida, sugestão, elogio ou precisa de ajuda?</p>
+    <p>Preencha o formulário abaixo e responderemos o mais breve possível.</p>
+    <form action="processa-curriculo.php" method="post" enctype="multipart/form-data">
+        <fieldset>
+          <legend>Trabalhe Conosco</legend>
+      
+          <div>
+            <label for="nome">Nome completo *</label>
+            <input type="text" id="nome" name="nome" required maxlength="100" placeholder="Seu nome">
+          </div>
+      
+          <div>
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+          </div>
+      
+          <div>
+            <label for="telefone">Telefone *</label>
+            <input type="tel" id="telefone" name="telefone" required placeholder="(XX) XXXX-XXXX" pattern="\(?\d{2}\)? ?\d{4,5}-?\d{4}">
+          </div>
+      
+          <div>
+            <label for="cargo">Área de interesse *</label>
+            <select id="cargo" name="cargo" required>
+              <option value="">Selecione</option>
+              <option value="atendimento">Atendimento</option>
+              <option value="producao">Produção</option>
+              <option value="entregas">Entregas</option>
+              <option value="limpeza">Limpeza</option>
+              <option value="administrativo">Administrativo</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+      
+          <div>
+            <label for="mensagem">Apresente-se brevemente *</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Conte um pouco sobre você, sua experiência e por que quer trabalhar conosco."></textarea>
+          </div>
+      
+          <div>
+            <label for="curriculo">Currículo (PDF) *</label>
+            <input type="file" id="curriculo" name="curriculo" accept=".pdf" required>
+          </div>
+      
+          <div>
+            <input type="checkbox" id="consentimento" name="consentimento" required>
+            <label for="consentimento">
+              Autorizo o uso dos meus dados para fins de recrutamento e seleção conforme a <a href="/politica-de-privacidade.html" target="_blank">Política de Privacidade</a>. *
+            </label>
+          </div>
+      
+          <div>
+            <button type="submit">Enviar candidatura</button>
+          </div>
+        </fieldset>
+        <p>Agradecemos sua mensagem! Em breve, pão quentinho e resposta na sua caixa de entrada.</p>
+      </form>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2024 Padaria do Pão. Todos os direitos reservados.</p>
+    <p>CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ por <a href="https://www.linkedin.com/in/cauany-rodrigues-78700b193/">Cauany Rodrigues</a></p>
+  </footer>
+
+</body>
+</html>

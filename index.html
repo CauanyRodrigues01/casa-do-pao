@@ -27,11 +27,13 @@
     <nav>
       <ul>
         <li><a href="#inicio">Início</a></li>
-        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
         <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="/cadastro.html" target="_blank">Cadastro</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#onde-estamos">Onde estamos</a></li>
         <li><a href="#sobre-nos">Sobre nós</a></li>
-        <li><a href="#localizacao">Localização</a></li>
-        <li><a href="#horario">Horário</a></li>
+        <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
   </header>
@@ -49,7 +51,6 @@
     <article id="produtos">
       <h2>Nossos produtos mais queridos</h2>
       <p>Selecionados especialmente para por nossos clientes</p>
-      <h2>Cardápio da Padaria</h2>
       <table border="1">
         <thead>
           <tr>
@@ -84,57 +85,17 @@
             <td>Bolo fofinho com cobertura cremosa</td>
             <td>R$ 5,00</td>
           </tr>
-          <tr>
-            <td>Doces</td>
-            <td>Torta de morango</td>
-            <td>Com morangos frescos e creme</td>
-            <td>R$ 6,50</td>
-          </tr>
-          <tr>
-            <td>Doces</td>
-            <td>Brigadeiro</td>
-            <td>Clássico doce de leite condensado</td>
-            <td>R$ 1,50</td>
-          </tr>
-          <tr>
-            <td>Salgados</td>
-            <td>Coxinha</td>
-            <td>Frango desfiado com massa crocante</td>
-            <td>R$ 4,00</td>
-          </tr>
-          <tr>
-            <td>Salgados</td>
-            <td>Pastel de queijo</td>
-            <td>Recheado com queijo derretido</td>
-            <td>R$ 3,50</td>
-          </tr>
-          <tr>
-            <td>Salgados</td>
-            <td>Esfirra</td>
-            <td>Recheio de carne temperada</td>
-            <td>R$ 3,80</td>
-          </tr>
-          <tr>
-            <td>Bebidas</td>
-            <td>Café</td>
-            <td>Café preto coado na hora</td>
-            <td>R$ 2,00</td>
-          </tr>
         </tbody>
       </table>
+      <a href="#" target="_blank">Ver Cardápio Completo</a>
     </article>
 
     <!-- Depoimentos -->
-    <article>
+    <article id="depoimentos">
       <h2>O que nossos clientes dizem</h2>
       <p>Cada sorriso é nossa maior receita</p>
-      <section>
-        <p>4.8</p>
-        <p>★★★★★</p>
-        <p>Baseado em 247 avaliações</p>
-      </section>
       <!-- Depoimentos -->
-      <section>
+      <div>
         <!-- Depoimento 1 -->
         <section>
           <img src="/assets/img/depoimentos/Maria Silva.png" width="100" alt="Mulher sorrindo com cabelo cacheado escuro preso e com casaco laranja">
@@ -168,18 +129,19 @@
             </footer>
           </blockquote>
       </section>
-      </section>
+      </div>
       <section>
         <h3>Compartilhe sua experiência!</h3>
         <p>Sua opinião é muito importante para nós. Ajude outros clientes a descobrir a magia da Casa do Pão e nos ajude a melhorar sempre.</p>
         <div>
-          <a href="/feedback.html">Deixar avaliação</a>
+          <a href="/feedback.html" target="_blank">Deixar avaliação</a>
         </div>
       </section>
     </article>
 
     <!-- Diferenciais -->
     <article id="diferenciais">
+      <img src="/assets/img/galeria/paes-com-geleia-e-frutas-secas.jpg" alt="paes com geleia e frutas secas" width="150" height="150">
       <h2>Nossos diferenciais</h2>
       <ul>
         <li>Pães sempre quentinhos e frescos para você</li>
@@ -189,40 +151,19 @@
       </ul>
     </article>
 
-    <!-- Sobre nós -->
-    <article id="sobre-nos">
-      <h2>Sobre nós</h2>
-      <div>
-        <p>Há mais de 35 anos, a Padaria do Pão tem sido o coração da nossa comunidade, oferecendo pães frescos e produtos de qualidade todos os dias. Nossa história começou em 1985 com o sonho de uma família de trazer o melhor da panificação tradicional para nossa cidade.</p>
-        <p>Cada produto é feito com amor, usando receitas tradicionais e ingredientes cuidadosamente selecionados. Nossa equipe trabalha desde as primeiras horas da manhã para garantir que você sempre encontre pães quentinhos e deliciosos.</p>
-      </div>
-      <div>
-        <img src="/assets/img/equipe.jpg" width="200" height"200" alt="Imagem de uma mulher a esquerda, um homem no meio e outro homem chefe de cozinha a direita">
-      </div>
-    </article>
-
-    <!-- Localização -->
-    <article id="localizacao">
-      <h2>Localização</h2>
-      <address>
-          Rua das Flores, 123<br>
-          Centro - Cidade<br>
-          CEP: 12345-678
-      </address>
-    </article>
-
-    <!-- Horário de Funcionamento -->
-    <article id="horario">
-      <h2>Horário de Funcionamento</h2>
-      <ul>
-          <li><strong>Segunda a Sexta:</strong> 6h às 19h</dd>
-          <li><strong>Sábado:</strong> 6h às 18h</li>
-          <li><strong>Domingo:</strong> 7h às 13h</li>
-      </ul>
+    <!-- Cadastro -->
+    <article>
+      <h2>Junte-se à nossa padaria!</h2>
+      <p>Cadastre-se para fazer pedidos online, receber promoções exclusivas e ficar por dentro das novidades.</p>
+      <a href="cadastro.html" target="_blank">Criar minha conta</a>
+      <video autoplay muted loop width="300">
+        <source src="/assets/video/video-institucional-padaria.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos.
+      </video>
     </article>
 
     <!-- Galeria -->
-    <article>
+    <article id="galeria">
       <h2>Galeria</h2>
       <p>Conheça nosso ambiente e produtos</p>
       <table>
@@ -246,79 +187,45 @@
       </table>
     </article>
 
-    <!-- Vídeo Institucional -->
-    <article>
-      <h2>Conheça nossa padaria</h2>
-      <video autoplay muted loop width="300">
-        <source src="/assets/video/video-institucional-padaria.mp4" type="video/mp4">
-        Seu navegador não suporta vídeos.
-      </video>
+    <!-- Onde estamos -->
+    <article id="onde-estamos">
+      <h2>Venha nos visitar</h2>
+      <section>
+        <h3>Localização</h3>
+        <address>
+            Rua das Flores, 123<br>
+            Centro - Cidade<br>
+            CEP: 12345-678
+        </address>
+      </section>
+      <section>
+        <h3>Horário de Funcionamento</h3>
+        <ul>
+            <li><strong>Segunda a Sexta:</strong> 6h às 19h</dd>
+            <li><strong>Sábado:</strong> 6h às 18h</li>
+            <li><strong>Domingo:</strong> 7h às 13h</li>
+        </ul>
+      </section>
     </article>
 
-    <!-- Cadastro / Newsletter -->
-    <article>
-      <h2>Fique por dentro das novidades</h2>
-      <form>
-        <!-- Seção 1 - Dados Pessoais -->
-        <fieldset>
-          <legend>Dados Pessoais</legend>
-          <label>Nome completo*</label>
-          <input type="text" name="nome" required>
-   
-          <label>Email*</label>
-          <input type="email" name="email" required>
-   
-          <label>Telefone*</label>
-          <input type="tel" name="telefone" required pattern="">
-   
-          <label>Data de nascimento</label>
-          <input type="date" name="nascimento">
-        </fieldset>
- 
-        <fieldset>
-          <legend>Endereço</legend>
-          <label>Rua*</label>
-          <input type="text" name="rua" required>
-   
-          <label>Número*</label>
-          <input type="number" name="numero" required>
-   
-          <label>Bairro*</label>
-          <input type="text" name="bairro" required>
-   
-          <label>CEP*</label>
-          <input type="text" name="cep" required pattern="[0-9]{5}-[0-9]{3}" placeholder="00000-000">
-        </fieldset>
+    <!-- Sobre nós -->
+    <article id="sobre-nos">
+      <h2>Sobre nós</h2>
+      <div>
+        <p>Há mais de 35 anos, a Padaria do Pão tem sido o coração da nossa comunidade, oferecendo pães frescos e produtos de qualidade todos os dias. Nossa história começou em 1985 com o sonho de uma família de trazer o melhor da panificação tradicional para nossa cidade.</p>
+        <p>Cada produto é feito com amor, usando receitas tradicionais e ingredientes cuidadosamente selecionados. Nossa equipe trabalha desde as primeiras horas da manhã para garantir que você sempre encontre pães quentinhos e deliciosos.</p>
+      </div>
+      <div>
+        <img src="/assets/img/equipe.jpg" width="200" height"200" alt="Imagem de uma mulher a esquerda, um homem no meio e outro homem chefe de cozinha a direita">
+      </div>
+    </article>
 
-        <fieldset>
-          <legend>Preferências</legend>
-          <input type="checkbox" name="preferencias" value="paes">
-          <label>Pães artesanais</label>
-  
-          <input type="checkbox" name="preferencias" value="doces">
-          <label>Doces e bolos</label>
-  
-          <input type="checkbox" name="preferencias" value="salgados">
-          <label>Salgados</label>
-  
-          <input type="checkbox" name="preferencias" value="diet">
-          <label>Produtos diet/light</label>
-          
-          <input type="checkbox" name="preferencias" value="integrais">
-          <label>Produtos integrais</label>
-        </fieldset>
-
-        <fieldset>
-          <legend>Termos</legend>
-          <input type="checkbox" name="promocoes" required>
-          <label>Aceita receber promoções por email*</label>
-          
-          <input type="checkbox" name="termos" required>
-          <label>Aceita os termos de uso*</label>
-        </fieldset>
- 
-        <button type="submit">Cadastrar</button>
-     </form>
+    <!-- Contato -->
+    <article id="contato">
+      <h2>Entre em Contato Conosco</h2>
+      <p>Estamos aqui para ajudar! Escolha a opção que melhor atende você:</p>
+      <a href="/fale-conosco.html" target="_blank">Fale conosco</a>
+      <a href="/trabalhe-conosco.html" target="_blank">Trabalhe conoso</a>
     </article>
 
   </main>
