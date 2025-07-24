@@ -1,14 +1,334 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+  <meta name="description" content="Padaria do Pão - Pães frescos todos os dias. Tradição e sabor desde 1985. Os melhores pães, doces e salgados da cidade.">
+  <meta name="keywords" content="padaria, pães, doces, salgados, café da manhã, delivery">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="Casa do pão - Pães Frescos Todos os Dias">
+  <meta property="og:description" content="Tudo a padaria Casa do Pão, cardápio, pedidos, história, galeria, depoimentos e muito mais!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+
+  <title>Casa do pão | Pães Frescos Todos os Dias</title>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+
+  <!-- Cabeçalho-->
+  <header>
+    <!-- Logo -->
+    <a href="">
+      <img src="/assets/img/logo.png" alt="Logo da padaria Casa do Pão">
+    </a>
+    <!-- Navegação principal -->
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#sobre-nos">Sobre nós</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+        <li><a href="#horario">Horário</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <!-- Hero Section -->
+    <article id="inicio">
+      <h1>Casa do Pão</h1>
+      <h2>Sabor e tradição que você confia!</h2>
+      <p>Pães artesanais, doces irresistíveis e salgados feitos com paixão, fresquinhos para você a cada dia.</p>
+    </article>
+
+    <!-- Produtos em destaque -->
+    <article id="produtos">
+      <h2>Nossos produtos mais queridos</h2>
+      <p>Selecionados especialmente para por nossos clientes</p>
+      <h2>Cardápio da Padaria</h2>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Categoria</th>
+            <th>Produto</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pães</td>
+            <td>Pão francês</td>
+            <td>Crocante por fora e macio por dentro</td>
+            <td>R$ 0,80</td>
+          </tr>
+          <tr>
+            <td>Pães</td>
+            <td>Pão de açúcar</td>
+            <td>Levemente adocicado, ideal para café</td>
+            <td>R$ 1,20</td>
+          </tr>
+          <tr>
+            <td>Pães</td>
+            <td>Croissant</td>
+            <td>Massa folhada com manteiga</td>
+            <td>R$ 3,50</td>
+          </tr>
+          <tr>
+            <td>Doces</td>
+            <td>Bolo de chocolate</td>
+            <td>Bolo fofinho com cobertura cremosa</td>
+            <td>R$ 5,00</td>
+          </tr>
+          <tr>
+            <td>Doces</td>
+            <td>Torta de morango</td>
+            <td>Com morangos frescos e creme</td>
+            <td>R$ 6,50</td>
+          </tr>
+          <tr>
+            <td>Doces</td>
+            <td>Brigadeiro</td>
+            <td>Clássico doce de leite condensado</td>
+            <td>R$ 1,50</td>
+          </tr>
+          <tr>
+            <td>Salgados</td>
+            <td>Coxinha</td>
+            <td>Frango desfiado com massa crocante</td>
+            <td>R$ 4,00</td>
+          </tr>
+          <tr>
+            <td>Salgados</td>
+            <td>Pastel de queijo</td>
+            <td>Recheado com queijo derretido</td>
+            <td>R$ 3,50</td>
+          </tr>
+          <tr>
+            <td>Salgados</td>
+            <td>Esfirra</td>
+            <td>Recheio de carne temperada</td>
+            <td>R$ 3,80</td>
+          </tr>
+          <tr>
+            <td>Bebidas</td>
+            <td>Café</td>
+            <td>Café preto coado na hora</td>
+            <td>R$ 2,00</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <!-- Diferenciais -->
+    <article id="diferenciais">
+      <h2>Nossos diferenciais</h2>
+      <ul>
+        <li>Pães sempre quentinhos e frescos para você</li>
+        <li>Apenas os melhores ingredientes em nossos produtos</li>
+        <li>Receitas de família passadas por gerações</li>
+        <li>Entregamos em até 30 minutos na sua casa</li>
+      </ul>
+    </article>
+
+    <!-- Sobre nós -->
+    <article id="sobre-nos">
+      <h2>Sobre nós</h2>
+      <div>
+        <p>Há mais de 35 anos, a Padaria do Pão tem sido o coração da nossa comunidade, oferecendo pães frescos e produtos de qualidade todos os dias. Nossa história começou em 1985 com o sonho de uma família de trazer o melhor da panificação tradicional para nossa cidade.</p>
+        <p>Cada produto é feito com amor, usando receitas tradicionais e ingredientes cuidadosamente selecionados. Nossa equipe trabalha desde as primeiras horas da manhã para garantir que você sempre encontre pães quentinhos e deliciosos.</p>
+      </div>
+      <div>
+        <img src="/assets/img/equipe.jpg" width="200" height"200" alt="Imagem de uma mulher a esquerda, um homem no meio e outro homem chefe de cozinha a direita">
+      </div>
+    </article>
+
+    <!-- Localização -->
+    <article id="localizacao">
+      <h2>Localização</h2>
+      <address>
+          Rua das Flores, 123<br>
+          Centro - Cidade<br>
+          CEP: 12345-678
+      </address>
+    </article>
+
+    <!-- Horário de Funcionamento -->
+    <article id="horario">
+      <h2>Horário de Funcionamento</h2>
+      <ul>
+          <li><strong>Segunda a Sexta:</strong> 6h às 19h</dd>
+          <li><strong>Sábado:</strong> 6h às 18h</li>
+          <li><strong>Domingo:</strong> 7h às 13h</li>
+      </ul>
+    </article>
+
+    <!-- Galeria -->
+    <article>
+      <h2>Galeria</h2>
+      <p>Conheça nosso ambiente e produtos</p>
+      <table>
+        <tbody>
+          <tr>
+            <td><img src="/assets/img/galeria/conjunto-de-bolos-de-padaria-em-mesa-de-madeira.jpg" alt="conjunto de bolos de padaria em mesa de madeira" width="150" height="150"></td>
+            <td><img src="/assets/img/galeria/homem-padeiro-na-cozinha-pelo-carrinho-de-pastelaria.jpg" alt="homem padeiro na cozinha pelo carrinho de pastelaria" width="150" height="150"></td>
+            <td><img src="/assets/img/galeria/mulheres-de-tiro-medio-trabalhando-na-cozinha.jpg" alt="mulheres de tiro medio trabalhando na cozinha" width="150" height="150"></td>
+          </tr>
+          <tr>
+            <td><img src="/assets/img/galeria/padeiro-de-homem-com-pao-fresco-na-casa-de-padeiro.jpg" alt="padeiro de homem com pao fresco na casa de padeiro" width="150" height="150"></td>
+            <td><img src="/assets/img/galeria/paes-com-geleia-e-frutas-secas.jpg" alt="paes com geleia e frutas secas" width="150" height="150"></td>
+            <td><img src="/assets/img/galeria/salsichas-na-massa.jpg" alt="salsichas na massa" width="150" height="150"></td>
+          </tr>
+          <tr>
+            <td><img src="/assets/img/galeria/sorrindo-padeiro-carregando-uma-bandeja-de-baguette-frances-fresco-assado.jpg" alt="sorrindo padeiro carregando uma bandeja de baguette frances fresco assado" width="150" height="150"></td>
+            <td><img src="/assets/img/galeria/vista-de-cima-em-uma-mesa-cheia-de-comida.jpg" alt="vista de cima em uma mesa cheia de comida" width="150" height="150"></td>
+            <td><img src="/assets/img/galeria/vista-superior-de-croissants-de-manteiga-colocados-na-placa-de-madeira.jpg" alt="vista superior de croissants de manteiga colocados na placa de madeira" width="150" height="150"></td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <!-- Vídeo Institucional -->
+    <article>
+      <h2>Conheça nossa padaria</h2>
+      <video autoplay muted loop width="300">
+        <source src="/assets/video/video-institucional-padaria.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos.
+      </video>
+    </article>
+
+    <!-- Depoimentos -->
+    <article>
+      <h2>O que nossos clientes dizem</h2>
+      <!-- Depoimento 1 -->
+      <section>
+        <blockquote>
+          <p>"Os melhores pães da cidade! Sempre frescos e saborosos. Recomendo!"</p>
+          <footer>
+              <cite>- Maria Silva</cite>
+          </footer>
+        </blockquote>
+      </section>
+      <!-- Depoimento 2 -->
+      <section>
+        <blockquote>
+          <p>"Tradição e qualidade em cada produto. Sou cliente há mais de 10 anos!"</p>
+          <footer>
+              <cite>- João Santos</cite>
+          </footer>
+        </blockquote>
+      </section>
+      <!-- Depoimento 3 -->
+      <section>
+        <blockquote>
+          <p>"O delivery é super rápido e os produtos chegam sempre fresquinhos!"</p>
+          <footer>
+              <cite>- Ana Costa</cite>
+          </footer>
+        </blockquote>
+      </section>
+    </article>
+
+    <!-- Cadastro / Newsletter -->
+    <article>
+      <h2>Fique por dentro das novidades</h2>
+      <form>
+        <!-- Seção 1 - Dados Pessoais -->
+        <fieldset>
+          <legend>Dados Pessoais</legend>
+          <label>Nome completo*</label>
+          <input type="text" name="nome" required>
+   
+          <label>Email*</label>
+          <input type="email" name="email" required>
+   
+          <label>Telefone*</label>
+          <input type="tel" name="telefone" required pattern="">
+   
+          <label>Data de nascimento</label>
+          <input type="date" name="nascimento">
+        </fieldset>
+ 
+        <fieldset>
+          <legend>Endereço</legend>
+          <label>Rua*</label>
+          <input type="text" name="rua" required>
+   
+          <label>Número*</label>
+          <input type="number" name="numero" required>
+   
+          <label>Bairro*</label>
+          <input type="text" name="bairro" required>
+   
+          <label>CEP*</label>
+          <input type="text" name="cep" required pattern="[0-9]{5}-[0-9]{3}" placeholder="00000-000">
+        </fieldset>
+
+        <fieldset>
+          <legend>Preferências</legend>
+          <input type="checkbox" name="preferencias" value="paes">
+          <label>Pães artesanais</label>
+  
+          <input type="checkbox" name="preferencias" value="doces">
+          <label>Doces e bolos</label>
+  
+          <input type="checkbox" name="preferencias" value="salgados">
+          <label>Salgados</label>
+  
+          <input type="checkbox" name="preferencias" value="diet">
+          <label>Produtos diet/light</label>
+          
+          <input type="checkbox" name="preferencias" value="integrais">
+          <label>Produtos integrais</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Termos</legend>
+          <input type="checkbox" name="promocoes" required>
+          <label>Aceita receber promoções por email*</label>
+          
+          <input type="checkbox" name="termos" required>
+          <label>Aceita os termos de uso*</label>
+        </fieldset>
+ 
+        <button type="submit">Cadastrar</button>
+     </form>
+    </article>
+
+  </main>
+
+  <!-- Sidebar -->
+  <aside>
+    <section>
+      <h3>Ofertas especiais</h3>
+      <div>
+        <h4>Combo Café da Manhã</h4>
+        <p>2 pães franceses + café + suco</p>
+        <p>De R$ 12,00 por R$ 9,90</p>
+      </div>
+    </section>
+    <section>
+      <h3>Links úteis</h3>
+      <nav>
+        <ul>
+          <li><a href="#">Cardápio Completo</a></li>
+          <li><a href="#">Pedidos Especiais</a></li>
+          <li><a href="#">Programa Fidelidade</a></li>
+          <li><a href="#">Trabalhe Conosco</a></li>
+        </ul>
+      </nav>
+    </section>
+  </aside>
+
+  <footer>
+    <p>&copy; 2024 Padaria do Pão. Todos os direitos reservados.</p>
+    <p>CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ para nossa comunidade</p>
+  </footer>
+
 </body>
 </html>
+
