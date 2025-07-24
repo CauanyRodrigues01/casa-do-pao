@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Padaria do Pão - Pães frescos todos os dias. Tradição e sabor desde 1985. Os melhores pães, doces e salgados da cidade.">
+  <meta name="keywords" content="padaria, pães, doces, salgados, café da manhã, delivery">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="Casa do pão - Pães Frescos Todos os Dias">
+  <meta property="og:description" content="Tudo a padaria Casa do Pão, cardápio, pedidos, história, galeria, depoimentos e muito mais!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+
+  <title>Feedback | Casa do pão</title>
+</head>
+<body>
+
+  <!-- Cabeçalho-->
+  <header>
+    <!-- Logo -->
+    <a href="">
+      <img src="/assets/img/logo.png" alt="Logo da padaria Casa do Pão">
+    </a>
+    <!-- Navegação principal -->
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#sobre-nos">Sobre nós</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+        <li><a href="#horario">Horário</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+        <h2>Conte sua experiência</h2>
+        <p>Sua opinião nos ajuda a crescer e melhorar!</p>
+    </section>
+    <form>
+        <!-- Ccategorias -->
+        <fieldset>
+            <legend>O que você gostaria de avaliar? <em>(marque todas que se aplicam)</em></legend>
+            
+            <div>
+            <input type="checkbox" name="categorias[]" id="categoria-produtos" value="produtos">
+            <label for="categoria-produtos">🍞 Produtos</label>
+            </div>
+            
+            <div>
+            <input type="checkbox" name="categorias[]" id="categoria-atendimento" value="atendimento">
+            <label for="categoria-atendimento">😊 Atendimento</label>
+            </div>
+            
+            <div>
+            <input type="checkbox" name="categorias[]" id="categoria-ambiente" value="ambiente">
+            <label for="categoria-ambiente">🏪 Ambiente</label>
+            </div>
+            
+            <div>
+            <input type="checkbox" name="categorias[]" id="categoria-precos" value="precos">
+            <label for="categoria-precos">💰 Preços</label>
+            </div>
+        </fieldset>
+
+        <!-- Fieldset para avaliação -->
+        <fieldset>
+            <legend>Como você avalia nossa padaria? *</legend>
+            
+            <div>
+            <input type="radio" name="avaliacao" id="avaliacao-excelente" value="5" required>
+            <label for="avaliacao-excelente">🌟 Excelente (5 estrelas)</label>
+            </div>
+            
+            <div>
+            <input type="radio" name="avaliacao" id="avaliacao-bom" value="4">
+            <label for="avaliacao-bom">👍 Bom (4 estrelas)</label>
+            </div>
+            
+            <div>
+            <input type="radio" name="avaliacao" id="avaliacao-regular" value="3">
+            <label for="avaliacao-regular">😐 Regular (3 estrelas)</label>
+            </div>
+            
+            <div>
+            <input type="radio" name="avaliacao" id="avaliacao-ruim" value="2">
+            <label for="avaliacao-ruim">👎 Ruim (2 estrelas)</label>
+            </div>
+
+            <div>
+            <input type="radio" name="avaliacao" id="avaliacao-pessimo" value="1">
+            <label for="avaliacao-pessimo">😞 Péssimo (1 estrela)</label>
+            </div>
+        </fieldset>
+
+        <!-- Campo de comentário -->
+        <div>
+            <label for="comentario">Conte-nos mais sobre sua experiência *</label>
+            <textarea 
+            id="comentario"
+            name="comentario"
+            required 
+            maxlength="500"
+            rows="5"
+            aria-describedby="comentario-help"
+            placeholder="Compartilhe os detalhes da sua visita, o que mais gostou, sugestões de melhoria..."></textarea>
+            <small id="comentario-help">Máximo de 500 caracteres. Seja específico para nos ajudar a melhorar.</small>
+        </div>
+
+        <!-- Dados pessoais -->
+        <fieldset>
+            <legend>Dados para contato</legend>
+            
+            <div>
+            <label for="nome">Seu nome *</label>
+            <input 
+                type="text" 
+                name="nome" 
+                id="nome" 
+                required 
+                maxlength="50"
+                autocomplete="name"
+                placeholder="Como podemos te chamar?">
+            </div>
+
+            <div>
+            <label for="email">Seu email</label>
+            <input 
+                type="email" 
+                name="email" 
+                id="email" 
+                maxlength="100"
+                autocomplete="email"
+                aria-describedby="email-help"
+                placeholder="seuemail@exemplo.com">
+            <small id="email-help">Opcional. Para respondermos se necessário.</small>
+            </div>
+        </fieldset>
+
+        <!-- Consentimento e privacidade -->
+        <fieldset>
+            <legend>Consentimento</legend>
+            
+            <div>
+            <input type="checkbox" name="publicar_autorizado" id="publicar" value="sim" checked>
+            <label for="publicar">
+                Autorizo a publicação do meu feedback no site para ajudar outros clientes
+            </label>
+            </div>
+            
+            <div>
+            <input type="checkbox" name="contato_autorizado" id="contato" value="sim">
+            <label for="contato">
+                Aceito ser contatado pela Casa do Pão sobre este feedback
+            </label>
+            </div>
+        </fieldset>
+
+        <!-- Botão de envio -->
+        <div>
+            <button type="submit">Enviar Feedback</button>
+            <button type="reset">Limpar Formulário</button>
+        </div>
+
+        <!-- Informações adicionais -->
+        <small>
+            <strong>Política de Privacidade:</strong> 
+            Seus dados serão utilizados apenas para melhorar nossos serviços. 
+            Não compartilhamos informações pessoais com terceiros.
+        </small>
+
+     </form>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2024 Padaria do Pão. Todos os direitos reservados.</p>
+    <p>CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ por <a href="https://www.linkedin.com/in/cauany-rodrigues-78700b193/">Cauany Rodrigues</a></p>
+  </footer>
+</body>
+</html>
