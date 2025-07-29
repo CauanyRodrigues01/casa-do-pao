@@ -20,20 +20,22 @@
 <body>
 
   <!-- Cabeçalho-->
-  <header>
+  <header class="cabecalho-principal">
     <!-- Logo -->
-    <a href="/index.html">
-      <img src="/assets/img/logo.png" alt="Logo da padaria Casa do Pão">
+    <a href="">
+      <img src="./assets/img/logo.png" width="100" alt="Logo da padaria Casa do Pão">
     </a>
     <!-- Navegação principal -->
     <nav>
       <ul>
         <li><a href="#inicio">Início</a></li>
-        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
         <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="/cadastro.html" target="_blank">Cadastro</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#onde-estamos">Onde estamos</a></li>
         <li><a href="#sobre-nos">Sobre nós</a></li>
-        <li><a href="#localizacao">Localização</a></li>
-        <li><a href="#horario">Horário</a></li>
+        <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
   </header>
@@ -42,7 +44,7 @@
   <main>
     <h2>Se cadastre para fazer novos pedidos e receber novidades</h2>
     <p></p>
-    <form>
+    <form class="formulario">
       <!-- Dados Pessoais -->
       <fieldset>
         <legend>Dados Pessoais</legend>
@@ -94,8 +96,6 @@
 
       <!-- Endereço -->
       <fieldset>
-        <legend>Endereço</legend>
-
         <div>
           <label for="rua">Rua *</label>
           <input 
@@ -245,8 +245,8 @@
 
       <!-- Botões -->
       <div>
-        <button type="submit">Cadastrar</button>
-        <button type="reset">Limpar Formulário</button>
+        <button class="btn btn-cadastrar" type="submit">Cadastrar</button>
+        <button class="btn btn-limpar-formulario" type="reset">Limpar Formulário</button>
       </div>
 
    </form>

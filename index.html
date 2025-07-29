@@ -12,8 +12,12 @@
   <meta property="og:description" content="Tudo a padaria Casa do Pão, cardápio, pedidos, história, galeria, depoimentos e muito mais!">
   <meta property="og:type" content="website">
   <meta property="og:url" content="">
-
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
+
 
   <title>Casa do pão | Pães Frescos Todos os Dias</title>
 
@@ -21,14 +25,14 @@
 <body>
 
   <!-- Cabeçalho-->
-  <header>
+  <header class="cabecalho-principal">
     <!-- Logo -->
     <a href="">
-      <img src="./assets/img/logo.png" alt="Logo da padaria Casa do Pão">
+      <img src="./assets/img/logo.png" width="100" alt="Logo da padaria Casa do Pão">
     </a>
     <!-- Navegação principal -->
     <nav>
-      <ul>
+      <ul class="navbar-lista">
         <li><a href="#inicio">Início</a></li>
         <li><a href="#depoimentos">Depoimentos</a></li>
         <li><a href="#diferenciais">Diferenciais</a></li>
@@ -45,8 +49,8 @@
   <main>
     <!-- Hero Section -->
     <article id="inicio">
-      <h1>Casa do Pão</h1>
-      <h2>Sabor e tradição que você confia!</h2>
+      <h1 class="titulo-principal">Casa do Pão</h1>
+      <h2 class="titulo-secundario">Sabor e tradição que você confia!</h2>
       <p>Pães artesanais, doces irresistíveis e salgados feitos com paixão, fresquinhos para você a cada dia.</p>
     </article>
 
@@ -101,36 +105,36 @@
       <div>
         <!-- Depoimento 1 -->
         <section>
-          <img src="./assets/img/depoimentos/Maria Silva.png" width="100" alt="Mulher sorrindo com cabelo cacheado escuro preso e com casaco laranja">
           <blockquote>
-            <p>"Os melhores pães da cidade! Sempre frescos e saborosos. Recomendo!"</p>
+            <p>“A Casa do Pão virou parte da minha rotina. O cheiro do pão saindo do forno logo cedo é irresistível! Tudo é fresquinho e o atendimento é sempre acolhedor.”</p>
             <footer>
-                <cite>- Maria Silva</cite>
+                <cite>Maria Silva</cite>
                 <time datetime="2025-07-15">15 de julho, 2025</time>
             </footer>
           </blockquote>
+          <img src="./assets/img/depoimentos/Maria Silva.png" width="100" alt="Mulher sorrindo com cabelo cacheado escuro preso e com casaco laranja">
         </section>
         <!-- Depoimento 2 -->
         <section>
-          <img src="./assets/img/depoimentos/João Santos.png" width="100" alt="Homem sorrindo de forma sutil com casaco jeans e cabelo black power">
           <blockquote>
-            <p>"Tradição e qualidade em cada produto. Sou cliente há mais de 10 anos!"</p>
+            <p>“Os croissants recheados são os melhores que já comi! A qualidade dos produtos e o cuidado no preparo fazem toda a diferença. Recomendo de olhos fechados.”</p>
             <footer>
-                <cite>- João Santos</cite>
+                <cite>Ana Souza</cite>
                 <time datetime="2025-07-12">12 de julho, 2025</time>
             </footer>
           </blockquote>
+          <img src="./assets/img/depoimentos/Ana Costa.png" width="100" alt="Mulher de cabelo liso solto e loiro sorrindo com uma blusa laranja">
         </section>
         <!-- Depoimento 3 -->
         <section>
-          <img src="./assets/img/depoimentos/Ana Costa.png" width="100" alt="Mulher de cabelo liso solto e loiro sorrindo com uma blusa laranja">
           <blockquote>
-            <p>"O delivery é super rápido e os produtos chegam sempre fresquinhos!"</p>
+            <p>“Levo meus filhos todo fim de semana para comprar pãezinhos na Casa do Pão. Eles adoram os pães doces, e eu confio na qualidade e higiene. É nossa padaria de confiança!”</p>
             <footer>
-                <cite>- Ana Costa</cite>
+                <cite>Rodrigo Mendes</cite>
                 <time datetime="2025-07-08">08 de julho, 2025</time>
             </footer>
           </blockquote>
+          <img src="./assets/img/depoimentos/João Santos.png" width="100" alt="Homem sorrindo de forma sutil com casaco jeans e cabelo black power">
       </section>
       </div>
       <section>
@@ -193,12 +197,14 @@
     <!-- Onde estamos -->
     <article id="onde-estamos">
       <h2>Venha nos visitar</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17397.563097713!2d-46.6804668840034!3d-23.55453644291876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5832d34d2d31%3A0x95900c1b6b536403!2sR.%20Augusta%2C%201508%20-%20Consola%C3%A7%C3%A3o%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001304-001!5e0!3m2!1spt-BR!2sbr!4v1753713573322!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       <section>
         <h3>Localização</h3>
         <address>
-            Rua das Flores, 123<br>
-            Centro - Cidade<br>
-            CEP: 12345-678
+          Rua Augusta, 1508 </br>
+          Consolação </br>
+          São Paulo – SP </br>
+          01304-001 </br>
         </address>
       </section>
       <section>
@@ -255,7 +261,6 @@
       </nav>
     </section>
   </aside>
-
   <!-- Rodapé -->
   <footer>
     <p>&copy; 2024 Padaria do Pão. Todos os direitos reservados.</p>

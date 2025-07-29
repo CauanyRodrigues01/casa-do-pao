@@ -1,6 +1,100 @@
 * {
-    border: 0;
-    margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #552814;
+    background-color: #F5EDE3;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+a:visited {
+    color: #ff7f2f;
+}
+
+.cabecalho-principal a:hover {
+    color: #BB793E;
+}
+
+.cabecalho-principal a:focus {
+    color: #321f0f;
+}
+
+.cabecalho-principal a:visited {
+    color: #F5EDE3;
+}
+
+.cabecalho-principal {
+    background-color: #552814;
+    text-decoration: none;
+}
+
+.cabecalho-principal a {
+    color: #F5EDE3;
+    text-decoration: none;
+}
+
+.cabecalho-principal ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.formulario {
+    margin: 40px;
+}
+
+input {
+    margin: 20px;
+    background-color: #F5EDE3;
+    border: 1px solid #552814;
+    padding: 10px;
+    width: 80%;
+    border-radius: 8px;
+    color: #552814;
+}
+
+input:focus {
+    outline: none;
+    border-left-color: aqua;
+    box-shadow: 0 0 8px #5527144b;
+    background-color: #F5EDE3;
+
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    margin: 16px;
+}
+
+.btn:active {
+    background-color: red;
+}
+
+.btn-cadastrar {
+    background-color: #552814;
+    color: #F5EDE3;
+}
+
+.btn:hover {
+    background-color: #BB793E;
+    transform: scale(1.1);
+    cursor:all-scroll;
+}
+
+.btn-limpar-formulario {
+    background-color: #F5EDE3;
+    color:#552814;
+    border: 1px solid #552814;
+}
+
+.btn-limpar-formulario:hover {
+    border: 1px solid #F5EDE3;
 }
