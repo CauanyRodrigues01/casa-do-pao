@@ -1,27 +1,40 @@
+/*  -- Reset CSS -- */
 * {
     padding: 0;
     margin: 0;
 }
 
-body {
-    font-family: "Open Sans", sans-serif;
-    color: #552814;
-    background-color: #F5EDE3;
-    font-size: 18px;
-    font-weight: 400;
+:root {
+    --cor-primaria: #552814;
+    --cor-secundaria: #BB793E;
+    --cor-clara: #F5EDE3;
 }
 
-main {
-    margin-top: 344px;
+/*  -- ESTILIZAÇÃO GLOBAL -- */
+
+body {
+    font-family: "Open Sans", sans-serif;
+    color: var(--cor-primaria);
+    background-color: var(--cor-clara);
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 80px;
 }
 
 .titulo-principal {
+    font-family: "Playfair Display", serif;
     font-size: 56px;
     margin-bottom: 20px;
     text-align: center;
 }
 
 .titulo-secundario {
+    font-family: "Playfair Display", serif;
     font-size: 40;
     margin-bottom: 40px;
     text-align: center;
@@ -31,71 +44,101 @@ main {
     text-align: left;
 }
 
-a:visited {
-    color: #ff7f2f;
+/*  -- Componentes -- */
+.btn {
+    padding: 16px 24px;
+    text-decoration: none;
+    border-radius: 8px;
 }
 
-.cabecalho-principal a:hover {
-    color: #BB793E;
+.btn-principal-para-fundo-escuro {
+    background-color: var(--cor-clara);
+    color: var(--cor-primaria);
+}
+
+.btn-secundario-para-fundo-escuro {
+    background-color: var(--cor-primaria);
+    color: var(--cor-clara);
+    border: 1px solid var(--cor-clara);
+}
+
+.btn-principal-para-fundo-claro {
+    background-color: var(--cor-primaria);
+    color: var(--cor-clara);
+}
+
+/* -- CABEÇALHO PRINCIPAL --  */
+
+.cabecalho-principal {
+    background-color: var(--cor-primaria);
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 20px rgba(0,0,0, 0.70);
+}
+
+.cabecalho-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+    border-radius: 100%;
+}
+
+.cabecalho-principal ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+}
+
+.cabecalho-principal li a {
+    display: block;
+    text-align: center;
+    color: var(--cor-clara);
+    text-decoration: none;
+    padding: 14px 20px;
+}
+
+.cabecalho-principal li a:hover {
+    color: var(--cor-secundaria);
 }
 
 .cabecalho-principal a:focus {
     color: #321f0f;
 }
 
-.cabecalho-principal a:visited {
-    color: #F5EDE3;
+/* -- CONTEÚDO DO MAIN -- */
+
+main {
+    margin-top: 240px;
 }
 
-.cabecalho-principal {
-    background-color: #552814;
-    text-decoration: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+.container-hero {
+    display: flex;
+    align-items: flex-start;
 }
 
-.cabecalho-principal a {
-    color: #F5EDE3;
-    text-decoration: none;
-}
 
-.cabecalho-principal ul {
-    list-style: none;
+.img-hero {
+    float: right;
 }
 
 table {
     border-collapse: collapse;
 }
 
-.logo {
-    width: 100px;
-    border-radius: 100%;
-    margin: 20px 0;
-}
-
-.container {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 20px 80px;
-}
-
-.btn-wpp:hover {
-    background-color: #c8dda5;
-}
-
-.img-hero {
-    float: right;
-}
 
 .limpar-float {
     clear: both;
     height: 0;
-}
-
-body {
-    padding: 30px;
 }
 
 .video-institucional {
