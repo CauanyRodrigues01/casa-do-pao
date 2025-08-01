@@ -146,9 +146,6 @@ main {
     width: 50%;
 }
 
-#produtos {
-    background-color: var(--cor-secundaria);
-}
 
 .content-produtos {
     display: flex;
@@ -156,14 +153,18 @@ main {
     justify-content: center;
     align-items: center;
     gap: 20px;
+
 }
 
 .conteiner-produtos-principais {
     display: flex;
     justify-content: center;
     align-items: center;
-
     gap: 10px;
+
+    background-color: var(--cor-secundaria);
+
+    padding: 20px 0;
 }
 
 .setas-produtos {
