@@ -129,6 +129,16 @@ body {
     padding-top: 20px;
 }
 
+.botoes-fixos {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .wpp {
     background-color: var(--cor-secundaria);
     height: 60px;
@@ -137,9 +147,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    right: 30px;
-    bottom: 30px;
+
     color: var(--cor-clara);
     font-size: 30px;
     box-shadow: 0px 0px 15px  rgba(0,0,0,0.38);
