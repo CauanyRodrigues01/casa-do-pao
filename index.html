@@ -22,7 +22,6 @@
   
   <link rel="stylesheet" href="assets/css/style.css">
 
-
   <title>Casa do pão | Pães Frescos Todos os Dias</title>
 
 </head>
@@ -42,7 +41,7 @@
             <li><a href="index.html">Início</a></li>
             <li><a href="#depoimentos">Depoimentos</a></li>
             <li><a href="#diferenciais">Diferenciais</a></li>
-            <li><a href="cadastro.html" target="_blank">Cadastro</a></li>
+            <li><a href="cadastro.html" target="_blank" rel="noopener noreferrer">Cadastro</a></li>
             <li><a href="#galeria">Galeria</a></li>
             <li><a href="#onde-estamos">Onde estamos</a></li>
             <li><a href="#sobre-nos">Sobre nós</a></li>
@@ -65,7 +64,7 @@
             <h1 class="titulo-principal">Casa do Pão</h1>
             <h2 class="titulo-secundario">Sabor e tradição que você confia!</h2>
             <p>Pães artesanais, doces irresistíveis e salgados feitos com paixão, fresquinhos para você a cada dia.</p>
-            <a class="btn btn-principal-para-fundo-claro" href="" target="_blank">Ver cardápio completo</a>
+            <a class="btn btn-principal-para-fundo-claro" href="" target="_blank" rel="noopener noreferrer">Ver cardápio completo</a>
           </div>
           <img class="img-hero" src="assets/img/vista-superior-de-croissants-de-manteiga-colocados-na-placa-de-madeira.jpg" alt="vista superior de croissants de manteiga colocados na placa de madeira" height="480">  
         </div>
@@ -75,70 +74,68 @@
     <!-- Produtos em destaque -->
     <article id="produtos">
       <div class="container">
-        <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
-        <h2 class="titulo-secundario">Nossos produtos mais queridos</h2>
-        <p>Selecionados especialmente para por nossos clientes</p>
-        <table border="1">
-          <thead>
-            <tr>
-              <th>Categoria</th>
-              <th>Produto</th>
-              <th>Descrição</th>
-              <th>Preço</th>
-            </tr>
-          </thead>
-          <tbody  class="corpo-tabela-produtos">
-            <tr>
-              <td>Pães</td>
-              <td>Pão francês</td>
-              <td>Crocante por fora e macio por dentro</td>
-              <td>R$ 0,80</td>
-            </tr>
-            <tr>
-              <td>Pães</td>
-              <td>Pão de açúcar</td>
-              <td>Levemente adocicado, ideal para café</td>
-              <td>R$ 1,20</td>
-            </tr>
-            <tr>
-              <td>Pães</td>
-              <td>Croissant</td>
-              <td>Massa folhada com manteiga</td>
-              <td>R$ 3,50</td>
-            </tr>
-            <tr>
-              <td>Doces</td>
-              <td>Bolo de chocolate</td>
-              <td>Bolo fofinho com cobertura cremosa</td>
-              <td>R$ 5,00</td>
-            </tr>
-            <tr>
-              <td>Pães</td>
-              <td>Pão francês</td>
-              <td>Crocante por fora e macio por dentro</td>
-              <td>R$ 0,80</td>
-            </tr>
-            <tr>
-              <td>Pães</td>
-              <td>Pão de açúcar</td>
-              <td>Levemente adocicado, ideal para café</td>
-              <td>R$ 1,20</td>
-            </tr>
-            <tr>
-              <td>Pães</td>
-              <td>Croissant</td>
-              <td>Massa folhada com manteiga</td>
-              <td>R$ 3,50</td>
-            </tr>
-            <tr>
-              <td>Doces</td>
-              <td>Bolo de chocolate</td>
-              <td>Bolo fofinho com cobertura cremosa</td>
-              <td>R$ 5,00</td>
-            </tr>
-          </tbody>
-        </table>
-        <a href="#" target="_blank">Ver Cardápio Completo</a>
+        <div class="content-produtos">
+          <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
+          <h2 class="titulo-secundario">Nossos produtos mais queridos</h2>
+          <p>Selecionados especialmente para por nossos clientes</p>
+  
+          <div class="conteiner-produtos-principais">
+            <i class="bi bi-chevron-left setas-produtos"></i>
+            <div class="produtos-principais">
+              <!-- Produto 1 -->
+              <div class="produto">
+                <img src="/assets/img/pao-frances.png" alt="Vários pães franceses visto de cima">
+                <div class="info-produto">
+                  <strong>Pão francês crocante</strong>
+                  <div id="estrelas-avalizacao">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>R$ 0,80 por Kg</p>
+                  <a href="" class="btn btn-secundario-para-fundo-claro">Adicionar <i class="bi bi-cart-plus-fill"></i></a>
+                </div>
+              </div>
+              <!-- Produto 2 -->
+              <div class="produto">
+                <img src="/assets/img/pao-frances.png" alt="Vários pães franceses visto de cima">
+                <div class="info-produto">
+                  <strong>Pão francês crocante</strong>
+                  <div id="estrelas-avalizacao">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>R$ 0,80 por Kg</p>
+                  <a href="" class="btn btn-secundario-para-fundo-claro">Adicionar <i class="bi bi-cart-plus-fill"></i></a>
+                </div>
+              </div>
+              <!-- Produto 3 -->
+              <div class="produto">
+                <img src="/assets/img/pao-frances.png" alt="Vários pães franceses visto de cima">
+                <div class="info-produto">
+                  <strong>Pão francês crocante</strong>
+                  <div id="estrelas-avalizacao">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>R$ 0,80 por Kg</p>
+                  <a href="" class="btn btn-secundario-para-fundo-claro">Adicionar <i class="bi bi-cart-plus-fill"></i></a>
+                </div>
+              </div>
+            </div>
+            <i class="bi bi-chevron-right setas-produtos"></i>
+          </div>
+  
+          <a href="#" class="btn btn-principal-para-fundo-claro" target="_blank" rel="noopener noreferrer">Ver Cardápio Completo</a>
+        </div>
       </div>
     </article>
 
@@ -188,7 +185,7 @@
           <h3>Compartilhe sua experiência!</h3>
           <p>Sua opinião é muito importante para nós. Ajude outros clientes a descobrir a magia da Casa do Pão e nos ajude a melhorar sempre.</p>
           <div>
-            <a href="feedback.html" target="_blank">Deixar avaliação</a>
+            <a href="feedback.html" target="_blank" rel="noopener noreferrer">Deixar avaliação</a>
           </div>
         </section>
       </div>
@@ -219,7 +216,7 @@
         </video>
         <div>
           <p>Cadastre-se para fazer pedidos online, receber promoções exclusivas e ficar por dentro das novidades.</p>
-          <a href="cadastro.html" target="_blank">Criar minha conta</a>
+          <a href="cadastro.html" target="_blank" rel="noopener noreferrer">Criar minha conta</a>
         </div>
         <div class="limpar-float"></div>
       </div>
@@ -302,8 +299,8 @@
         <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
         <h2 class="titulo-secundario">Entre em Contato Conosco</h2>
         <p>Estamos aqui para ajudar! Escolha a opção que melhor atende você:</p>
-        <a href="fale-conosco.html" target="_blank">Fale conosco</a>
-        <a href="trabalhe-conosco.html" target="_blank">Trabalhe conoso</a>
+        <a href="fale-conosco.html" target="_blank" rel="noopener noreferrer">Fale conosco</a>
+        <a href="trabalhe-conosco.html" target="_blank" rel="noopener noreferrer">Trabalhe conoso</a>
       </div>
     </article>
 
@@ -341,6 +338,7 @@
     </div>
   </footer>
 
+  <script src="/assets/js/script.js"></script>
 </body>
 </html>
 

@@ -4,39 +4,41 @@
     margin: 0;
 }
 
+/*  -- ESTILIZAÇÃO GLOBAL -- */
+
 :root {
     --cor-primaria: #552814;
     --cor-secundaria: #BB793E;
     --cor-clara: #F5EDE3;
 }
 
-/*  -- ESTILIZAÇÃO GLOBAL -- */
+html {
+    font-size: 16px;
+}
 
 body {
     font-family: "Open Sans", sans-serif;
     color: var(--cor-primaria);
     background-color: var(--cor-clara);
     font-weight: 400;
-    font-size: 18px;
+
 }
 
 .container {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 20px 80px;
+    padding: 10px 80px;
 }
 
 .titulo-principal {
     font-family: "Playfair Display", serif;
     font-size: 56px;
-    margin-bottom: 20px;
     text-align: center;
 }
 
 .titulo-secundario {
     font-family: "Playfair Display", serif;
     font-size: 40;
-    margin-bottom: 40px;
     text-align: center;
 }
 
@@ -46,7 +48,7 @@ body {
 
 /*  -- Componentes -- */
 .btn {
-    padding: 16px 24px;
+    padding: 8px 16px;
     text-decoration: none;
     border-radius: 8px;
 }
@@ -64,6 +66,11 @@ body {
 
 .btn-principal-para-fundo-claro {
     background-color: var(--cor-primaria);
+    color: var(--cor-clara);
+}
+
+.btn-secundario-para-fundo-claro {
+    background-color: var(--cor-secundaria);
     color: var(--cor-clara);
 }
 
@@ -87,7 +94,7 @@ body {
 }
 
 .logo {
-    width: 100px;
+    width: 60px;
     border-radius: 100%;
 }
 
@@ -95,7 +102,6 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-
     display: flex;
 }
 
@@ -105,6 +111,7 @@ body {
     color: var(--cor-clara);
     text-decoration: none;
     padding: 14px 20px;
+    overflow: hidden;
 }
 
 .cabecalho-principal li a:hover {
@@ -118,23 +125,86 @@ body {
 /* -- CONTEÚDO DO MAIN -- */
 
 main {
-    margin-top: 240px;
+    margin-top: 84px;
+    padding-top: 20px;
 }
+
+/* -- Hero -- */
+
+/*
+#inicio {
+    background-color: red;
+}
+*/
 
 .container-hero {
     display: flex;
+    justify-content: space-between;
+}
+
+.hero-content {
+    width: 50%;
+}
+
+#produtos {
+    background-color: var(--cor-secundaria);
+}
+
+.content-produtos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.conteiner-produtos-principais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.setas-produtos {
+    font-size: 60px;
+}
+
+.produtos-principais {
+    display: flex;
+
+    gap: 30px;
+}
+
+.produto {
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
+
+    background-color: var(--cor-clara);
+    border-radius: 8px;
+    box-shadow: 0px 0px 36px 5px rgba(0,0,0,0.38);
 }
 
 
-.img-hero {
-    float: right;
+.info-produto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    padding: 1rem;;
 }
+
+.produto img {
+    max-width: 18rem;
+    border-radius: 8px 8px 0 0;
+}
+
 
 table {
     border-collapse: collapse;
 }
-
 
 .limpar-float {
     clear: both;
