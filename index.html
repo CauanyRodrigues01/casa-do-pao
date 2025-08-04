@@ -13,11 +13,6 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="">
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   
   <link rel="stylesheet" href="assets/css/style.css">
@@ -30,7 +25,7 @@
   <!-- Cabeçalho-->
   <header id="cabecalho-principal">
     <div class="container">
-      <div class="cabecalho-content">
+      <div class="cabecalho-container">
         <!-- Logo -->
         <a href="index.html">
           <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
@@ -48,27 +43,21 @@
             <li><a href="#contato">Contato</a></li>
           </ul>
         </nav>
-        <a href="" class="btn btn-principal-para-fundo-escuro">Criar conta</a>
-        <a href="" class="btn btn-secundario-para-fundo-escuro">Entrar</a>
+        <div class="autenticacao">
+          <a href="" class="btn btn-principal-para-fundo-escuro">Criar conta</a>
+          <a href="" class="btn btn-secundario-para-fundo-escuro">Entrar</a>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- Conteúdo principal -->
   <main id="conteudo-principal">
-    <!-- Botões flutuantes -->
-    <div class="botoes-fixos">
-      <a href="" class="wpp">
-        <i class="bi bi-whatsapp"></i>
-      </a>
-      <a href="index.html" class="wpp">
-        <i class="bi bi-arrow-up"></i>
-      </a>
-    </div>
+
     <!-- Hero Section -->
-    <article id="inicio" class="hero">
+    <section id="hero" class="hero">
       <div class="container">
-        <div class="container-hero">
+        <div class="hero-container">
           <div class="hero-content">
             <h1 class="titulo-principal">Casa do Pão</h1>
             <h2 class="titulo-secundario">Sabor e tradição que você confia!</h2>
@@ -78,12 +67,12 @@
           <img class="img-hero" src="assets/img/vista-superior-de-croissants-de-manteiga-colocados-na-placa-de-madeira.jpg" alt="vista superior de croissants de manteiga colocados na placa de madeira" height="480">  
         </div>
       </div>
-    </article>
+    </section>
 
     <!-- Produtos em destaque -->
-    <article id="produtos">
+    <section id="produtos">
       <div class="container">
-        <div class="content-produtos">
+        <div class="produtos-container">
           <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
           <h2 class="titulo-secundario">Nossos produtos mais queridos</h2>
           <p>Selecionados especialmente para por nossos clientes</p>
@@ -158,212 +147,188 @@
             </div>
             <i class="bi bi-chevron-right setas-produtos"></i>
           </div>
-  
           <a href="#" class="btn btn-principal-para-fundo-claro" target="_blank" rel="noopener noreferrer">Ver Cardápio Completo</a>
         </div>
       </div>
-    </article>
+    </section>
 
     <!-- Depoimentos -->
-    <article id="depoimentos">
+    <section id="depoimentos">
       <div class="container">
-        <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
-        <h2 class="titulo-secundario">O que nossos clientes dizem</h2>
-        <p>Cada sorriso é nossa maior receita</p>
-        <!-- Depoimentos -->
-        <div>
-          <!-- Depoimento 1 -->
-          <section>
-            <blockquote>
-              <p>“A Casa do Pão virou parte da minha rotina. O cheiro do pão saindo do forno logo cedo é irresistível! Tudo é fresquinho e o atendimento é sempre acolhedor.”</p>
-              <footer>
-                  <cite>Maria Silva</cite>
-                  <time datetime="2025-07-15">15 de julho, 2025</time>
-              </footer>
-            </blockquote>
-            <img src="./assets/img/depoimentos/Maria Silva.png" width="100" alt="Mulher sorrindo com cabelo cacheado escuro preso e com casaco laranja">
-          </section>
-          <!-- Depoimento 2 -->
-          <section>
-            <blockquote>
-              <p>“Os croissants recheados são os melhores que já comi! A qualidade dos produtos e o cuidado no preparo fazem toda a diferença. Recomendo de olhos fechados.”</p>
-              <footer>
-                  <cite>Ana Souza</cite>
-                  <time datetime="2025-07-12">12 de julho, 2025</time>
-              </footer>
-            </blockquote>
-            <img src="./assets/img/depoimentos/Ana Costa.png" width="100" alt="Mulher de cabelo liso solto e loiro sorrindo com uma blusa laranja">
-          </section>
-          <!-- Depoimento 3 -->
-          <section>
-            <blockquote>
-              <p>“Levo meus filhos todo fim de semana para comprar pãezinhos na Casa do Pão. Eles adoram os pães doces, e eu confio na qualidade e higiene. É nossa padaria de confiança!”</p>
-              <footer>
-                  <cite>Rodrigo Mendes</cite>
-                  <time datetime="2025-07-08">08 de julho, 2025</time>
-              </footer>
-            </blockquote>
-            <img src="./assets/img/depoimentos/João Santos.png" width="100" alt="Homem sorrindo de forma sutil com casaco jeans e cabelo black power">
-        </section>
+        <div class="depoimentos-container">
+          <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
+          <h2 class="titulo-secundario">O que nossos clientes dizem</h2>
+          <p>Cada sorriso é nossa maior receita</p>
+          <!-- Depoimentos -->
+          <div class="depoimentos">
+            <!-- Depoimento 1 -->
+            <section>
+              <blockquote>
+                <p>“A Casa do Pão virou parte da minha rotina. O cheiro do pão saindo do forno logo cedo é irresistível! Tudo é fresquinho e o atendimento é sempre acolhedor.”</p>
+                <footer>
+                    <cite>Maria Silva</cite>
+                    <time datetime="2025-07-15">15 de julho, 2025</time>
+                </footer>
+              </blockquote>
+              <img src="./assets/img/depoimentos/Maria Silva.png" width="100" alt="Mulher sorrindo com cabelo cacheado escuro preso e com casaco laranja">
+            </section>
+            <!-- Depoimento 2 -->
+            <section>
+              <blockquote>
+                <p>“Os croissants recheados são os melhores que já comi! A qualidade dos produtos e o cuidado no preparo fazem toda a diferença. Recomendo de olhos fechados.”</p>
+                <footer>
+                    <cite>Ana Souza</cite>
+                    <time datetime="2025-07-12">12 de julho, 2025</time>
+                </footer>
+              </blockquote>
+              <img src="./assets/img/depoimentos/Ana Costa.png" width="100" alt="Mulher de cabelo liso solto e loiro sorrindo com uma blusa laranja">
+            </section>
+            <!-- Depoimento 3 -->
+            <section>
+              <blockquote>
+                <p>“Levo meus filhos todo fim de semana para comprar pãezinhos na Casa do Pão. Eles adoram os pães doces, e eu confio na qualidade e higiene. É nossa padaria de confiança!”</p>
+                <footer>
+                    <cite>Rodrigo Mendes</cite>
+                    <time datetime="2025-07-08">08 de julho, 2025</time>
+                </footer>
+              </blockquote>
+              <img src="./assets/img/depoimentos/João Santos.png" width="100" alt="Homem sorrindo de forma sutil com casaco jeans e cabelo black power">
+            </section>
         </div>
-        <section>
-          <h3>Compartilhe sua experiência!</h3>
-          <p>Sua opinião é muito importante para nós. Ajude outros clientes a descobrir a magia da Casa do Pão e nos ajude a melhorar sempre.</p>
-          <div>
-            <a href="feedback.html" target="_blank" rel="noopener noreferrer">Deixar avaliação</a>
-          </div>
-        </section>
       </div>
-    </article>
+    </section>
 
     <!-- Diferenciais -->
-    <article id="diferenciais">
+    <section id="diferenciais">
       <div class="container">
-        <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
-        <h2 class="titulo-secundario">Nossos diferenciais</h2>
-        <ul class="lista-diferenciais">
-          <li>Pães sempre quentinhos e frescos para você</li>
-          <li>Apenas os melhores ingredientes em nossos produtos</li>
-          <li>Receitas de família passadas por gerações</li>
-          <li>Entregamos em até 30 minutos na sua casa</li>
-        </ul>
+        <div class="diferenciais-container">
+          <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
+          <h2 class="titulo-secundario">Nossos diferenciais</h2>
+          <ul class="lista-diferenciais">
+            <li>Pães sempre quentinhos e frescos para você</li>
+            <li>Apenas os melhores ingredientes em nossos produtos</li>
+            <li>Receitas de família passadas por gerações</li>
+            <li>Entregamos em até 30 minutos na sua casa</li>
+          </ul>
+        </div>
       </div>
-    </article>
+    </section>
 
     <!-- Cadastro -->
-    <article>
+    <section id="cadastro">
       <div class="container">
-        <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
-        <h2 class="titulo-secundario">Junte-se à nossa padaria!</h2>
-        <video autoplay muted loop class="video-institucional">
-          <source src="./assets/video/video-institucional-padaria.mp4" type="video/mp4">
-          Seu navegador não suporta vídeos.
-        </video>
-        <div>
-          <p>Cadastre-se para fazer pedidos online, receber promoções exclusivas e ficar por dentro das novidades.</p>
-          <a href="cadastro.html" target="_blank" rel="noopener noreferrer">Criar minha conta</a>
+        <div class="cadastro-container">
+          <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
+          <h2 class="titulo-secundario">Junte-se à nossa padaria!</h2>
+          <video autoplay muted loop class="video-institucional">
+            <source src="./assets/video/video-institucional-padaria.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+          </video>
+          <div>
+            <p>Cadastre-se para fazer pedidos online, receber promoções exclusivas e ficar por dentro das novidades.</p>
+            <a href="cadastro.html" target="_blank" rel="noopener noreferrer">Criar minha conta</a>
+          </div>
         </div>
-        <div class="limpar-float"></div>
       </div>
-    </article>
+    </section>
 
     <!-- Galeria -->
-    <article id="galeria">
+    <section id="galeria">
       <div class="container">
-        <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
-        <h2 class="titulo-secundario">Galeria</h2>
-        <p>Conheça nosso ambiente e produtos</p>
-        <table>
-          <tbody>
-            <tr>
-              <td><img src="./assets/img/galeria/conjunto-de-bolos-de-padaria-em-mesa-de-madeira.jpg" alt="conjunto de bolos de padaria em mesa de madeira" width="150" height="150"></td>
-              <td><img src="./assets/img/galeria/homem-padeiro-na-cozinha-pelo-carrinho-de-pastelaria.jpg" alt="homem padeiro na cozinha pelo carrinho de pastelaria" width="150" height="150"></td>
-              <td><img src="./assets/img/galeria/mulheres-de-tiro-medio-trabalhando-na-cozinha.jpg" alt="mulheres de tiro medio trabalhando na cozinha" width="150" height="150"></td>
-            </tr>
-            <tr>
-              <td><img src="./assets/img/galeria/padeiro-de-homem-com-pao-fresco-na-casa-de-padeiro.jpg" alt="padeiro de homem com pao fresco na casa de padeiro" width="150" height="150"></td>
-              <td><img src="./assets/img/galeria/paes-com-geleia-e-frutas-secas.jpg" alt="paes com geleia e frutas secas" width="150" height="150"></td>
-              <td><img src="./assets/img/galeria/salsichas-na-massa.jpg" alt="salsichas na massa" width="150" height="150"></td>
-            </tr>
-            <tr>
-              <td><img src="./assets/img/galeria/sorrindo-padeiro-carregando-uma-bandeja-de-baguette-frances-fresco-assado.jpg" alt="sorrindo padeiro carregando uma bandeja de baguette frances fresco assado" width="150" height="150"></td>
-              <td><img src="./assets/img/galeria/vista-de-cima-em-uma-mesa-cheia-de-comida.jpg" alt="vista de cima em uma mesa cheia de comida" width="150" height="150"></td>
-              <td><img src="./assets/img/galeria/vista-superior-de-croissants-de-manteiga-colocados-na-placa-de-madeira.jpg" alt="vista superior de croissants de manteiga colocados na placa de madeira" width="150" height="150"></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </article>
-
-    <!-- Onde estamos -->
-    <article id="onde-estamos">
-      <div class="container">
-        <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
-        <h2 class="titulo-secundario">Venha nos visitar</h2>
-        <iframe class="iframe-localizacao" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17397.563097713!2d-46.6804668840034!3d-23.55453644291876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5832d34d2d31%3A0x95900c1b6b536403!2sR.%20Augusta%2C%201508%20-%20Consola%C3%A7%C3%A3o%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001304-001!5e0!3m2!1spt-BR!2sbr!4v1753713573322!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div>
-          <section>
-            <h3>Localização</h3>
-            <address>
-              Rua Augusta, 1508 </br>
-              Consolação </br>
-              São Paulo – SP </br>
-              01304-001 </br>
-            </address>
-          </section>
-          <section>
-            <h3>Horário de Funcionamento</h3>
-            <ul>
-                <li><strong>Segunda a Sexta:</strong> 6h às 19h</dd>
-                <li><strong>Sábado:</strong> 6h às 18h</li>
-                <li><strong>Domingo:</strong> 7h às 13h</li>
-            </ul>
-          </section>
+        <div class="galeria-container">
+          <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
+          <h2 class="titulo-secundario">Galeria</h2>
+          <p>Conheça nosso ambiente e produtos</p>
+          <table>
+            <tbody>
+              <tr>
+                <td><img src="./assets/img/galeria/conjunto-de-bolos-de-padaria-em-mesa-de-madeira.jpg" alt="conjunto de bolos de padaria em mesa de madeira" width="150" height="150"></td>
+                <td><img src="./assets/img/galeria/homem-padeiro-na-cozinha-pelo-carrinho-de-pastelaria.jpg" alt="homem padeiro na cozinha pelo carrinho de pastelaria" width="150" height="150"></td>
+                <td><img src="./assets/img/galeria/mulheres-de-tiro-medio-trabalhando-na-cozinha.jpg" alt="mulheres de tiro medio trabalhando na cozinha" width="150" height="150"></td>
+              </tr>
+              <tr>
+                <td><img src="./assets/img/galeria/padeiro-de-homem-com-pao-fresco-na-casa-de-padeiro.jpg" alt="padeiro de homem com pao fresco na casa de padeiro" width="150" height="150"></td>
+                <td><img src="./assets/img/galeria/paes-com-geleia-e-frutas-secas.jpg" alt="paes com geleia e frutas secas" width="150" height="150"></td>
+                <td><img src="./assets/img/galeria/salsichas-na-massa.jpg" alt="salsichas na massa" width="150" height="150"></td>
+              </tr>
+              <tr>
+                <td><img src="./assets/img/galeria/sorrindo-padeiro-carregando-uma-bandeja-de-baguette-frances-fresco-assado.jpg" alt="sorrindo padeiro carregando uma bandeja de baguette frances fresco assado" width="150" height="150"></td>
+                <td><img src="./assets/img/galeria/vista-de-cima-em-uma-mesa-cheia-de-comida.jpg" alt="vista de cima em uma mesa cheia de comida" width="150" height="150"></td>
+                <td><img src="./assets/img/galeria/vista-superior-de-croissants-de-manteiga-colocados-na-placa-de-madeira.jpg" alt="vista superior de croissants de manteiga colocados na placa de madeira" width="150" height="150"></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="limpar-float"></div>
       </div>
-    </article>
+    </section>
+
+    <!-- Venha nos visitar -->
+    <section id="venha-visitar">
+      <div class="container">
+        <div class="venha-visitar-container">
+          <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
+          <h2 class="titulo-secundario">Venha nos visitar</h2>
+          <iframe class="iframe-localizacao" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17397.563097713!2d-46.6804668840034!3d-23.55453644291876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5832d34d2d31%3A0x95900c1b6b536403!2sR.%20Augusta%2C%201508%20-%20Consola%C3%A7%C3%A3o%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001304-001!5e0!3m2!1spt-BR!2sbr!4v1753713573322!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div>
+            <section>
+              <h3>Localização</h3>
+              <address>
+                Rua Augusta, 1508 </br>
+                Consolação </br>
+                São Paulo – SP </br>
+                01304-001 </br>
+              </address>
+            </section>
+            <section>
+              <h3>Horário de Funcionamento</h3>
+              <ul>
+                  <li><strong>Segunda a Sexta:</strong> 6h às 19h</dd>
+                  <li><strong>Sábado:</strong> 6h às 18h</li>
+                  <li><strong>Domingo:</strong> 7h às 13h</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Sobre nós -->
-    <article id="sobre-nos">
+    <section id="sobre-nos">
       <div class="container">
-        <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
-        <h2 class="titulo-secundario">Sobre nós</h2>
-        <img class="img-sobre-nos" src="./assets/img/equipe.jpg" alt="Imagem de uma mulher a esquerda, um homem no meio e outro homem chefe de cozinha a direita">
-        <div>
-          <p>Há mais de 35 anos, a Padaria do Pão tem sido o coração da nossa comunidade, oferecendo pães frescos e produtos de qualidade todos os dias. Nossa história começou em 1985 com o sonho de uma família de trazer o melhor da panificação tradicional para nossa cidade.</p>
-          <p>Cada produto é feito com amor, usando receitas tradicionais e ingredientes cuidadosamente selecionados. Nossa equipe trabalha desde as primeiras horas da manhã para garantir que você sempre encontre pães quentinhos e deliciosos.</p>
+        <div class="sobre-nos-container">
+          <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
+          <h2 class="titulo-secundario">Sobre nós</h2>
+          <img class="img-sobre-nos" src="./assets/img/equipe.jpg" alt="Imagem de uma mulher a esquerda, um homem no meio e outro homem chefe de cozinha a direita">
+          <div>
+            <p>Há mais de 35 anos, a Padaria do Pão tem sido o coração da nossa comunidade, oferecendo pães frescos e produtos de qualidade todos os dias. Nossa história começou em 1985 com o sonho de uma família de trazer o melhor da panificação tradicional para nossa cidade.</p>
+            <p>Cada produto é feito com amor, usando receitas tradicionais e ingredientes cuidadosamente selecionados. Nossa equipe trabalha desde as primeiras horas da manhã para garantir que você sempre encontre pães quentinhos e deliciosos.</p>
+          </div>
         </div>
-        <div class="limpar-float"></div>
       </div>
-    </article>
-
-    <!-- Contato -->
-    <article id="contato">
-      <div class="container">
-        <img src="./assets/img/logo.png" class="logo" alt="Logo da padaria Casa do Pão">
-        <h2 class="titulo-secundario">Entre em Contato Conosco</h2>
-        <p>Estamos aqui para ajudar! Escolha a opção que melhor atende você:</p>
-        <a href="fale-conosco.html" target="_blank" rel="noopener noreferrer">Fale conosco</a>
-        <a href="trabalhe-conosco.html" target="_blank" rel="noopener noreferrer">Trabalhe conoso</a>
-      </div>
-    </article>
+    </section>
 
   </main>
 
-  <!-- Sidebar 
-  <aside>
-    <section>
-      <h3>Ofertas especiais</h3>
-      <div>
-        <h4>Combo Café da Manhã</h4>
-        <p>2 pães franceses + café + suco</p>
-        <p>De R$ 12,00 por R$ 9,90</p>
-      </div>
-    </section>
-    <section>
-      <h3>Links úteis</h3>
-      <nav>
-        <ul>
-          <li><a href="#">Cardápio Completo</a></li>
-          <li><a href="#">Pedidos Especiais</a></li>
-          <li><a href="#">Programa Fidelidade</a></li>
-          <li><a href="#">Trabalhe Conosco</a></li>
-        </ul>
-      </nav>
-    </section>
-  </aside>
-  -->
-  
   <!-- Rodapé -->
   <footer>
     <div class="container">
-      <p>&copy; 2024 Padaria do Pão. Todos os direitos reservados.</p>
-      <p>CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ por <a href="https://www.linkedin.com/in/cauany-rodrigues-78700b193/">Cauany Rodrigues</a></p>
+      <div class="rodape-container">
+        <p>&copy; 2024 Padaria do Pão. Todos os direitos reservados.</p>
+        <p>CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ por <a href="https://www.linkedin.com/in/cauany-rodrigues-78700b193/">Cauany Rodrigues</a></p>
+      </div>
     </div>
   </footer>
 
-  <script src="/assets/js/script.js"></script>
+  <!-- Botões flutuantes -->
+  <div class="botoes-fixos">
+    <a href="" class="wpp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+    <a href="index.html" class="wpp">
+      <i class="bi bi-arrow-up"></i>
+    </a>
+  </div>
+
 </body>
 </html>
 
