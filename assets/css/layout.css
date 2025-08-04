@@ -14,17 +14,17 @@
     display: grid;
     grid-template-columns: 1fr;
 
-    grid-template-areas: 
-    "cabecalho-principal"
-    "hero"
-    "produtos-destaque"
-    "depoimentos"
-    "diferenciais"
-    "cadastro"
-    "galeria"
-    "venha-visitar"
-    "sobre-nos"
-    "rodape";
+    grid-template-areas:
+        "cabecalho-principal"
+        "hero"
+        "produtos-destaque"
+        "depoimentos"
+        "diferenciais"
+        "cadastro"
+        "galeria"
+        "venha-visitar"
+        "sobre-nos"
+        "rodape";
 }
 
 #cabecalho-principal {
@@ -66,4 +66,3 @@
 #rodape {
     grid-area: rodape;
 }
-

@@ -1,34 +1,34 @@
 /* ===========================================
    DESIGN TOKENS COMPLETOS
    =========================================== */
-   :root {
+:root {
+  
+  /* Cores principais de identidade */
+  --primary-color: #552814; /* Marrom forte: identidade da marca */
+  --secondary-color: #BB793E; /* Caramelo: tom de apoio */
+  --accent-color: #6B8E23; /* Verde oliva: destaques, links, botões */
 
-    /* Cores principais de identidade */
-    --primary-color: #552814; /* Marrom forte: identidade da marca */
-    --secondary-color: #BB793E; /* Caramelo: tom de apoio */
-    --accent-color: #6B8E23; /* Verde oliva: destaques, links, botões */
+  /* Variações para interações */
+  --accent-hover: #819C4D; /* Verde oliva mais claro (hover) */
+  --accent-muted: #A0B366; /* Verde oliva suave (elementos desabilitados ou menos destacados) */
+  --border-color: #BB793E33; /* Borda com transparência */
+  --border-light: #E5D9CE; /* Borda sutil para fundos claros */
 
-    /* Variações para interações */
-    --accent-hover: #819C4D; /* Verde oliva mais claro (hover) */
-    --accent-muted: #A0B366; /* Verde oliva suave (elementos desabilitados ou menos destacados) */
-    --border-color: #BB793E33; /* Borda com transparência */
-    --border-light: #E5D9CE; /* Borda sutil para fundos claros */
+  /* Cores de texto */
+  --text-dark: #552814; /* Mesmo tom do primary: boa leitura e consistência */
+  --text-light: #F5EDE3; /* Para fundos escuros */
+  --text-muted: #7A6146; /* Tom intermediário para subtítulos ou informações menos importantes */
 
-    /* Cores de texto */
-    --text-dark: #552814; /* Mesmo tom do primary: boa leitura e consistência */
-    --text-light: #F5EDE3; /* Para fundos escuros */
-    --text-muted: #7A6146; /* Tom intermediário para subtítulos ou informações menos importantes */
+  /* Cores de fundo */
+  --bg-primary: #F5EDE3; /* Bege claro: fundo principal */
+  --bg-secondary: #FFF8F2; /* Variedade clara para seções alternadas */
+  --bg-muted: #EFE7DE; /* Fundo suave para caixas ou cards */
+  --bg-dark: #3B1D10; /* Tom mais escuro do marrom: rodapés, cabeçalhos */
+  --bg-light: #FFFFFF; /* Branco neutro */
 
-    /* Cores de fundo */
-    --bg-primary: #F5EDE3; /* Bege claro: fundo principal */
-    --bg-secondary: #FFF8F2; /* Variedade clara para seções alternadas */
-    --bg-muted: #EFE7DE; /* Fundo suave para caixas ou cards */
-    --bg-dark: #3B1D10; /* Tom mais escuro do marrom: rodapés, cabeçalhos */
-    --bg-light: #FFFFFF; /* Branco neutro */
-
-    /* Tipografia */
-    --font-family-primary: "Open Sans", sans-serif;
-    --font-family-secondary: "Playfair", serif;
+  /* Tipografia */
+  --font-family-primary: "Open Sans", sans-serif;
+  --font-family-secondary: "Playfair", serif;
 
   /* Tamanhos de fonte - Regra do 8 (múltiplos de 8px) */
   --text-xs: 0.5rem;     /* 8px */
