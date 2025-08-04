@@ -9,3 +9,61 @@
     margin: 0 auto;
     padding: 0 var(--spacing-md);
 }
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    grid-template-areas: 
+    "cabecalho-principal"
+    "hero"
+    "produtos-destaque"
+    "depoimentos"
+    "diferenciais"
+    "cadastro"
+    "galeria"
+    "venha-visitar"
+    "sobre-nos"
+    "rodape";
+}
+
+#cabecalho-principal {
+    grid-area: cabecalho-principal;
+}
+
+#hero {
+    grid-area: hero;
+}
+
+#produtos-destaque {
+    grid-area: produtos-destaque;
+}
+
+#depoimentos {
+    grid-area: depoimentos;
+}
+
+#diferenciais {
+    grid-area: diferenciais;
+}
+
+#cadastro {
+    grid-area: cadastro;
+}
+
+#galeria {
+    grid-area: galeria;
+}
+
+#venha-visitar {
+    grid-area: venha-visitar;
+}
+
+#sobre-nos {
+    grid-area: sobre-nos;
+}
+
+#rodape {
+    grid-area: rodape;
+}
+

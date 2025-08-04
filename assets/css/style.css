@@ -17,3 +17,7 @@
    =========================================== */
    
 /* Adicione aqui estilos específicos do seu projeto */
+
+img, video {
+   height: 100px;
+}
