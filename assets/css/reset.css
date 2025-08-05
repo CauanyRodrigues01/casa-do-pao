@@ -81,6 +81,7 @@ a {
 }
 
 a:hover {
+    color: var(--accent-hover);
     opacity: 0.8;
 }
 
