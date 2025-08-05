@@ -69,7 +69,11 @@
 
 .botoes-autenticacao {
     grid-area: botoes-autenticacao;
+
+    display: flex;
+    gap: var(--space-sm);
 }
+
 
 #hero {
     grid-area: hero;
