@@ -22,3 +22,22 @@ img,
 video {
    height: 100px;
 }
+
+#cabecalho-principal {
+   background-color: var(--bg-dark);
+}
+
+.cabecalho-container {
+   color: var(--text-light);
+   padding: var( --space-xs);
+}
+
+.logo img {
+   border-radius: 100px;
+   width: 80px;
+   height: 80px;
+}
+
+.navbar-principal a:hover {
+   border-bottom: 1px solid var(--accent-hover);
+}

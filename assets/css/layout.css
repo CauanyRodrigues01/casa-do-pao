@@ -29,13 +29,9 @@
 
 #cabecalho-principal {
     grid-area: cabecalho-principal;
-    background-color: var(--bg-dark);
 }
 
 .cabecalho-container {
-    color: var(--text-light);
-    padding: var( --space-xs);
-
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
@@ -48,12 +44,6 @@
     grid-area: logo;
 }
 
-.logo img {
-    border-radius: 100px;
-    width: 80px;
-    height: 80px;
-}
-
 .navbar-principal {
     grid-area: navbar-principal;
 }
@@ -63,10 +53,6 @@
     gap: var(--space-sm);
 }
 
-.navbar-principal a:hover {
-    border-bottom: 1px solid var(--accent-hover);
-}
-
 .botoes-autenticacao {
     grid-area: botoes-autenticacao;
 
@@ -74,9 +60,16 @@
     gap: var(--space-sm);
 }
 
-
 #hero {
     grid-area: hero;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas: 
+    "hero-content img-hero";
 }
 
 #produtos-destaque {
