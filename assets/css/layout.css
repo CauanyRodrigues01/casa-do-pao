@@ -29,6 +29,43 @@
 
 #cabecalho-principal {
     grid-area: cabecalho-principal;
+    background-color: var(--bg-dark);
+}
+
+.cabecalho-container {
+    color: var(--text-light);
+    padding: var( --space-xs);
+
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    justify-items: center;
+    grid-template-areas: 
+    "logo navbar-principal botoes-autenticacao";
+}
+
+.logo {
+    grid-area: logo;
+}
+
+.logo img {
+    border-radius: 100px;
+    width: 80px;
+    height: 80px;
+}
+
+.navbar-principal {
+    grid-area: navbar-principal;
+}
+
+.navbar-principal ul {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.botoes-autenticacao {
+    grid-area: botoes-autenticacao;
 }
 
 #hero {

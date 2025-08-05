@@ -19,7 +19,7 @@ html {
 
 body {
     line-height: 1.5;
-    color: var(--text-primary);
+    color: var(--text-dark);
     font-family: var(--font-family-primary);
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
