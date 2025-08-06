@@ -81,7 +81,7 @@
 
 #hero {
     grid-area: hero;
-    margin-top: 112px;
+    margin-top: 92px;
 }
 
 .hero-container {
@@ -128,7 +128,7 @@
 @media (max-width: 992px) {
 
     #hero {
-        margin-top: 192px;
+        margin-top: 172px;
     }
 
     .cabecalho-container {
@@ -150,7 +150,7 @@
     }
 
     .navbar-principal ul {
-        gap: var(--space-xs);
+        gap: var(--space-md);
         padding: var(--space-xs);
         flex-wrap: wrap;
     }
@@ -164,7 +164,7 @@
 
 @media (max-width: 768px) {
     #hero {
-        margin-top: 96px;
+        margin-top: 76px;
     }
 
     .cabecalho-container {
@@ -194,9 +194,31 @@
     }
 
     .navbar-principal ul {
+        gap: 0;
         flex-direction: column;
-        padding-left: var(--space-xl);
-        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .navbar-principal li {
+        width: 100%;
+    }
+
+    .navbar-principal li:last-child {
+        margin-bottom: 0;
+    }
+
+    .navbar-principal a {
+        display: block;
+        width: 100%;
+        padding: var(--space-xs);
+        text-align: center;
+    }
+
+    .navbar-principal a:hover {
+        border-bottom: 0;
+        border-radius: var(--radius);
+        background-color: var(--accent-muted);
+        color: var(--text-dark)
     }
 
     .botoes-autenticacao {
