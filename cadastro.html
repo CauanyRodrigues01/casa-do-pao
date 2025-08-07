@@ -1,15 +1,18 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Padaria do Pão - Pães frescos todos os dias. Tradição e sabor desde 1985. Os melhores pães, doces e salgados da cidade.">
+  <meta name="description"
+    content="Padaria do Pão - Pães frescos todos os dias. Tradição e sabor desde 1985. Os melhores pães, doces e salgados da cidade.">
   <meta name="keywords" content="padaria, pães, doces, salgados, café da manhã, delivery">
   <meta name="robots" content="index, follow">
 
   <meta property="og:title" content="Casa do pão - Pães Frescos Todos os Dias">
-  <meta property="og:description" content="Tudo a padaria Casa do Pão, cardápio, pedidos, história, galeria, depoimentos e muito mais!">
+  <meta property="og:description"
+    content="Tudo a padaria Casa do Pão, cardápio, pedidos, história, galeria, depoimentos e muito mais!">
   <meta property="og:type" content="website">
   <meta property="og:url" content="">
 
@@ -17,27 +20,37 @@
 
   <title>Cadastro | Casa do pão</title>
 </head>
+
 <body>
 
   <!-- Cabeçalho-->
-  <header class="cabecalho-principal">
-    <!-- Logo -->
-    <a href="index.html">
-      <img src="./assets/img/logo.png" width="100" alt="Logo da padaria Casa do Pão">
-    </a>
-    <!-- Navegação principal -->
-    <nav>
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="#depoimentos">Depoimentos</a></li>
-        <li><a href="#diferenciais">Diferenciais</a></li>
-        <li><a href="/cadastro.html" target="_blank">Cadastro</a></li>
-        <li><a href="#galeria">Galeria</a></li>
-        <li><a href="#onde-estamos">Onde estamos</a></li>
-        <li><a href="#sobre-nos">Sobre nós</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
+  <header id="cabecalho-principal">
+    <div class="container">
+      <div class="cabecalho-container">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <img src="./assets/img/logo.png" alt="Logo da padaria Casa do Pão">
+        </a>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <!-- Navegação principal -->
+        <nav class="navbar-principal">
+          <ul class="menu">
+            <li><a href="#hero">Início</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#diferenciais">Diferenciais</a></li>
+            <li><a href="cadastro.html" target="_blank" rel="noopener noreferrer">Cadastro</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#venha-visitar">Onde estamos</a></li>
+            <li><a href="#sobre-nos">Sobre nós</a></li>
+            <li><a href="fale-conosco.html">Contato</a></li>
+          </ul>
+        </nav>
+        <div class="botoes-autenticacao">
+          <a href="" class="btn btn-principal-para-fundo-escuro">Criar conta</a>
+          <a href="" class="btn btn-secundario-para-fundo-escuro">Entrar</a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <!-- Conteúdo principal -->
@@ -48,49 +61,28 @@
       <!-- Dados Pessoais -->
       <fieldset>
         <legend>Dados Pessoais</legend>
-        
+
         <div>
           <label for="nome">Seu nome *</label>
-          <input 
-            type="text" 
-            name="nome" 
-            id="nome" 
-            required
-            maxlength="50"
-            autocomplete="name"
+          <input type="text" name="nome" id="nome" required maxlength="50" autocomplete="name"
             placeholder="Como podemos te chamar?">
         </div>
- 
+
         <div>
           <label for="email">Seu email *</label>
-          <input 
-            type="email" 
-            name="email" 
-            id="email"
-            maxlength="100"
-            autocomplete="email"
-            placeholder="seuemail@exemplo.com"
-            required>
+          <input type="email" name="email" id="email" maxlength="100" autocomplete="email"
+            placeholder="seuemail@exemplo.com" required>
         </div>
 
         <div>
           <label for="telefone">Telefone *</label>
-          <input 
-            type="tel" 
-            name="telefone"
-            required 
-            autocomplete="tel"
-            placeholder="(XX) 9XXXX-XXXX"
+          <input type="tel" name="telefone" required autocomplete="tel" placeholder="(XX) 9XXXX-XXXX"
             pattern="\(\d{2}\)\s9\d{4}-\d{4}">
         </div>
- 
+
         <div>
           <label for="data-nascimento">Data de nascimento *</label>
-          <input 
-            type="date" 
-            name="nascimento"
-            id="data-nascimento"
-            required>
+          <input type="date" name="nascimento" id="data-nascimento" required>
         </div>
       </fieldset>
 
@@ -98,73 +90,37 @@
       <fieldset>
         <div>
           <label for="rua">Rua *</label>
-          <input 
-            type="text" 
-            name="rua" 
-            id="rua"
-            required
-            maxlength="100"
-            autocomplete="address-line1"
+          <input type="text" name="rua" id="rua" required maxlength="100" autocomplete="address-line1"
             placeholder="Nome da Rua">
         </div>
 
         <div>
           <label for="numero">Número *</label>
-          <input 
-            type="text" 
-            name="numero" 
-            id="numero"
-            required
-            maxlength="10"
-            inputmode="numeric"
-            autocomplete="address-line2"
-            placeholder="123">
+          <input type="text" name="numero" id="numero" required maxlength="10" inputmode="numeric"
+            autocomplete="address-line2" placeholder="123">
         </div>
 
         <div>
           <label for="cep">CEP *</label>
-          <input 
-            type="text" 
-            name="cep" 
-            id="cep"
-            required
-            pattern="[0-9]{5}-?[0-9]{3}"
-            autocomplete="postal-code"
+          <input type="text" name="cep" id="cep" required pattern="[0-9]{5}-?[0-9]{3}" autocomplete="postal-code"
             placeholder="00000-000">
         </div>
 
         <div>
           <label for="bairro">Bairro *</label>
-          <input 
-            type="text" 
-            name="bairro" 
-            id="bairro"
-            required
-            maxlength="50"
-            autocomplete="address-level3"
+          <input type="text" name="bairro" id="bairro" required maxlength="50" autocomplete="address-level3"
             placeholder="Bairro">
         </div>
 
         <div>
           <label for="cidade">Cidade *</label>
-          <input 
-            type="text" 
-            name="cidade" 
-            id="cidade"
-            required
-            maxlength="50"
-            autocomplete="address-level2"
+          <input type="text" name="cidade" id="cidade" required maxlength="50" autocomplete="address-level2"
             placeholder="Cidade">
         </div>
 
         <div>
           <label for="complemento">Complemento</label>
-          <input 
-            type="text" 
-            name="complemento" 
-            id="complemento"
-            maxlength="100"
-            autocomplete="address-line2"
+          <input type="text" name="complemento" id="complemento" maxlength="100" autocomplete="address-line2"
             placeholder="Apartamento, bloco, referência...">
         </div>
       </fieldset>
@@ -174,47 +130,27 @@
         <legend>Preferências</legend>
 
         <div>
-          <input 
-            type="checkbox" 
-            name="preferencias[]" 
-            id="preferencia-pao-artesanal"
-            value="paes-artesanais">
+          <input type="checkbox" name="preferencias[]" id="preferencia-pao-artesanal" value="paes-artesanais">
           <label for="preferencia-pao-artesanal">Pães artesanais</label>
         </div>
 
         <div>
-          <input 
-            type="checkbox"  
-            name="preferencias[]" 
-            id="preferencia-doces-bolos"
-            value="doces-bolos">
+          <input type="checkbox" name="preferencias[]" id="preferencia-doces-bolos" value="doces-bolos">
           <label for="preferencia-doces-bolos">Doces e bolos</label>
         </div>
 
         <div>
-          <input 
-            type="checkbox" 
-            name="preferencias[]" 
-            id="preferencia-salgados"
-            value="salgados">
+          <input type="checkbox" name="preferencias[]" id="preferencia-salgados" value="salgados">
           <label for="preferencia-salgados">Salgados</label>
         </div>
 
         <div>
-          <input 
-            type="checkbox" 
-            name="preferencias[]" 
-            id="preferencia-diet"
-            value="produtos-diet-light">
+          <input type="checkbox" name="preferencias[]" id="preferencia-diet" value="produtos-diet-light">
           <label for="preferencia-diet">Produtos diet/light</label>
         </div>
 
         <div>
-          <input 
-            type="checkbox" 
-            name="preferencias[]" 
-            id="preferencia-integrais"
-            value="produtos-integrais">
+          <input type="checkbox" name="preferencias[]" id="preferencia-integrais" value="produtos-integrais">
           <label for="preferencia-integrais">Produtos integrais</label>
         </div>
       </fieldset>
@@ -224,20 +160,12 @@
         <legend>Termos</legend>
 
         <div>
-          <input 
-            type="checkbox" 
-            name="promocoes"
-            id="promocoes" 
-            required>
+          <input type="checkbox" name="promocoes" id="promocoes" required>
           <label for="promocoes">Aceito receber promoções por email *</label>
         </div>
 
         <div>
-          <input 
-          type="checkbox" 
-          name="termos" 
-          id="termos"
-          required>
+          <input type="checkbox" name="termos" id="termos" required>
           <label for="termos">Aceita os termos de uso*</label>
         </div>
 
@@ -249,14 +177,16 @@
         <button class="btn btn-limpar-formulario" type="reset">Limpar Formulário</button>
       </div>
 
-   </form>
+    </form>
   </main>
 
   <!-- Rodapé -->
   <footer>
     <p>&copy; 2024 Padaria do Pão. Todos os direitos reservados.</p>
-    <p>CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ por <a href="https://www.linkedin.com/in/cauany-rodrigues-78700b193/">Cauany Rodrigues</a></p>
+    <p>CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ por <a
+        href="https://www.linkedin.com/in/cauany-rodrigues-78700b193/">Cauany Rodrigues</a></p>
   </footer>
 
 </body>
+
 </html>

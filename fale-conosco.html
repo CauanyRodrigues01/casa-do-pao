@@ -1,15 +1,18 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Padaria do Pão - Pães frescos todos os dias. Tradição e sabor desde 1985. Os melhores pães, doces e salgados da cidade.">
+  <meta name="description"
+    content="Padaria do Pão - Pães frescos todos os dias. Tradição e sabor desde 1985. Os melhores pães, doces e salgados da cidade.">
   <meta name="keywords" content="padaria, pães, doces, salgados, café da manhã, delivery">
   <meta name="robots" content="index, follow">
 
   <meta property="og:title" content="Casa do pão - Pães Frescos Todos os Dias">
-  <meta property="og:description" content="Tudo a padaria Casa do Pão, cardápio, pedidos, história, galeria, depoimentos e muito mais!">
+  <meta property="og:description"
+    content="Tudo a padaria Casa do Pão, cardápio, pedidos, história, galeria, depoimentos e muito mais!">
   <meta property="og:type" content="website">
   <meta property="og:url" content="">
 
@@ -17,27 +20,37 @@
 
   <title>Fale Conosco | Casa do pão</title>
 </head>
+
 <body>
 
   <!-- Cabeçalho-->
-  <header>
-    <!-- Logo -->
-    <a href="index.html">
-      <img src="./assets/img/logo.png" width="100" alt="Logo da padaria Casa do Pão">
-    </a>
-    <!-- Navegação principal -->
-    <nav>
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="#depoimentos">Depoimentos</a></li>
-        <li><a href="#diferenciais">Diferenciais</a></li>
-        <li><a href="/cadastro.html" target="_blank">Cadastro</a></li>
-        <li><a href="#galeria">Galeria</a></li>
-        <li><a href="#onde-estamos">Onde estamos</a></li>
-        <li><a href="#sobre-nos">Sobre nós</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
+  <header id="cabecalho-principal">
+    <div class="container">
+      <div class="cabecalho-container">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <img src="./assets/img/logo.png" alt="Logo da padaria Casa do Pão">
+        </a>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <!-- Navegação principal -->
+        <nav class="navbar-principal">
+          <ul class="menu">
+            <li><a href="#hero">Início</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#diferenciais">Diferenciais</a></li>
+            <li><a href="cadastro.html" target="_blank" rel="noopener noreferrer">Cadastro</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#venha-visitar">Onde estamos</a></li>
+            <li><a href="#sobre-nos">Sobre nós</a></li>
+            <li><a href="fale-conosco.html">Contato</a></li>
+          </ul>
+        </nav>
+        <div class="botoes-autenticacao">
+          <a href="" class="btn btn-principal-para-fundo-escuro">Criar conta</a>
+          <a href="" class="btn btn-secundario-para-fundo-escuro">Entrar</a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <!-- Conteúdo principal -->
@@ -45,31 +58,31 @@
 
     <h1>Fale Conosco</h1>
     <fieldset>
-        <legend>Fale Conosco</legend>
-      
-        <div>
-          <label for="nome">Nome *</label>
-          <input type="text" id="nome" name="nome" required>
-        </div>
-      
-        <div>
-          <label for="email">E-mail *</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-      
-        <div>
-          <label for="assunto">Assunto *</label>
-          <input type="text" id="assunto" name="assunto" required>
-        </div>
-      
-        <div>
-          <label for="mensagem">Mensagem *</label>
-          <textarea id="mensagem" name="mensagem" required></textarea>
-        </div>
-      
-        <div>
-          <button type="submit">Enviar</button>
-        </div>
+      <legend>Fale Conosco</legend>
+
+      <div>
+        <label for="nome">Nome *</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+
+      <div>
+        <label for="email">E-mail *</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div>
+        <label for="assunto">Assunto *</label>
+        <input type="text" id="assunto" name="assunto" required>
+      </div>
+
+      <div>
+        <label for="mensagem">Mensagem *</label>
+        <textarea id="mensagem" name="mensagem" required></textarea>
+      </div>
+
+      <div>
+        <button type="submit">Enviar</button>
+      </div>
     </fieldset>
 
   </main>
@@ -77,8 +90,10 @@
   <!-- Rodapé -->
   <footer>
     <p>&copy; 2024 Padaria do Pão. Todos os direitos reservados.</p>
-    <p>CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ por <a href="https://www.linkedin.com/in/cauany-rodrigues-78700b193/">Cauany Rodrigues</a></p>
+    <p>CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ por <a
+        href="https://www.linkedin.com/in/cauany-rodrigues-78700b193/">Cauany Rodrigues</a></p>
   </footer>
 
 </body>
+
 </html>

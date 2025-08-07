@@ -11,6 +11,8 @@
   /* Variações para interações */
   --accent-hover: #819C4D; /* Verde oliva mais claro (hover) */
   --accent-muted: #A0B366; /* Verde oliva suave (elementos desabilitados ou menos destacados) */
+
+  /* Cores de bordas */
   --border-color: #BB793E33; /* Borda com transparência */
   --border-light: #E5D9CE; /* Borda sutil para fundos claros */
 
