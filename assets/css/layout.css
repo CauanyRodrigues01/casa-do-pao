@@ -163,6 +163,11 @@
 }
 
 @media (max-width: 768px) {
+
+    .container {
+        padding: 0 var(--space-xs);
+    }
+
     #hero {
         margin-top: 76px;
     }
@@ -182,8 +187,6 @@
         top: 100%;
         left: 0;
         right: 0;
-        background-color: var(--bg-dark);
-        box-shadow: var(--shadow);
         visibility: hidden;
         opacity: 0;
     }
@@ -211,14 +214,6 @@
         display: block;
         width: 100%;
         padding: var(--space-xs);
-        text-align: center;
-    }
-
-    .navbar-principal a:hover {
-        border-bottom: 0;
-        border-radius: var(--radius);
-        background-color: var(--accent-muted);
-        color: var(--text-dark)
     }
 
     .botoes-autenticacao {

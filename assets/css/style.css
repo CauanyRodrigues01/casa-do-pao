@@ -52,3 +52,23 @@ video {
 .navbar-principal a:hover {
    border-bottom: 1px solid var(--accent-hover);
 }
+
+@media (max-width: 768px) {
+
+    .navbar-principal {
+        background-color: var(--bg-dark);
+        box-shadow: var(--shadow);
+    }
+
+    .navbar-principal a {
+        text-align: center;
+    }
+
+    .navbar-principal a:hover {
+        border-bottom: 0;
+        border-radius: var(--radius);
+        background-color: var(--accent-muted);
+        color: var(--text-dark)
+    }
+
+}
