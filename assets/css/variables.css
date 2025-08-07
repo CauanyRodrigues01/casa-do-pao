@@ -13,7 +13,7 @@
   --accent-muted: #A0B366; /* Verde oliva suave (elementos desabilitados ou menos destacados) */
 
   /* Cores de bordas */
-  --border-color: #BB793E33; /* Borda com transparência */
+  --border-dark: #552814; /* Borda com transparência */
   --border-light: #E5D9CE; /* Borda sutil para fundos claros */
 
   /* Cores de texto */
@@ -22,11 +22,10 @@
   --text-muted: #7A6146; /* Tom intermediário para subtítulos ou informações menos importantes */
 
   /* Cores de fundo */
-  --bg-primary: #F5EDE3; /* Bege claro: fundo principal */
-  --bg-secondary: #FFF8F2; /* Variedade clara para seções alternadas */
-  --bg-muted: #EFE7DE; /* Fundo suave para caixas ou cards */
+  --bg-light: #F5EDE3; /* Cor neutra */
   --bg-dark: #3B1D10; /* Tom mais escuro do marrom: rodapés, cabeçalhos */
-  --bg-light: #FFFFFF; /* Branco neutro */
+  --bg-muted: #EFE7DE; /* Fundo suave para caixas ou cards */
+
 
   /* Tipografia */
   --font-family-primary: "Open Sans", sans-serif;
@@ -69,6 +68,7 @@
   
   /* Sombras */
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   
   /* Transições */
   --transition-fast: 150ms ease-in-out;

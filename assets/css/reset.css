@@ -23,7 +23,7 @@ body {
     font-family: var(--font-family-primary);
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
-    background-color: var(--bg-primary);
+    background-color: var(--bg-light);
 
     /* Layout flexbox para sticky footer */
     display: flex;
@@ -109,7 +109,6 @@ h4,
 h5,
 h6 {
     font-family: var(--font-family-secondary);
-    font-weight: var(--font-weight-semibold);
     line-height: 1.2;
     margin-bottom: var(--space-sm);
     color: var(--text-dark);
@@ -117,20 +116,23 @@ h6 {
 
 h1 {
     font-size: var(--text-3xl);
+    font-weight: var(--font-weight-bold);
 }
 
 h2 {
-    font-size: var(--text-2xl);
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-semibold);
 }
 
 h3 {
-    font-size: var(--text-xl);
-}
-
-h4 {
     font-size: var(--text-lg);
 }
 
+h4 {
+    font-size: var(--text-md);
+}
+
 p {
+    font-size: var(--text-base);
     margin-bottom: var(--space-sm);
 }
