@@ -97,6 +97,7 @@
     grid-template-areas: "hero-content img-hero";
     gap: var(--space-2xl);
     align-items: center;
+    min-height: 50vh;
 }
 
 .hero-content {
