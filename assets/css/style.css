@@ -3,7 +3,7 @@
    =========================================== */
 
 /* Importa as fontes do projeto */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 @import url('variables.css');
@@ -56,21 +56,12 @@
 
 /* Hero Section */
 .hero {
-   background: linear-gradient(135deg, #f8f4e6 0%, #f0e6d2 100%);
-   overflow: hidden;
    text-shadow: var(--text-shadow);
 }
 
-/* Elemento decorativo de fundo */
-.hero::before {
-   background-color: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
-   pointer-events: none;
-}
-
-.img-hero {
-    box-shadow: var(--shadow);
-    border-radius: var(--radius);
+.logo-section {
+   width: 60px;
+   height: 60px;
 }
 
 @media (max-width: 768px) {

@@ -110,7 +110,6 @@ h5,
 h6 {
     font-family: var(--font-family-secondary);
     line-height: 1.2;
-    margin-bottom: var(--space-sm);
     color: var(--text-dark);
 }
 
@@ -134,5 +133,4 @@ h4 {
 
 p {
     font-size: var(--text-base);
-    margin-bottom: var(--space-sm);
 }
