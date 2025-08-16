@@ -111,7 +111,7 @@
 .img-hero {
     grid-area: img-hero;
     width: 70%;
-    max-height: 480px; 
+    max-height: 480px;
     object-fit: cover;
     object-position: center;
     justify-self: end;
@@ -128,7 +128,6 @@
     align-items: center;
     text-align: center;
     gap: var(--space-sm);
-    margin-bottom: var(--space-sm);
 }
 
 #produtos-destaque {
@@ -139,16 +138,44 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: var(--space-md);
+}
+
+.container-carousel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm);
+    max-width: 100%;
+    padding-top: var(--space-2xl);
 }
 
 .conteiner-produtos-principais {
     display: flex;
     width: 100%;
     align-items: center;
+    gap: var(--space-sm);
 }
 
 .produtos-principais {
     display: flex;
+    gap: var(--space-sm);
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; /* Esconde scrollbar no IE/Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.produtos-principais::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+.produto {
+    min-width: 240px; /* Mantém a largura mínima de cada produto */
+    flex-shrink: 0; /* Impede que os itens encolham abaixo do min-width */
 }
 
 .info-produto {
@@ -157,6 +184,17 @@
     gap: var(--space-xs);
     padding: var(--space-sm);
     align-items: flex-start;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
 }
 
 #depoimentos {
@@ -223,7 +261,7 @@
 @media (max-width: 768px) {
 
     .container {
-        padding: var(--space-xs);
+        padding: var(--space-sm);
     }
 
     .hero {

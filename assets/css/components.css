@@ -68,3 +68,19 @@
     background-color: #BB793E;
     color: var(--text-light);
 }
+
+.setas-produtos {
+   padding: var(--space-xs) var(--space-xs);
+   border-radius: 50%;
+}
+
+.setas-produtos:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+}
+
+.setas-produtos:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
