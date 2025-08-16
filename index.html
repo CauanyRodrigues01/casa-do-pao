@@ -79,26 +79,35 @@
     </section>
 
     <!-- Produtos em destaque -->
-    <section id="produtos-destaque">
+    <section id="produtos-destaque"  class="produtos-section">
       <div class="container">
         <div class="produtos-container">
+
+          <!-- Introdução -->
           <div class="intro-section">
             <img src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
             <h2>Nossos produtos mais queridos</h2>
             <p>Conheça os produtos que fazem sucesso entre nossos clientes</p>
           </div>
 
+          <!-- Carrossel -->
           <div class="container-carousel">
-            <div class="conteiner-produtos-principais">
-              <button class="btn bi bi-chevron-left setas-produtos" id="prevBtn"></button>
-              <div class="produtos-principais" id="produtosWrapper">
+            <div class="carousel-wrapper">
+
+              <!-- Botão anterior -->
+              <button class="btn bi bi-chevron-left setas-produtos" id="prevBtn" aria-label="Produto anterior"></button>
+
+              <!-- Container dos produtos -->
+              <div class="carousel-track" id="carouselTrack">
                 <!-- Produto 1 -->
-                <div class="produto">
-                  <img src="assets/img/cardapio/pao-frances-crocante.png"
-                    alt="Pão francês crocante recém-assado, com uma fatia cortada mostrando o interior macio e a casca dourada e rústica, em uma tábua de madeira.">
-                  <div class="info-produto">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img src="assets/img/cardapio/pao-frances-crocante.png" alt="Pão francês crocante recém-assado, com uma fatia cortada mostrando o interior macio e a casca dourada e rústica, em uma tábua de madeira.">
+                  </div>
+
+                  <div class="product-info">
                     <strong>Pão francês crocante</strong>
-                    <div id="estrelas-avalizacao">
+                    <div id="product-rating">
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
@@ -110,12 +119,14 @@
                   </div>
                 </div>
                 <!-- Produto 2 -->
-                <div class="produto">
-                  <img src="assets/img/cardapio/baguete-tradicional.png"
-                    alt="Uma baguete tradicional, longa e dourada, com a casca crocante e cortes diagonais na superfície, descansando sobre uma tábua de madeira rústica.">
-                  <div class="info-produto">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img src="assets/img/cardapio/baguete-tradicional.png" alt="Uma baguete tradicional, longa e dourada, com a casca crocante e cortes diagonais na superfície, descansando sobre uma tábua de madeira rústica.">
+                  </div>
+                  
+                  <div class="product-info">
                     <strong>Baguette tradicional</strong>
-                    <div id="estrelas-avalizacao">
+                    <div id="product-rating">
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
@@ -127,12 +138,12 @@
                   </div>
                 </div>
                 <!-- Produto 3 -->
-                <div class="produto">
-                  <img src="assets/img/cardapio/croissant-manteiga.png"
-                    alt="Um croissant de manteiga dourado e folhado, com a superfície brilhante e camadas visíveis, pousado sobre uma tábua de madeira.">
-                  <div class="info-produto">
+                <div class="product-card">
+                  <div class="product-image"><img src="assets/img/cardapio/croissant-manteiga.png"
+                    alt="Um croissant de manteiga dourado e folhado, com a superfície brilhante e camadas visíveis, pousado sobre uma tábua de madeira."></div>
+                  <div class="product-info">
                     <strong>Croissant manteiga</strong>
-                    <div id="estrelas-avalizacao">
+                    <div id="product-rating">
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
@@ -144,12 +155,13 @@
                   </div>
                 </div>
                 <!-- Produto 4 -->
-                <div class="produto">
-                  <img src="assets/img/cardapio/pao-doce-recheado.png"
-                    alt="Pão doce trançado e recheado com creme e chocolate, com uma fatia cortada revelando o recheio.">
-                  <div class="info-produto">
+                <div class="product-card">
+                  <div class="product-image">
+<img src="assets/img/cardapio/pao-doce-recheado.png" alt="Pão doce trançado e recheado com creme e chocolate, com uma fatia cortada revelando o recheio.">
+                  </div>
+                  <div class="product-info">
                     <strong>Pão doce recheado</strong>
-                    <div id="estrelas-avalizacao">
+                    <div id="product-rating">
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
@@ -161,12 +173,13 @@
                   </div>
                 </div>
                 <!-- Produto 5 -->
-                <div class="produto">
-                  <img src="assets/img/cardapio/broa-de-milho.png"
-                    alt="Uma broa de milho dourada e macia, cortada em pedaços em uma frigideira de ferro fundido, com manteiga derretendo e um fio de mel por cima.">
-                  <div class="info-produto">
+                <div class="product-card">
+                  <div class="product-image">
+                    <img src="assets/img/cardapio/broa-de-milho.png" alt="Uma broa de milho dourada e macia, cortada em pedaços em uma frigideira de ferro fundido, com manteiga derretendo e um fio de mel por cima.">
+                  </div>
+                  <div class="product-info">
                     <strong>Broa de milho</strong>
-                    <div id="estrelas-avalizacao">
+                    <div id="product-rating">
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
@@ -178,12 +191,13 @@
                   </div>
                 </div>
                 <!-- Produto 6 -->
-                <div class="produto">
-                  <img src="assets/img/cardapio/sonho-com-creme.png"
-                    alt="Um sonho com creme, polvilhado com açúcar em pó, mostrando o recheio de creme claro saindo de um lado.">
-                  <div class="info-produto">
+                <div class="product-card">
+                  <div class="product-image">
+<img src="assets/img/cardapio/sonho-com-creme.png" alt="Um sonho com creme, polvilhado com açúcar em pó, mostrando o recheio de creme claro saindo de um lado.">
+                  </div>
+                  <div class="product-info">
                     <strong>Sonho com creme</strong>
-                    <div id="estrelas-avalizacao">
+                    <div id="product-rating">
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
@@ -195,10 +209,16 @@
                   </div>
                 </div>
               </div>
-              <button class="btn bi bi-chevron-right setas-produtos"></button>
+
+              <!-- Botão próximo -->
+              <button class="btn bi bi-chevron-right setas-produtos" id="nextBtn" aria-label="Próximo produto"></button>
             </div>
-            <div class="carousel-indicators" id="indicators"></div>
+
+            <!-- Indicadores do carrossel -->
+            <div class="carousel-indicators" id="carouselIndicators"></div>
           </div>
+
+          <!-- Botão ver cardápio -->
           <button class="btn btn-primary"><a href="cardapio.html">Ver Cardápio Completo</a></button>
         </div>
       </div>

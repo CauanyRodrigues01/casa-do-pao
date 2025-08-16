@@ -17,11 +17,11 @@
 @import url('components.css');
 /* 5º - Componentes */
 
-/* ===========================================
-   ESTILOS ESPECÍFICOS DO PROJETO
-   =========================================== */
+/* ESTILOS ESPECÍFICOS DO PROJETO */
 
-/* Adicione aqui estilos específicos do seu projeto */
+/* ===========================================
+    CABECALHO PRINCIPAL
+=========================================== */
 
 #cabecalho-principal {
    background-color: var(--bg-dark);
@@ -58,7 +58,10 @@
    border-bottom: 1px solid var(--accent-hover);
 }
 
-/* Hero Section */
+/* ===========================================
+    SEÇÃO HERO
+=========================================== */
+
 .hero {
    text-shadow: var(--text-shadow);
 }
@@ -68,32 +71,37 @@
    height: 60px;
 }
 
+/* ===========================================
+    SEÇÃO PRODUTOS DESTAQUE
+=========================================== */
+
 .container-carousel {
    background-color: var(--secondary-color);
    border-radius: var(--radius);
 }
 
-.produtos-principais {
+.carousel-track {
    border-radius: var(--radius);
 }
 
-.produto {
+.product-card {
    background-color: var(--bg-light);
    border-radius: var(--radius);
    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
    transition: transform 0.3s ease, box-shadow 0.3s ease;
-   overflow: hidden;
-   position: relative;
 }
-.produto img {
+
+.product-card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 50px 50px 0 rgba(0, 0, 0, 0.203);
+}
+
+.product-card img {
    border-radius: var(--radius) var(--radius) 0 0;
-   width: 100%;
-   height: 180px;
-   object-fit: cover;
    transition: transform 0.3s ease;
 }
 
-.produto:hover img {
+.product-card:hover img {
    transform: scale(1.1);
 }
 
@@ -104,16 +112,22 @@
    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
 }
 
-.indicator {
+.carousel-indicator {
    background-color: var(--bg-muted);
-   border-radius: var(--radius);
+   border-radius: 50%;
    cursor: pointer;
    transition: all 0.3s ease;
+   border: 2px solid transparent;
 }
 
-.indicator.active {
+.carousel-indicator.active {
    background: var(--accent-color);
    transform: scale(1.2);
+   border-color: var(--primary-color);
+}
+
+.carousel-indicator:hover {
+   background: var(--accent-color);
 }
 
 @media (max-width: 768px) {

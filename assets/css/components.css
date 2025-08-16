@@ -69,6 +69,33 @@
     color: var(--text-light);
 }
 
+/*
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            
+        .carousel-btn:hover {
+            background: var(--accent-color);
+            color: var(--text-light);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(210, 105, 30, 0.3);
+        }
+
+        .carousel-btn:active {
+            transform: scale(0.95);
+        }
+
+        .carousel-btn i {
+            font-size: var(--text-xl);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        }
+*/
+
 .setas-produtos {
    padding: var(--space-xs) var(--space-xs);
    border-radius: 50%;

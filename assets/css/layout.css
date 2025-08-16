@@ -1,8 +1,8 @@
 /* ===========================================
-   LAYOUT E CONTAINERS
+   LAYOUT GERAL
    =========================================== */
 
-/* Container responsivo */
+
 .container {
     width: 100%;
     max-width: 1200px;
@@ -26,6 +26,10 @@
         "sobre-nos"
         "rodape";
 }
+
+/* ===========================================
+    CABECALHO PRINCIPAL
+=========================================== */
 
 #cabecalho-principal {
     grid-area: cabecalho-principal;
@@ -75,6 +79,10 @@
     justify-self: end;
 }
 
+/* ===========================================
+    SEÇÃO HERO
+=========================================== */
+
 .hero {
     grid-area: hero;
     margin-top: 112px;
@@ -122,6 +130,10 @@
     justify-content: center;
 }
 
+/* ===========================================
+    INTRO PARA TODAS AS SEÇÕES
+=========================================== */
+
 .intro-section {
     display: flex;
     flex-direction: column;
@@ -129,6 +141,10 @@
     text-align: center;
     gap: var(--space-sm);
 }
+
+/* ===========================================
+    SEÇÃO PRODUTOS DESTAQUE
+=========================================== */
 
 #produtos-destaque {
     grid-area: produtos-destaque;
@@ -146,39 +162,71 @@
     flex-direction: column;
     gap: var(--space-md);
     align-items: center;
-    justify-content: center;
-    padding: var(--space-sm);
+    width: 100%;
     max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-sm);
     padding-top: var(--space-2xl);
 }
 
-.conteiner-produtos-principais {
+.carousel-wrapper {
     display: flex;
-    width: 100%;
     align-items: center;
     gap: var(--space-sm);
+    width: 100%;
+    justify-content: center;
+    max-width: calc(100vw - 200px);
 }
 
-.produtos-principais {
+.carousel-track {
     display: flex;
     gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-xs);
     flex-wrap: nowrap;
+    width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-behavior: smooth;
-    -ms-overflow-style: none; /* Esconde scrollbar no IE/Edge */
-    scrollbar-width: none; /* Firefox */
+
+    /* Ocultar scrollbar */
+    -ms-overflow-style: none;
+    /* Esconde scrollbar no IE/Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
-.produtos-principais::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
+/* Ocultar scrollbar */
+.carousel-track::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari */
 }
 
-.produto {
-    min-width: 240px; /* Mantém a largura mínima de cada produto */
-    flex-shrink: 0; /* Impede que os itens encolham abaixo do min-width */
+.product-card {
+    min-width: 230px;
+    max-width: 230px;
+    width: 230px;
+    flex: 0 0 240px;
+    /* Mantém a largura mínima de cada produto */
+    flex-shrink: 0;
+    /* Impede que os itens encolham abaixo do min-width */
+    overflow: hidden;
+    position: relative;
 }
 
-.info-produto {
+.product-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+}
+
+.product-info {
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
@@ -192,9 +240,9 @@
     gap: var(--space-sm);
 }
 
-.indicator {
-    width: 10px;
-    height: 10px;
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
 }
 
 #depoimentos {
@@ -240,7 +288,6 @@
         gap: var(--space-sm);
     }
 
-
     .navbar-principal {
         justify-self: stretch;
     }
@@ -250,7 +297,6 @@
         flex-wrap: wrap;
         justify-content: flex-start;
     }
-
 
     .botoes-autenticacao {
         justify-self: start;
@@ -326,4 +372,33 @@
         display: none;
     }
 
+    .container-carousel {
+        padding-top: var(--space-lg);
+    }
+
+    .product-card {
+        min-width: 200px;
+        max-width: 220px;
+        width: 200px;
+        flex: 0 0 200px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .carousel-wrapper {
+        gap: var(--space-xs);
+    }
+
+    .product-card {
+        min-width: 180px;
+        max-width: 180px;
+        width: 180px;
+        flex: 0 0 180px;
+    }
+
+    .product-image {
+        height: 140px;
+    }
 }

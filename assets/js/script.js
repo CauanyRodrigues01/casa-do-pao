@@ -61,87 +61,295 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const produtosWrapper = document.getElementById('produtosWrapper');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = produtosWrapper.nextElementSibling;
-    const indicatorsContainer = document.getElementById('indicators');
+class ProductCarousel {
+  constructor() {
+    this.track = document.getElementById("carouselTrack");
+    this.prevBtn = document.getElementById("prevBtn");
+    this.nextBtn = document.getElementById("nextBtn");
+    this.indicatorsContainer = document.getElementById("carouselIndicators");
 
-    if (!produtosWrapper || !prevBtn || !nextBtn || !indicatorsContainer) {
-        // Sai se algum elemento não for encontrado
-        return;
+    this.cards = this.track.querySelectorAll(".product-card");
+    this.cardWidth = 240 + 16; // largura do card + gap
+    this.visibleCards = this.getVisibleCards();
+    this.currentIndex = 0;
+    this.maxIndex = Math.max(0, this.cards.length - this.visibleCards);
+
+    this.isDragging = false;
+    this.startPos = 0;
+    this.currentTranslate = 0;
+    this.prevTranslate = 0;
+
+    this.init();
+  }
+
+  init() {
+    this.createIndicators();
+    this.updateButtons();
+    this.bindEvents();
+
+    // Resize listener
+    window.addEventListener("resize", () => {
+      this.visibleCards = this.getVisibleCards();
+      this.maxIndex = Math.max(0, this.cards.length - this.visibleCards);
+      this.currentIndex = Math.min(this.currentIndex, this.maxIndex);
+      this.updateCarousel();
+    });
+  }
+
+  getVisibleCards() {
+    const trackWidth = this.track.offsetWidth;
+    return Math.floor(trackWidth / this.cardWidth) || 1;
+  }
+
+  createIndicators() {
+    this.indicatorsContainer.innerHTML = "";
+    const totalPages = this.maxIndex + 1;
+
+    for (let i = 0; i < totalPages; i++) {
+      const indicator = document.createElement("div");
+      indicator.className = `carousel-indicator ${i === 0 ? "active" : ""}`;
+      indicator.addEventListener("click", () => this.goToSlide(i));
+      this.indicatorsContainer.appendChild(indicator);
     }
+  }
 
-    const produtos = Array.from(produtosWrapper.children);
-    
-    // Calcula quantos produtos cabem no contêiner
-    const getItemsPerView = () => {
-        const itemWidth = produtos[0].offsetWidth + (parseFloat(getComputedStyle(produtosWrapper).gap) || 0);
-        return Math.floor(produtosWrapper.offsetWidth / itemWidth);
-    };
+  bindEvents() {
+    this.prevBtn.addEventListener("click", () => this.prevSlide());
+    this.nextBtn.addEventListener("click", () => this.nextSlide());
 
-    // Cria os indicadores dinamicamente
-    const totalItems = produtos.length;
-    const totalIndicators = Math.ceil(totalItems / getItemsPerView());
+    // Touch/mouse drag support
+    this.track.addEventListener("mousedown", (e) => {
+      this.isDragging = true;
+      this.startPos = e.clientX;
+      this.track.style.cursor = "grabbing";
+    });
 
-    for (let i = 0; i < totalIndicators; i++) {
-        const indicator = document.createElement('div');
-        indicator.classList.add('indicator');
-        indicatorsContainer.appendChild(indicator);
+    this.track.addEventListener("touchstart", (e) => {
+      this.isDragging = true;
+      this.startPos = e.touches[0].clientX;
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!this.isDragging) return;
+      e.preventDefault();
+      this.currentTranslate = this.prevTranslate + e.clientX - this.startPos;
+    });
+
+    document.addEventListener("touchmove", (e) => {
+      if (!this.isDragging) return;
+      this.currentTranslate =
+        this.prevTranslate + e.touches[0].clientX - this.startPos;
+    });
+
+    document.addEventListener("mouseup", () => {
+      if (!this.isDragging) return;
+      this.isDragging = false;
+      this.track.style.cursor = "grab";
+
+      const moved = this.currentTranslate - this.prevTranslate;
+      if (moved < -50 && this.currentIndex < this.maxIndex) {
+        this.nextSlide();
+      } else if (moved > 50 && this.currentIndex > 0) {
+        this.prevSlide();
+      } else {
+        this.updateCarousel();
+      }
+    });
+
+    document.addEventListener("touchend", () => {
+      if (!this.isDragging) return;
+      this.isDragging = false;
+
+      const moved = this.currentTranslate - this.prevTranslate;
+      if (moved < -50 && this.currentIndex < this.maxIndex) {
+        this.nextSlide();
+      } else if (moved > 50 && this.currentIndex > 0) {
+        this.prevSlide();
+      } else {
+        this.updateCarousel();
+      }
+    });
+
+    document.querySelectorAll(".btn-add-cart, .btn-tertiary").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Animação de feedback
+        btn.style.transform = "scale(0.95)";
+        btn.innerHTML = "✓ Adicionado!";
+        btn.style.background = "#28a745";
+
+        setTimeout(() => {
+          btn.style.transform = "";
+          btn.innerHTML = 'Adicionar <i class="bi bi-cart-plus-fill"></i>';
+          btn.style.background = "";
+        }, 1500);
+
+        console.log("Produto adicionado ao carrinho!");
+      });
+    });
+  }
+
+  prevSlide() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.updateCarousel();
     }
+  }
 
-    const indicators = Array.from(indicatorsContainer.children);
-    let currentIndicatorIndex = 0;
+  nextSlide() {
+    if (this.currentIndex < this.maxIndex) {
+      this.currentIndex++;
+      this.updateCarousel();
+    }
+  }
 
-    // Função para atualizar o indicador ativo
-    const updateIndicators = () => {
-        indicators.forEach((ind, index) => {
-            if (index === currentIndicatorIndex) {
-                ind.classList.add('active');
-            } else {
-                ind.classList.remove('active');
-            }
-        });
-    };
+  goToSlide(index) {
+    this.currentIndex = Math.max(0, Math.min(index, this.maxIndex));
+    this.updateCarousel();
+  }
 
-    updateIndicators();
+  updateCarousel() {
+    const translateX = -this.currentIndex * this.cardWidth;
+    this.track.scrollLeft = Math.abs(translateX);
 
-    // Lógica de navegação
-    prevBtn.addEventListener('click', () => {
-        const itemsPerView = getItemsPerView();
-        const scrollAmount = itemsPerView * (produtos[0].offsetWidth + (parseFloat(getComputedStyle(produtosWrapper).gap) || 0));
-        produtosWrapper.scrollBy({
-            left: -scrollAmount,
-            behavior: 'smooth'
-        });
-    });
+    this.updateButtons();
+    this.updateIndicators();
 
-    nextBtn.addEventListener('click', () => {
-        const itemsPerView = getItemsPerView();
-        const scrollAmount = itemsPerView * (produtos[0].offsetWidth + (parseFloat(getComputedStyle(produtosWrapper).gap) || 0));
-        produtosWrapper.scrollBy({
-            left: scrollAmount,
-            behavior: 'smooth'
-        });
-    });
+    // Update for dragging
+    this.prevTranslate = this.currentTranslate = translateX;
+  }
 
-    // Atualiza o indicador ao rolar o carrossel
-    produtosWrapper.addEventListener('scroll', () => {
-        const itemsPerView = getItemsPerView();
-        const scrollPos = produtosWrapper.scrollLeft;
-        const newIndicatorIndex = Math.round(scrollPos / (itemsPerView * (produtos[0].offsetWidth + (parseFloat(getComputedStyle(produtosWrapper).gap) || 0))));
-        if (newIndicatorIndex !== currentIndicatorIndex) {
-            currentIndicatorIndex = newIndicatorIndex;
-            updateIndicators();
-        }
-    });
+  updateButtons() {
+    this.prevBtn.disabled = this.currentIndex === 0;
+    this.nextBtn.disabled = this.currentIndex === this.maxIndex;
+  }
 
-    // Lógica para navegação pelos indicadores
+  updateIndicators() {
+    const indicators = this.indicatorsContainer.querySelectorAll(
+      ".carousel-indicator"
+    );
     indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-            const itemsPerView = getItemsPerView();
-            const scrollAmount = itemsPerView * (produtos[0].offsetWidth + (parseFloat(getComputedStyle(produtosWrapper).gap) || 0));
-            produtosWrapper.scrollLeft = index * scrollAmount;
-        });
+      indicator.classList.toggle("active", index === this.currentIndex);
     });
+  }
+}
+
+// Initialize carousel when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  });
+
+  const carousel = new ProductCarousel();
+
+  // Uncomment below for auto-play functionality
+  /*
+            setInterval(() => {
+                if (carousel.currentIndex === carousel.maxIndex) {
+                    carousel.goToSlide(0);
+                } else {
+                    carousel.nextSlide();
+                }
+            }, 5000); // Auto-advance every 5 seconds
+            */
+});
+
+// Additional utility functions
+function formatPrice(price) {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(price);
+}
+
+function addToCart(productName, price) {
+  // Simulação de adicionar ao carrinho
+  const cartItems = JSON.parse(localStorage.getItem("cart") || "[]");
+  const existingItem = cartItems.find((item) => item.name === productName);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cartItems.push({
+      name: productName,
+      price: price,
+      quantity: 1,
+      id: Date.now(),
+    });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cartItems));
+
+  // Mostrar notificação
+  showNotification(`${productName} adicionado ao carrinho!`);
+}
+
+function showNotification(message) {
+  // Criar elemento de notificação
+  const notification = document.createElement("div");
+  notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #28a745, #20c997);
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 9999;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                font-weight: 600;
+                max-width: 300px;
+            `;
+  notification.textContent = message;
+
+  document.body.appendChild(notification);
+
+  // Animar entrada
+  setTimeout(() => {
+    notification.style.transform = "translateX(0)";
+  }, 100);
+
+  // Remover após 3 segundos
+  setTimeout(() => {
+    notification.style.transform = "translateX(100%)";
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300);
+  }, 3000);
+}
+
+// Intersection Observer para animações ao scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px",
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.animationPlayState = "running";
+    }
+  });
+}, observerOptions);
+
+// Observar cards dos produtos
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".product-card").forEach((card) => {
+    card.style.animationPlayState = "paused";
+    observer.observe(card);
+  });
 });
