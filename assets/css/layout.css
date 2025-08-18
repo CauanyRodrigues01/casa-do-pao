@@ -176,7 +176,7 @@
     gap: var(--space-sm);
     width: 100%;
     justify-content: center;
-    max-width: calc(100vw - 200px);
+    max-width: calc(100vw - 100px);
 }
 
 .carousel-track {
@@ -238,6 +238,7 @@
     display: flex;
     justify-content: center;
     gap: var(--space-sm);
+    padding-bottom: var(--space-xs);
 }
 
 .carousel-indicator {
@@ -376,23 +377,9 @@
         padding-top: var(--space-lg);
     }
 
-    .product-card {
-        min-width: 200px;
-        max-width: 220px;
-        width: 200px;
-        flex: 0 0 200px;
-    }
-
 }
 
 @media (max-width: 480px) {
-
-    .product-card {
-        min-width: 180px;
-        max-width: 180px;
-        width: 180px;
-        flex: 0 0 180px;
-    }
 
     .container-carousel {
         padding: var(--space-xs);
