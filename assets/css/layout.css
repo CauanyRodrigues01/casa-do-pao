@@ -381,6 +381,10 @@
 
 @media (max-width: 480px) {
 
+    .hero {
+        min-height: 50vh;
+    }
+
     .container-carousel {
         padding: var(--space-xs);
     }
