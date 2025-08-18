@@ -7,7 +7,7 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-xs) var(--space-md);
 }
 
 .main-grid {
@@ -95,7 +95,7 @@
     grid-template-areas: "hero-content img-hero";
     gap: var(--space-2xl);
     align-items: center;
-    min-height: 65vh;
+    min-height: 50vh;
 }
 
 .hero-content {
@@ -140,6 +140,8 @@
     align-items: center;
     text-align: center;
     gap: var(--space-sm);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
 }
 
 /* ===========================================
@@ -154,7 +156,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-md);
 }
 
 .container-carousel {
@@ -168,6 +169,7 @@
     overflow: hidden;
     padding: var(--space-sm);
     padding-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
 }
 
 .carousel-wrapper {
@@ -246,8 +248,36 @@
     height: 12px;
 }
 
+/* ===========================================
+    SEÇÃO DEPOIMENTOS
+=========================================== */
+
 #depoimentos {
     grid-area: depoimentos;
+}
+
+.depoimentos {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding-bottom: var(--space-2xl);
+
+}
+
+.depoimento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    padding-bottom: 70px;
+    position: relative;
+}
+
+.user-info {
+    position: absolute;
+    bottom: -70px;
 }
 
 #diferenciais {
@@ -311,10 +341,6 @@
         padding: var(--space-sm);
     }
 
-    .hero {
-        margin-top: 96px;
-    }
-
     .cabecalho-container {
         grid-template-columns: auto 1fr auto;
         grid-template-areas: "logo . menu-toggle";
@@ -363,10 +389,20 @@
         display: none;
     }
 
+    .hero {
+        margin-top: 96px;
+        text-align: center;
+    }
+
     .hero-container {
         grid-template-columns: 1fr;
         grid-template-areas: "hero-content";
         align-self: center;
+    }
+
+    .hero-content {
+        text-align: center;
+        align-items: center;
     }
 
     .img-hero {

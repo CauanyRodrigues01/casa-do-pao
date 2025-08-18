@@ -46,6 +46,14 @@
    color: var(--text-light);
 }
 
+.bi {
+   font-size: var(--text-md);
+}
+
+.user-info img {
+   border-radius: 50px;
+}
+
 .menu-toggle:hover {
    color: var(--accent-hover);
 }
@@ -127,6 +135,20 @@
 
 .carousel-indicator:hover {
    background: var(--accent-color);
+}
+
+/* ===========================================
+    SEÇÃO DEPOIMENTOS
+=========================================== */
+
+.depoimentos {
+   text-align: center;
+}
+
+.depoimento {
+   background-color: var(--bg-light);
+   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+   ;
 }
 
 @media (max-width: 768px) {
