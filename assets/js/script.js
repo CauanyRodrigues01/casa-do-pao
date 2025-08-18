@@ -1,3 +1,7 @@
+/* ===========================================
+    MENU HAMBÚRGUER
+=========================================== */
+
 const toggle = document.querySelector(".menu-toggle");
 const navbar = document.querySelector(".navbar-principal");
 
@@ -60,6 +64,10 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
+
+/* ===========================================
+    CAROUSEL DE PRODUTOS
+=========================================== */
 
 class ProductCarousel {
   constructor() {

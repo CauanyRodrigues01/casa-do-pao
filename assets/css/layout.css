@@ -387,10 +387,6 @@
 
 @media (max-width: 480px) {
 
-    .carousel-wrapper {
-        gap: var(--space-xs);
-    }
-
     .product-card {
         min-width: 180px;
         max-width: 180px;
@@ -398,7 +394,12 @@
         flex: 0 0 180px;
     }
 
-    .product-image {
-        height: 140px;
+    .container-carousel {
+        padding: var(--space-xs);
+    }
+
+    .carousel-wrapper {
+        max-width: calc(100vw - 50px);
+        gap: var(--space-xs);
     }
 }
