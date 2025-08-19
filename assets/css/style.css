@@ -50,10 +50,6 @@
    font-size: var(--text-md);
 }
 
-.user-info img {
-   border-radius: 50px;
-}
-
 .menu-toggle:hover {
    color: var(--accent-hover);
 }
@@ -157,6 +153,10 @@
    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
+.user-info img {
+   border-radius: 100px;
+}
+
 .indicador {
    background-color: var(--bg-muted);
    border-radius: 50%;
@@ -192,6 +192,24 @@
 .video-institucional {
     border-radius: var(--radius);
     box-shadow: var(--shadow);
+}
+
+
+/* ===========================================
+    SEÇÃO GALERIA
+=========================================== */
+
+.galeria-grid img {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.galeria-grid img:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.05);
 }
 
 @media (max-width: 768px) {
