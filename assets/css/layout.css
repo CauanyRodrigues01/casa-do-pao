@@ -392,6 +392,7 @@
     .hero {
         margin-top: 96px;
         text-align: center;
+        max-height: 50vh;
     }
 
     .hero-container {
@@ -417,16 +418,12 @@
 
 @media (max-width: 480px) {
 
-    .hero {
-        min-height: 50vh;
-    }
-
     .container-carousel {
         padding: var(--space-xs);
     }
 
     .carousel-wrapper {
-        max-width: calc(100vw - 50px);
+        max-width: calc(100vw - 10px);
         gap: var(--space-xs);
     }
 
