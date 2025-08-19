@@ -140,8 +140,7 @@
     align-items: center;
     text-align: center;
     gap: var(--space-sm);
-    margin-top: var(--space-md);
-    margin-bottom: var(--space-md);
+    margin: var(--space-lg) 0;
 }
 
 /* ===========================================
@@ -259,7 +258,6 @@
 .depoimentos-container {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xl);
 }
 
 .carrossel-container {
@@ -303,8 +301,7 @@
     display: flex;
     justify-content: center;
     gap: var(--space-sm);
-    padding-bottom: var(--space-xs);
-
+    margin-top:  var(--space-xl);
 }
 
 .indicador {
@@ -327,7 +324,7 @@
     align-items: stretch;
     gap: var(--space-md);
     width: 100%;
-    margin-top: var(--space-2xl);
+    margin-top: var(--space-xl);
 }
 
 .lista-diferenciais li {
@@ -345,8 +342,34 @@
     transform: scale(1.1);
 }
 
+/* ===========================================
+    SEÇÃO CADASTRO
+=========================================== */
+
 #cadastro {
     grid-area: cadastro;
+}
+
+.cadastro-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "video-institucional cadastro-info";
+    gap: var(--space-2xl);
+    align-items: center;
+    margin-top: var(--space-xl);
+}
+
+.video-institucional {
+    grid-area: video-institucional;
+    width: 100%;
+}
+
+.cadastro-info {
+    grid-area: cadastro-info;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
 }
 
 #galeria {
@@ -511,4 +534,21 @@
         min-width: 280px;
         max-width: 280px;
     }
+
+    .cadastro-content {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "video-institucional"
+        "cadastro-info";
+        gap: var(--space-lg);
+    }
+
+    .video-institucional {
+        width: 90%;
+    }
+
+    .cadastro-info {
+        align-items: center;
+    }
+
 }
