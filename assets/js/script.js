@@ -436,7 +436,7 @@ function irParaSlide(index) {
 function iniciarAutoplay() {
   autoplayInterval = setInterval(() => {
     moverCarrossel(1);
-  }, 7000); // Aumentado para 7 segundos - tempo suficiente para ler
+  }, 5000);
 }
 
 function pararAutoplay() {
