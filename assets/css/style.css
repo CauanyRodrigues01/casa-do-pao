@@ -83,7 +83,7 @@
     SEÇÃO PRODUTOS DESTAQUE
 =========================================== */
 
-.container-carousel {
+.container-carousel-products {
    background-color: var(--secondary-color);
    border-radius: var(--radius);
 }
@@ -148,7 +148,6 @@
 .depoimento {
    background-color: var(--bg-light);
    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
-   ;
 }
 
 @media (max-width: 768px) {

@@ -74,7 +74,7 @@ class ProductCarousel {
     this.track = document.getElementById("carouselTrack");
     this.prevBtn = document.getElementById("prevBtn");
     this.nextBtn = document.getElementById("nextBtn");
-    this.indicatorsContainer = document.getElementById("carouselIndicators");
+    this.indicatorsContainer = document.getElementById("carouselProductsIndicators");
 
     this.cards = this.track.querySelectorAll(".product-card");
     this.cardWidth = 240 + 16; // largura do card + gap
