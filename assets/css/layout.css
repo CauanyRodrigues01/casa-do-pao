@@ -312,8 +312,36 @@
     height: 12px;
 }
 
+/* ===========================================
+    SEÇÃO DIFERENCIAIS
+=========================================== */
+
 #diferenciais {
     grid-area: diferenciais;
+}
+
+.lista-diferenciais {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: var(--space-md);
+    width: 100%;
+    margin-top: var(--space-2xl);
+}
+
+.lista-diferenciais li {
+    padding: var(--space-sm);
+    width: 23%;
+    min-width: 200px;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lista-diferenciais li:hover {
+    transform: scale(1.1);
 }
 
 #cadastro {

@@ -175,6 +175,15 @@
    background: var(--accent-color);
 }
 
+/* ===========================================
+    SEÇÃO DIFERENCIAIS
+=========================================== */
+
+.lista-diferenciais li {
+   text-align: center;
+   box-shadow: var(--shadow);
+   border-radius: var(--radius);
+}
 
 @media (max-width: 768px) {
 
