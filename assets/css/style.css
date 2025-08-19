@@ -148,7 +148,32 @@
 .depoimento {
    background-color: var(--bg-light);
    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.depoimento:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.indicador {
+   background-color: var(--bg-muted);
+   border-radius: 50%;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   border: 2px solid transparent;
+}
+
+.indicador.ativo {
+   background: var(--accent-color);
+   transform: scale(1.2);
+   border-color: var(--primary-color);
+}
+
+.indicador:hover {
+   background: var(--accent-color);
+}
+
 
 @media (max-width: 768px) {
 
