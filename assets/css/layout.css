@@ -356,7 +356,10 @@
     grid-template-areas: "video-institucional cadastro-info";
     gap: var(--space-2xl);
     align-items: center;
+    justify-items: center;
     margin-top: var(--space-xl);
+    width: 100%;
+    max-width: 100%;
 }
 
 .video-institucional {
@@ -548,7 +551,9 @@
     }
 
     .cadastro-info {
+        width: 90%;
         align-items: center;
+        text-align: center;
     }
 
 }
