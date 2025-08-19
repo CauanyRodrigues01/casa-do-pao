@@ -395,15 +395,18 @@ function criarIndicadores() {
 
 // Calcula a largura de um slide incluindo o gap
 function getSlideWidth() {
+  if (slides.length === 0) return 0;
+
   const slide = slides[0];
   const computedStyle = getComputedStyle(slide);
   const slideWidth = slide.offsetWidth;
-  const marginRight = parseFloat(computedStyle.marginRight) || 0;
-  const gap = parseFloat(getComputedStyle(carrossel.parentElement).gap) || 24; // 1.5rem padrão
+  const gap = parseFloat(getComputedStyle(carrossel).gap) || 24; // Pega o gap do próprio carrossel
   return slideWidth + gap;
 }
 
 function atualizarCarrossel() {
+  if (!carrossel || indicadores.length === 0) return;
+
   const slideWidth = getSlideWidth();
   const translateX = slideAtual * slideWidth;
   carrossel.style.transform = `translateX(-${translateX}px)`;
@@ -434,13 +437,19 @@ function irParaSlide(index) {
 }
 
 function iniciarAutoplay() {
+  // Limpa qualquer interval existente antes de criar um novo
+  pararAutoplay();
+
   autoplayInterval = setInterval(() => {
     moverCarrossel(1);
   }, 5000);
 }
 
 function pararAutoplay() {
-  clearInterval(autoplayInterval);
+  if (autoplayInterval) {
+    clearInterval(autoplayInterval);
+    autoplayInterval = null;
+  }
 }
 
 function reiniciarAutoplay() {
@@ -448,71 +457,83 @@ function reiniciarAutoplay() {
   iniciarAutoplay();
 }
 
-// Event listeners para pausar/retomar autoplay
-const carrosselContainer = document.querySelector(".carrossel-container");
-
-// Pausa quando mouse entra na área do carrossel
-carrosselContainer.addEventListener("mouseenter", pararAutoplay);
-carrosselContainer.addEventListener("mouseleave", iniciarAutoplay);
-
-// Pausa quando usuário interage (scroll, clique nos indicadores, etc)
-carrosselContainer.addEventListener("wheel", () => {
-  reiniciarAutoplay(); // Reinicia o timer após interação
-});
-
-// Pausa quando clica nos indicadores - será configurado dinamicamente
-// (removido porque agora os eventos são adicionados na criação dos indicadores)
-
-// Suporte a scroll com rodinha do mouse
-carrosselContainer.addEventListener("wheel", (e) => {
-  e.preventDefault(); // Impede o scroll vertical da página
-
-  // Detecta direção do scroll
-  if (e.deltaY > 0) {
-    // Scroll para baixo = próximo slide
-    moverCarrossel(1);
-  } else {
-    // Scroll para cima = slide anterior
-    moverCarrossel(-1);
+// Aguarda o DOM estar pronto
+document.addEventListener("DOMContentLoaded", () => {
+  // Verifica se os elementos existem
+  if (!carrossel || slides.length === 0 || !indicadoresContainer) {
+    console.error("Elementos do carrossel não encontrados");
+    return;
   }
-});
 
-// Suporte a touch/swipe para dispositivos móveis
-let touchStartX = 0;
-let touchEndX = 0;
+  const carrosselContainer = document.querySelector(".carrossel-container");
 
-carrosselContainer.addEventListener("touchstart", (e) => {
-  touchStartX = e.changedTouches[0].screenX;
-  pararAutoplay();
-});
+  if (!carrosselContainer) {
+    console.error("Container do carrossel não encontrado");
+    return;
+  }
 
-carrosselContainer.addEventListener("touchend", (e) => {
-  touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
+  // Inicializar carrossel
+  criarIndicadores();
+  atualizarCarrossel();
   iniciarAutoplay();
-});
 
-function handleSwipe() {
-  const swipeThreshold = 50;
-  const diff = touchStartX - touchEndX;
+  // Event listeners para pausar/retomar autoplay
+  carrosselContainer.addEventListener("mouseenter", pararAutoplay);
+  carrosselContainer.addEventListener("mouseleave", iniciarAutoplay);
 
-  if (Math.abs(diff) > swipeThreshold) {
-    if (diff > 0) {
-      moverCarrossel(1); // Swipe para esquerda - próximo
+  // Suporte a scroll com rodinha do mouse
+  carrosselContainer.addEventListener("wheel", (e) => {
+    e.preventDefault(); // Impede o scroll vertical da página
+
+    // Detecta direção do scroll
+    if (e.deltaY > 0) {
+      // Scroll para baixo = próximo slide
+      moverCarrossel(1);
     } else {
-      moverCarrossel(-1); // Swipe para direita - anterior
+      // Scroll para cima = slide anterior
+      moverCarrossel(-1);
+    }
+  });
+
+  // Suporte a touch/swipe para dispositivos móveis
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  carrosselContainer.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    pararAutoplay();
+  });
+
+  carrosselContainer.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+    iniciarAutoplay();
+  });
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        moverCarrossel(1); // Swipe para esquerda - próximo
+      } else {
+        moverCarrossel(-1); // Swipe para direita - anterior
+      }
     }
   }
-}
 
-// Atualizar carrossel no redimensionamento da janela
-window.addEventListener("resize", () => {
-  atualizarCarrossel();
+  // Atualizar carrossel no redimensionamento da janela
+  window.addEventListener("resize", () => {
+    atualizarCarrossel();
+  });
 });
 
-// Inicializar
-document.addEventListener("DOMContentLoaded", () => {
-  criarIndicadores(); // Cria os indicadores primeiro
-  atualizarCarrossel();
-  iniciarAutoplay();
+// Parar autoplay quando a aba não está visível (otimização)
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    pararAutoplay();
+  } else {
+    iniciarAutoplay();
+  }
 });
