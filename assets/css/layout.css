@@ -477,4 +477,9 @@
     .carrossel-container {
         max-width: calc(100vw - 20px);
     }
+
+    .depoimento {
+        min-width: 300px;
+        max-width: 300px;
+    }
 }
