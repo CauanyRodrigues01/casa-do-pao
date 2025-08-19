@@ -275,6 +275,7 @@
     display: flex;
     gap: var(--space-md);
     padding-bottom: 70px;
+    max-width: 100%;
 }
 
 .depoimento {
@@ -287,6 +288,12 @@
     padding-bottom: 70px;
     position: relative;
     min-width: 350px;
+    max-width: 380px;
+    width: 350px;
+    flex: 0 0 350px;
+    /* Mantém a largura mínima de cada produto */
+    flex-shrink: 0;
+    position: relative;
 }
 
 .user-info {
@@ -299,7 +306,7 @@
     justify-content: center;
     gap: var(--space-sm);
     padding-bottom: var(--space-xs);
-    
+
 }
 
 .indicador {
@@ -440,6 +447,16 @@
     .container-carousel-products {
         padding-top: var(--space-lg);
     }
+
+    .carrossel-container {
+        max-width: calc(100vw - 40px);
+    }
+
+    .depoimento {
+        min-width: 300px;
+        padding: var(--space-md);
+        padding-bottom: 60px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -453,10 +470,13 @@
         gap: var(--space-xs);
     }
 
-
     .product-card {
         min-width: 220px;
         max-width: 230px;
         width: 230px;
+    }
+
+    .carrossel-container {
+        max-width: calc(100vw - 20px);
     }
 }
