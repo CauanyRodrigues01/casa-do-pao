@@ -74,7 +74,9 @@ class ProductCarousel {
     this.track = document.getElementById("carouselTrack");
     this.prevBtn = document.getElementById("prevBtn");
     this.nextBtn = document.getElementById("nextBtn");
-    this.indicatorsContainer = document.getElementById("carouselProductsIndicators");
+    this.indicatorsContainer = document.getElementById(
+      "carouselProductsIndicators"
+    );
 
     this.cards = this.track.querySelectorAll(".product-card");
     this.cardWidth = 240 + 16; // largura do card + gap
@@ -245,7 +247,6 @@ class ProductCarousel {
 
 // Initialize carousel when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
-
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -360,4 +361,158 @@ document.addEventListener("DOMContentLoaded", () => {
     card.style.animationPlayState = "paused";
     observer.observe(card);
   });
+});
+
+/* ===========================================
+    CAROUSEL DE DEPOIMENTOS
+=========================================== */
+
+let slideAtual = 0;
+let autoplayInterval;
+const slides = document.querySelectorAll(".depoimento");
+const totalSlides = slides.length;
+const carrossel = document.getElementById("carrossel");
+const indicadoresContainer = document.getElementById("indicadores");
+let indicadores = [];
+
+// Gerar indicadores dinamicamente
+function criarIndicadores() {
+  indicadoresContainer.innerHTML = ""; // Limpa indicadores existentes
+  indicadores = [];
+
+  for (let i = 0; i < totalSlides; i++) {
+    const indicador = document.createElement("div");
+    indicador.classList.add("indicador");
+    if (i === 0) indicador.classList.add("ativo");
+
+    // Adiciona evento de clique
+    indicador.addEventListener("click", () => irParaSlide(i));
+
+    indicadoresContainer.appendChild(indicador);
+    indicadores.push(indicador);
+  }
+}
+
+// Calcula a largura de um slide incluindo o gap
+function getSlideWidth() {
+  const slide = slides[0];
+  const computedStyle = getComputedStyle(slide);
+  const slideWidth = slide.offsetWidth;
+  const marginRight = parseFloat(computedStyle.marginRight) || 0;
+  const gap = parseFloat(getComputedStyle(carrossel.parentElement).gap) || 24; // 1.5rem padrão
+  return slideWidth + gap;
+}
+
+function atualizarCarrossel() {
+  const slideWidth = getSlideWidth();
+  const translateX = slideAtual * slideWidth;
+  carrossel.style.transform = `translateX(-${translateX}px)`;
+
+  // Atualizar indicadores
+  indicadores.forEach((indicador, index) => {
+    indicador.classList.toggle("ativo", index === slideAtual);
+  });
+}
+
+function moverCarrossel(direcao) {
+  slideAtual += direcao;
+
+  if (slideAtual >= totalSlides) {
+    slideAtual = 0;
+  } else if (slideAtual < 0) {
+    slideAtual = totalSlides - 1;
+  }
+
+  atualizarCarrossel();
+  reiniciarAutoplay();
+}
+
+function irParaSlide(index) {
+  slideAtual = index;
+  atualizarCarrossel();
+  reiniciarAutoplay();
+}
+
+function iniciarAutoplay() {
+  autoplayInterval = setInterval(() => {
+    moverCarrossel(1);
+  }, 7000); // Aumentado para 7 segundos - tempo suficiente para ler
+}
+
+function pararAutoplay() {
+  clearInterval(autoplayInterval);
+}
+
+function reiniciarAutoplay() {
+  pararAutoplay();
+  iniciarAutoplay();
+}
+
+// Event listeners para pausar/retomar autoplay
+const carrosselContainer = document.querySelector(".carrossel-container");
+
+// Pausa quando mouse entra na área do carrossel
+carrosselContainer.addEventListener("mouseenter", pararAutoplay);
+carrosselContainer.addEventListener("mouseleave", iniciarAutoplay);
+
+// Pausa quando usuário interage (scroll, clique nos indicadores, etc)
+carrosselContainer.addEventListener("wheel", () => {
+  reiniciarAutoplay(); // Reinicia o timer após interação
+});
+
+// Pausa quando clica nos indicadores - será configurado dinamicamente
+// (removido porque agora os eventos são adicionados na criação dos indicadores)
+
+// Suporte a scroll com rodinha do mouse
+carrosselContainer.addEventListener("wheel", (e) => {
+  e.preventDefault(); // Impede o scroll vertical da página
+
+  // Detecta direção do scroll
+  if (e.deltaY > 0) {
+    // Scroll para baixo = próximo slide
+    moverCarrossel(1);
+  } else {
+    // Scroll para cima = slide anterior
+    moverCarrossel(-1);
+  }
+});
+
+// Suporte a touch/swipe para dispositivos móveis
+let touchStartX = 0;
+let touchEndX = 0;
+
+carrosselContainer.addEventListener("touchstart", (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+  pararAutoplay();
+});
+
+carrosselContainer.addEventListener("touchend", (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+  iniciarAutoplay();
+});
+
+function handleSwipe() {
+  const swipeThreshold = 50;
+  const diff = touchStartX - touchEndX;
+
+  if (Math.abs(diff) > swipeThreshold) {
+    if (diff > 0) {
+      moverCarrossel(1); // Swipe para esquerda - próximo
+    } else {
+      moverCarrossel(-1); // Swipe para direita - anterior
+    }
+  }
+}
+
+// Atualizar carrossel no redimensionamento da janela
+window.addEventListener("resize", () => {
+  atualizarCarrossel();
+});
+
+// Inicializar
+document.addEventListener("DOMContentLoaded", () => {
+  criarIndicadores(); // Cria os indicadores primeiro
+  atualizarCarrossel();
+  iniciarAutoplay();
 });
