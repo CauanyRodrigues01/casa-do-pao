@@ -28,6 +28,14 @@
         "rodape";
 }
 
+@media (max-width: 768px) {
+
+    .container {
+        padding: var(--space-sm);
+    }
+
+}
+
 /* ===========================================
     CABECALHO PRINCIPAL
 =========================================== */
@@ -82,6 +90,86 @@
     justify-self: end;
 }
 
+@media (max-width: 992px) {
+
+    .cabecalho-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "logo "
+            "navbar-principal"
+            "botoes-autenticacao";
+        gap: var(--space-sm);
+    }
+
+    .navbar-principal {
+        justify-self: stretch;
+    }
+
+    .navbar-principal ul {
+        gap: var(--space-md);
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .botoes-autenticacao {
+        justify-self: start;
+        gap: var(--space-sm);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .cabecalho-container {
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: "logo . menu-toggle";
+        justify-items: start;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar-principal {
+        position: absolute;
+        top: 111px;
+        left: 0;
+        right: 0;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .navbar-principal.menu-open {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .navbar-principal ul {
+        gap: 0;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .navbar-principal li {
+        width: 100%;
+    }
+
+    .navbar-principal li:last-child {
+        margin-bottom: 0;
+    }
+
+    .navbar-principal a {
+        display: block;
+        width: 100%;
+        padding: var(--space-xs);
+    }
+
+    .botoes-autenticacao {
+        display: none;
+    }
+
+}
+
 /* ===========================================
     SEÇÃO HERO
 =========================================== */
@@ -133,6 +221,40 @@
     justify-content: center;
 }
 
+
+@media (max-width: 992px) {
+
+    .hero {
+        margin-top: 177px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .hero {
+        margin-top: 93px;
+        text-align: center;
+        max-height: 50vh;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        grid-template-areas: "hero-content";
+        align-self: center;
+    }
+
+    .hero-content {
+        text-align: center;
+        align-items: center;
+    }
+
+    .img-hero {
+        display: none;
+    }
+
+}
+
 /* ===========================================
     INTRO PARA TODAS AS SEÇÕES
 =========================================== */
@@ -151,7 +273,6 @@
     max-width: 80px;
     height: auto;
 }
-
 
 /* ===========================================
     SEÇÃO PRODUTOS DESTAQUE
@@ -217,7 +338,7 @@
     min-width: 230px;
     max-width: 230px;
     width: 230px;
-    flex: 0 0 240px;
+    flex: 0 0 230px;
     /* Mantém a largura mínima de cada produto */
     flex-shrink: 0;
     /* Impede que os itens encolham abaixo do min-width */
@@ -255,6 +376,33 @@
 .carousel-indicator {
     width: 12px;
     height: 12px;
+}
+
+@media (max-width: 768px) {
+
+    .container-carousel-products {
+        padding-top: var(--space-lg);
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .container-carousel-products {
+        padding: var(--space-xs);
+    }
+
+    .carousel-wrapper {
+        max-width: calc(100vw - 10px);
+        gap: var(--space-xs);
+    }
+
+    .product-card {
+        min-width: 220px;
+        max-width: 230px;
+        width: 230px;
+    }
+
 }
 
 /* ===========================================
@@ -328,6 +476,29 @@
     height: 12px;
 }
 
+@media (max-width: 768px) {
+
+    .carrossel-container {
+        max-width: calc(100vw - 40px);
+    }
+
+    .depoimento {
+        min-width: 300px;
+        padding: var(--space-md);
+        padding-bottom: 60px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .depoimento {
+        min-width: 280px;
+        max-width: 280px;
+    }
+
+}
+
 /* ===========================================
     SEÇÃO DIFERENCIAIS
 =========================================== */
@@ -394,6 +565,28 @@
     gap: var(--space-md);
 }
 
+@media (max-width: 480px) {
+
+    .cadastro-content {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "video-institucional"
+            "cadastro-info";
+        gap: var(--space-lg);
+    }
+
+    .video-institucional {
+        width: 90%;
+    }
+
+    .cadastro-info {
+        width: 90%;
+        align-items: center;
+        text-align: center;
+    }
+
+}
+
 /* ===========================================
     SEÇÃO GALERIA
 =========================================== */
@@ -418,6 +611,27 @@
     object-fit: cover;
 }
 
+@media (max-width: 768px) {
+
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-grid img {
+        width: 70%;
+        height: 200px;
+    }
+    
+}
+
 #venha-visitar {
     grid-area: venha-visitar;
 }
@@ -428,183 +642,4 @@
 
 #rodape {
     grid-area: rodape;
-}
-
-@media (max-width: 992px) {
-
-    .hero {
-        margin-top: 177px;
-    }
-
-    .cabecalho-container {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "logo "
-            "navbar-principal"
-            "botoes-autenticacao";
-        gap: var(--space-sm);
-    }
-
-    .navbar-principal {
-        justify-self: stretch;
-    }
-
-    .navbar-principal ul {
-        gap: var(--space-md);
-        flex-wrap: wrap;
-        justify-content: flex-start;
-    }
-
-    .botoes-autenticacao {
-        justify-self: start;
-        gap: var(--space-sm);
-    }
-}
-
-@media (max-width: 768px) {
-
-    .container {
-        padding: var(--space-sm);
-    }
-
-    .cabecalho-container {
-        grid-template-columns: auto 1fr auto;
-        grid-template-areas: "logo . menu-toggle";
-        justify-items: start;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .navbar-principal {
-        position: absolute;
-        top: 111px;
-        left: 0;
-        right: 0;
-        visibility: hidden;
-        opacity: 0;
-    }
-
-    .navbar-principal.menu-open {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .navbar-principal ul {
-        gap: 0;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .navbar-principal li {
-        width: 100%;
-    }
-
-    .navbar-principal li:last-child {
-        margin-bottom: 0;
-    }
-
-    .navbar-principal a {
-        display: block;
-        width: 100%;
-        padding: var(--space-xs);
-    }
-
-    .botoes-autenticacao {
-        display: none;
-    }
-
-    .hero {
-        margin-top: 93px;
-        text-align: center;
-        max-height: 50vh;
-    }
-
-    .hero-container {
-        grid-template-columns: 1fr;
-        grid-template-areas: "hero-content";
-        align-self: center;
-    }
-
-    .hero-content {
-        text-align: center;
-        align-items: center;
-    }
-
-    .img-hero {
-        display: none;
-    }
-
-    .container-carousel-products {
-        padding-top: var(--space-lg);
-    }
-
-    .carrossel-container {
-        max-width: calc(100vw - 40px);
-    }
-
-    .depoimento {
-        min-width: 300px;
-        padding: var(--space-md);
-        padding-bottom: 60px;
-    }
-
-    .galeria-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-}
-
-@media (max-width: 480px) {
-
-    .container-carousel-products {
-        padding: var(--space-xs);
-    }
-
-    .carousel-wrapper {
-        max-width: calc(100vw - 10px);
-        gap: var(--space-xs);
-    }
-
-    .product-card {
-        min-width: 220px;
-        max-width: 230px;
-        width: 230px;
-    }
-
-    .carrossel-container {
-        max-width: calc(100vw - 20px);
-    }
-
-    .depoimento {
-        min-width: 280px;
-        max-width: 280px;
-    }
-
-    .cadastro-content {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "video-institucional"
-            "cadastro-info";
-        gap: var(--space-lg);
-    }
-
-    .video-institucional {
-        width: 90%;
-    }
-
-    .cadastro-info {
-        width: 90%;
-        align-items: center;
-        text-align: center;
-    }
-
-    .galeria-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .galeria-grid img {
-        width: 70%;
-        height: 200px;
-    }
 }
