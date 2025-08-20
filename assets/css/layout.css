@@ -50,15 +50,17 @@
     gap: var(--space-sm);
 }
 
-.logo {
+.logo-cabecalho {
     grid-area: logo;
     justify-self: start;
+    width: 90px;
+    height: auto;
 }
 
 .menu-toggle {
-    display: none;
     grid-area: menu-toggle;
     justify-self: end;
+    display: none;
 }
 
 .navbar-principal {
@@ -143,6 +145,13 @@
     gap: var(--space-sm);
     margin: var(--space-lg) 0;
 }
+
+.logo-section {
+    width: 80px;
+    max-width: 80px;
+    height: auto;
+}
+
 
 /* ===========================================
     SEÇÃO PRODUTOS DESTAQUE

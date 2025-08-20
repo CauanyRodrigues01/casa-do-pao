@@ -31,11 +31,6 @@
    color: var(--text-light);
 }
 
-.logo-cabecalho {
-   width: 90px;
-   height: auto;
-}
-
 .menu-toggle {
    font-size: var(--text-xl);
    background: none;
@@ -66,21 +61,6 @@
 
 .hero {
    text-shadow: var(--text-shadow);
-}
-
-.logo-section {
-   width: 60px;
-   height: 60px;
-}
-
-/* ===========================================
-    INTRO PARA TODAS AS SEÇÕES
-=========================================== */
-
-.logo-section{
-   width: 80px;
-   max-width: 80px;
-   height: auto;
 }
 
 /* ===========================================
