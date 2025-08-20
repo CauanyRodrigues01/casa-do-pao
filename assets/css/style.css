@@ -55,6 +55,26 @@
    border-bottom: 1px solid var(--accent-hover);
 }
 
+@media (max-width: 768px) {
+
+   .navbar-principal {
+      z-index: 999;
+      background-color: var(--bg-dark);
+   }
+
+   .navbar-principal a {
+      text-align: center;
+   }
+
+   .navbar-principal a:hover {
+      border-bottom: 0;
+      border-radius: var(--radius);
+      background-color: var(--accent-muted);
+      color: var(--text-dark)
+   }
+
+}
+
 /* ===========================================
     SEÇÃO HERO
 =========================================== */
@@ -198,29 +218,4 @@
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     filter: brightness(1.05);
-}
-
-@media (max-width: 768px) {
-
-   .navbar-principal {
-      z-index: 999;
-      background-color: var(--bg-dark);
-      box-shadow: var(--shadow);
-   }
-
-   .navbar-principal a {
-      text-align: center;
-   }
-
-   .navbar-principal a:hover {
-      border-bottom: 0;
-      border-radius: var(--radius);
-      background-color: var(--accent-muted);
-      color: var(--text-dark)
-   }
-
-   .produto {
-      min-width: 210px;
-   }
-
 }
