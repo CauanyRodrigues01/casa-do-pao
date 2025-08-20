@@ -86,7 +86,7 @@
 
 .hero {
     grid-area: hero;
-    margin-top: 112px;
+    margin-top: 77px;
     position: relative;
 }
 
@@ -507,7 +507,7 @@
     }
 
     .hero {
-        margin-top: 96px;
+        margin-top: 93px;
         text-align: center;
         max-height: 50vh;
     }
