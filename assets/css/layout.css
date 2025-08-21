@@ -242,6 +242,7 @@
         grid-template-columns: 1fr;
         grid-template-areas: "hero-content";
         align-self: center;
+        min-height: 50vh;
     }
 
     .hero-content {
@@ -416,6 +417,7 @@
 .depoimentos-container {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .carrossel-container {
@@ -484,6 +486,8 @@
 
     .depoimento {
         min-width: 300px;
+        max-width: 350px;
+        width: 300px;
         padding: var(--space-md);
         padding-bottom: 60px;
     }
@@ -629,7 +633,7 @@
         width: 70%;
         height: 200px;
     }
-    
+
 }
 
 #venha-visitar {
