@@ -219,3 +219,23 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     filter: brightness(1.05);
 }
+
+/* ===========================================
+    SEÇÃO VENHA VISITAR
+=========================================== */
+
+.iframe-localizacao {
+   border: none;
+   border-radius: var(--radius);
+   box-shadow: var(--shadow);
+}
+
+.localizacao, .horario {
+   box-shadow: var(--shadow);
+   border-radius: var(--radius);
+}
+
+.horario li .marker {
+   background-color: var(--primary-color);
+   border-radius: 50%;
+}
