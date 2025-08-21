@@ -774,7 +774,6 @@
 }
 
 .divisor {
-    background-color: var(--bg-light);
     width: 100%;
     height: 1px;
 }

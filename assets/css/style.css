@@ -260,6 +260,10 @@
    color: var(--secondary-color);
 }
 
+.divisor {
+    background-color: var(--bg-light);
+}
+
 .footer-detalhes {
    text-align: center;
 }
