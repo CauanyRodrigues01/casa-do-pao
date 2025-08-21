@@ -239,3 +239,11 @@
    background-color: var(--primary-color);
    border-radius: 50%;
 }
+
+/* ===========================================
+    SEÇÃO SOBRE NOS
+=========================================== */
+
+.sobre-nos-img {
+   border-radius: var(--radius);
+}

@@ -665,8 +665,9 @@
     gap: var(--space-md);
 }
 
-.localizacao, .horario {
-   padding: var(--space-sm);
+.localizacao,
+.horario {
+    padding: var(--space-sm);
 }
 
 .horario li {
@@ -676,9 +677,9 @@
 }
 
 .horario li .marker {
-   width: 6px;
-   height: 6px;
-   margin-left: 10px;
+    width: 6px;
+    height: 6px;
+    margin-left: 10px;
 }
 
 @media (max-width: 768px) {
@@ -693,6 +694,7 @@
 
     .iframe-localizacao {
         width: 90%;
+        height: 40vh;
     }
 
     .venha-visitar-info {
@@ -701,9 +703,52 @@
 
 }
 
+/* ===========================================
+    SEÇÃO SOBRE NOS
+=========================================== */
+
 #sobre-nos {
     grid-area: sobre-nos;
 }
+
+
+.sobre-nos-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "sobre-nos-info sobre-nos-img";
+    gap: var(--space-2xl);
+    align-items: center;
+    justify-items: center;
+}
+
+.sobre-nos-info {
+    grid-area: sobre-nos-info;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.sobre-nos-img {
+    grid-area: sobre-nos-img;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+
+    .sobre-nos-content {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "sobre-nos-info"
+            "sobre-nos-img";
+        gap: var(--space-lg);
+    }
+
+}
+
+/* ===========================================
+    RODAPE
+=========================================== */
 
 #rodape {
     grid-area: rodape;
