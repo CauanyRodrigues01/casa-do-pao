@@ -572,7 +572,7 @@
     gap: var(--space-md);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
 
     .cadastro-content {
         grid-template-columns: 1fr;
@@ -685,13 +685,13 @@
    margin-left: 10px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
 
-    .cadastro-content {
+    .venha-visitar-content {
         grid-template-columns: 1fr;
         grid-template-areas:
-            "iframe-localizacao"
-            ".venha-visitar-info";
+            "venha-visitar-info"
+            "iframe-localizacao";
         gap: var(--space-lg);
     }
 
