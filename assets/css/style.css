@@ -202,7 +202,6 @@
     box-shadow: var(--shadow);
 }
 
-
 /* ===========================================
     SEÇÃO GALERIA
 =========================================== */
@@ -246,4 +245,21 @@
 
 .sobre-nos-img {
    border-radius: var(--radius);
+}
+
+/* ===========================================
+    RODAPE
+=========================================== */
+
+#rodape {
+   background-color: var(--bg-dark);
+   color: var(--text-light)
+}
+
+#rodape h4 {
+   color: var(--secondary-color);
+}
+
+.footer-detalhes {
+   text-align: center;
 }
