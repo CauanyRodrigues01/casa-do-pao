@@ -442,7 +442,7 @@ function iniciarAutoplay() {
 
   autoplayInterval = setInterval(() => {
     moverCarrossel(1);
-  }, 5000);
+  }, 3000);
 }
 
 function pararAutoplay() {
