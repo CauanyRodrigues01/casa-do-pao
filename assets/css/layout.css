@@ -62,6 +62,7 @@
     grid-area: logo;
     justify-self: start;
     width: 90px;
+    max-width: 90px;
     height: auto;
 }
 
@@ -178,7 +179,6 @@
     grid-area: hero;
     margin-top: 77px;
     position: relative;
-    color:brown;
 }
 
 .hero-container {
@@ -395,7 +395,7 @@
     }
 
     .carousel-wrapper {
-        max-width: calc(100vw - 40px);
+        max-width: calc(100vw - 50px);
         gap: var(--space-xs);
     }
 
