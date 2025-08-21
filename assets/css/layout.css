@@ -258,6 +258,33 @@
 }
 
 /* ===========================================
+    BOTOES FLUTUANTES
+=========================================== */
+
+.botoes-fixos {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.botoes-fixos>* {
+    width: 50px;
+    height: 50px;
+    padding: var(--space-xs);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    border-radius: 1000px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===========================================
     INTRO PARA TODAS AS SEÇÕES
 =========================================== */
 
@@ -786,7 +813,7 @@
         align-items: center;
     }
 
-    .rodape-informacoes > * {
+    .rodape-informacoes>* {
         width: 100%;
         text-align: center;
     }
