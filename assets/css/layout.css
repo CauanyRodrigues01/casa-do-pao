@@ -394,7 +394,7 @@
     }
 
     .carousel-wrapper {
-        max-width: calc(100vw - 10px);
+        max-width: calc(100vw - 40px);
         gap: var(--space-xs);
     }
 
