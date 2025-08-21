@@ -471,6 +471,7 @@
     justify-content: center;
     gap: var(--space-sm);
     margin-top: var(--space-xl);
+    padding-bottom: var(--space-xs);
 }
 
 .indicador {
