@@ -628,10 +628,6 @@
 
 @media (max-width: 480px) {
 
-    .galeria-grid {
-        grid-template-columns: 1fr;
-    }
-
     .galeria-grid img {
         width: 70%;
         height: 200px;
