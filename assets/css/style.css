@@ -79,10 +79,11 @@
     BOTOES FLUTUANTES
 =========================================== */
 
-.botoes-fixos > * {
-   background-color: var(--bg-dark);
+.botoes-fixos>* {
+   background-color: var(--secondary-color);
    color: var(--text-light);
    border-radius: 50%;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 /* ===========================================
@@ -208,8 +209,8 @@
 =========================================== */
 
 .video-institucional {
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
+   border-radius: var(--radius);
+   box-shadow: var(--shadow);
 }
 
 /* ===========================================
@@ -217,16 +218,16 @@
 =========================================== */
 
 .galeria-grid img {
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    cursor: pointer;
+   border-radius: var(--radius);
+   box-shadow: var(--shadow);
+   transition: var(--transition);
+   cursor: pointer;
 }
 
 .galeria-grid img:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    filter: brightness(1.05);
+   transform: translateY(-5px) scale(1.02);
+   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+   filter: brightness(1.05);
 }
 
 /* ===========================================
@@ -239,7 +240,8 @@
    box-shadow: var(--shadow);
 }
 
-.localizacao, .horario {
+.localizacao,
+.horario {
    box-shadow: var(--shadow);
    border-radius: var(--radius);
 }
@@ -257,6 +259,14 @@
    border-radius: var(--radius);
 }
 
+@media (max-width: 768px) {
+
+   .sobre-nos-info {
+      text-align: center;
+   }
+
+}
+
 /* ===========================================
     RODAPE
 =========================================== */
@@ -270,8 +280,12 @@
    color: var(--secondary-color);
 }
 
+.endereco {
+   text-align: center;
+}
+
 .divisor {
-    background-color: var(--bg-light);
+   background-color: var(--bg-light);
 }
 
 .footer-detalhes {

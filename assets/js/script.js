@@ -46,7 +46,10 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// Smooth scroll para âncoras
+/* ===========================================
+    SMOOTH SCROLL PARA ÂNCORAS
+=========================================== */
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
