@@ -20,6 +20,7 @@
 
   <link rel="stylesheet" href="assets/css/style.css">
 
+  <link rel="icon" type="image/x-icon" href="assets/img/logo-aba.png">
   <title>Casa do pão | Pães Frescos Todos os Dias</title>
 
 </head>
@@ -32,28 +33,44 @@
     <header id="cabecalho-principal">
       <div class="container">
         <div class="cabecalho-container">
+
           <!-- Logo -->
-          <a href="index.html" class="logo-link" aria-label="Voltar para a página inicial">
+          <a href="index.html" aria-label="Voltar para a página inicial">
             <img src="./assets/img/logo-cabecalho.png" class="logo-cabecalho" alt="Logo da padaria Casa do Pão">
           </a>
-          <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+
+          <!-- Botão de menu -->
+          <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+            <i class="bi bi-list"></i>
+          </button>
+
           <!-- Navegação principal -->
-          <nav class="navbar-principal">
+          <nav class="navbar-principal" role="navigation">
             <ul class="menu">
-              <li><a href="#hero">Início</a></li>
-              <li><a href="#depoimentos">Depoimentos</a></li>
-              <li><a href="#diferenciais">Diferenciais</a></li>
-              <li><a href="cadastro.html" target="_blank" rel="noopener noreferrer">Cadastro</a></li>
-              <li><a href="#galeria">Galeria</a></li>
-              <li><a href="#venha-visitar">Onde estamos</a></li>
-              <li><a href="#sobre-nos">Sobre nós</a></li>
-              <li><a href="fale-conosco.html">Contato</a></li>
+              <li class="menu-item dropdown">
+                <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                  Início
+                </button>
+                <div class="dropdown-menu" role="menu">
+                  <a href="#produtos-destaque" class="dropdown-item" role="menuitem">Produtos Principais</a>
+                  <a href="#depoimentos" class="dropdown-item" role="menuitem">Depoimentos</a>
+                  <a href="#diferenciais" class="dropdown-item" role="menuitem">Diferenciais</a>
+                  <a href="#cadastro" class="dropdown-item" role="menuitem">Cadastro</a>
+                  <a href="#galeria" class="dropdown-item" role="menuitem">Galeria</a>
+                  <a href="#venha-visitar" class="dropdown-item" role="menuitem">Onde estamos</a>
+                  <a href="#sobre-nos" class="dropdown-item" role="menuitem">Sobre nós</a>
+                </div>
+              </li>
+              <li class="menu-item"><a href="cardapio.html" class="menu-link">Cardápio</a></li>
+              <li class="menu-item"><a href="contato.html" class="menu-link">Contato</a></li>
+              <li class="menu-item"><a href="sobre-nos.html" class="menu-link">Sobre nós</a></li>
             </ul>
           </nav>
+
           <div class="botoes-autenticacao">
-            <a href="" class="btn bi bi-cart"></a>
+            <a href="carrinho.html" class="btn bi bi-cart"></a>
             <a href="cadastro.html" class="btn btn-primary-dark">Criar conta</a>
-            <a href="" class="btn btn-secondary-dark">Entrar</a>
+            <a href="login.html" class="btn btn-secondary-dark">Entrar</a>
           </div>
         </div>
       </div>
@@ -424,9 +441,14 @@
               <section class="horario">
                 <strong>Horário de Funcionamento</strong>
                 <ul>
-                  <li><div class="marker"></div>Segunda a Sexta: 6h às 19h</dd>
-                  <li><div class="marker"></div>Sábado: 6h às 18h</li>
-                  <li><div class="marker"></div>Domingo: 7h às 13h</li>
+                  <li>
+                    <div class="marker"></div>Segunda a Sexta: 6h às 19h</dd>
+                  <li>
+                    <div class="marker"></div>Sábado: 6h às 18h
+                  </li>
+                  <li>
+                    <div class="marker"></div>Domingo: 7h às 13h
+                  </li>
                 </ul>
               </section>
             </div>
@@ -445,15 +467,17 @@
             <p>Conheça a história da nossa padaria e nossa missão de levar qualidade e sabor para sua mesa.</p>
           </div>
           <div class="sobre-nos-content">
-          <div class="sobre-nos-info">
-            <p>Há mais de 35 anos, a Padaria do Pão tem sido o coração da nossa comunidade, oferecendo pães frescos e
-              produtos de qualidade todos os dias. Nossa história começou em 1985 com o sonho de uma família de trazer o
-              melhor da panificação tradicional para nossa cidade.</p>
-            <p>Cada produto é feito com amor, usando receitas tradicionais e ingredientes cuidadosamente selecionados.
-              Nossa equipe trabalha desde as primeiras horas da manhã para garantir que você sempre encontre pães
-              quentinhos e deliciosos.</p>
-          </div>
-          <img class= "sobre-nos-img" src="./assets/img/equipe.jpg" alt="Três chefs de cozinha posando em uma cozinha profissional, todos usando uniforme branco e avental cinza.">
+            <div class="sobre-nos-info">
+              <p>Há mais de 35 anos, a Padaria do Pão tem sido o coração da nossa comunidade, oferecendo pães frescos e
+                produtos de qualidade todos os dias. Nossa história começou em 1985 com o sonho de uma família de trazer
+                o
+                melhor da panificação tradicional para nossa cidade.</p>
+              <p>Cada produto é feito com amor, usando receitas tradicionais e ingredientes cuidadosamente selecionados.
+                Nossa equipe trabalha desde as primeiras horas da manhã para garantir que você sempre encontre pães
+                quentinhos e deliciosos.</p>
+            </div>
+            <img class="sobre-nos-img" src="./assets/img/equipe.jpg"
+              alt="Três chefs de cozinha posando em uma cozinha profissional, todos usando uniforme branco e avental cinza.">
           </div>
         </div>
       </div>

@@ -8,7 +8,6 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: var(--space-xs) var(--space-md);
-    overflow: hidden;
 }
 
 .main-grid {
@@ -77,11 +76,62 @@
     position: relative;
 }
 
-.navbar-principal ul {
+.menu {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-link {
+    display: block;
+}
+
+.dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.dropdown-menu {
+    position: absolute;
+    /* posiciona este elemento a uma distância igual a 100% da altura do elemento pai, a partir do topo do pai */
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    z-index: 1001;
+    min-width: 200px;
+    margin-top: var(--space-xs);
+}
+
+.dropdown-menu a {
+    border-radius: var(--radius);
+}
+
+.dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-item {
+    display: block;
+    min-width: 100%;
+    padding: var(--space-xs) var(--space-sm);
 }
 
 .botoes-autenticacao {
@@ -106,7 +156,7 @@
         justify-self: stretch;
     }
 
-    .navbar-principal ul {
+    .menu {
         gap: var(--space-md);
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -138,6 +188,7 @@
         right: 0;
         visibility: hidden;
         opacity: 0;
+        z-index: 999;
     }
 
     .navbar-principal.menu-open {
@@ -145,17 +196,17 @@
         opacity: 1;
     }
 
-    .navbar-principal ul {
+    .menu {
         gap: 0;
         flex-direction: column;
         justify-content: center;
     }
 
-    .navbar-principal li {
+    .menu li {
         width: 100%;
     }
 
-    .navbar-principal li:last-child {
+    .menu li:last-child {
         margin-bottom: 0;
     }
 
@@ -163,6 +214,23 @@
         display: block;
         width: 100%;
         padding: var(--space-xs);
+    }
+
+    .dropdown-toggle {
+        width: 100%;
+        padding: var(--space-sm);
+        justify-content: center;
+    }
+
+    .dropdown-menu {
+        position: static;
+        display: none;
+        margin-top: 0;
+    }
+
+    .dropdown.active .dropdown-menu {
+        width: 50%;
+        max-width: 50%;
     }
 
     .botoes-autenticacao {
