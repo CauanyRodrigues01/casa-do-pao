@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Padaria do Pão - Pães frescos todos os dias. Tradição e sabor desde 1985. Os melhores pães, doces e salgados da cidade.">
+  <meta name="keywords" content="padaria, pães, doces, salgados, café da manhã, delivery">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="Casa do pão - Pães Frescos Todos os Dias">
+  <meta property="og:description"
+    content="Tudo a padaria Casa do Pão, cardápio, pedidos, história, galeria, depoimentos e muito mais!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cauanyrodrigues01.github.io/casa-do-pao/sobre-nos.html">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <title>Sobre Nós | Casa do pão</title>
+</head>
+
+<body>
+
+    <!-- Trabalhe Conosco -->
+    <section>
+        <h1>Trabalhe Conosco</h1>
+        <p>Tem alguma dúvida, sugestão, elogio ou precisa de ajuda?</p>
+        <p>Preencha o formulário abaixo e responderemos o mais breve possível.</p>
+        <form>
+            <fieldset>
+                <legend>Trabalhe Conosco</legend>
+
+                <div>
+                    <label for="nome">Nome completo *</label>
+                    <input type="text" id="nome" name="nome" required maxlength="100" placeholder="Seu nome">
+                </div>
+
+                <div>
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                </div>
+
+                <div>
+                    <label for="telefone">Telefone *</label>
+                    <input type="tel" id="telefone" name="telefone" required placeholder="(XX) XXXX-XXXX"
+                        pattern="\(?\d{2}\)? ?\d{4,5}-?\d{4}">
+                </div>
+
+                <div>
+                    <label for="cargo">Área de interesse *</label>
+                    <select id="cargo" name="cargo" required>
+                        <option value="">Selecione</option>
+                        <option value="atendimento">Atendimento</option>
+                        <option value="producao">Produção</option>
+                        <option value="entregas">Entregas</option>
+                        <option value="limpeza">Limpeza</option>
+                        <option value="administrativo">Administrativo</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="mensagem">Apresente-se brevemente *</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" required
+                        placeholder="Conte um pouco sobre você, sua experiência e por que quer trabalhar conosco."></textarea>
+                </div>
+
+                <div>
+                    <label for="curriculo">Currículo (PDF) *</label>
+                    <input type="file" id="curriculo" name="curriculo" accept=".pdf" required>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="consentimento" name="consentimento" required>
+                    <label for="consentimento">
+                        Autorizo o uso dos meus dados para fins de recrutamento e seleção conforme a <a
+                            href="/politica-de-privacidade.html" target="_blank">Política de Privacidade</a>. *
+                    </label>
+                </div>
+
+                <div>
+                    <button type="submit">Enviar candidatura</button>
+                </div>
+            </fieldset>
+            <p>Agradecemos sua mensagem! Em breve, pão quentinho e resposta na sua caixa de entrada.</p>
+        </form>
+    </section>
+
+</body>
+
+</html>
