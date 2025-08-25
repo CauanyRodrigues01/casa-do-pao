@@ -1,20 +1,60 @@
 /* ===========================================
-    MENU HAMBÚRGUER
+  DROPDOWN DE NAVEGAÇÃO
 =========================================== */
+const dropdowns = document.querySelectorAll(".dropdown");
 
-const toggle = document.querySelector(".menu-toggle");
+dropdowns.forEach((dropdown) => {
+  const toggle = dropdown.querySelector(".dropdown-toggle");
+  const menu = dropdown.querySelector(".dropdown-menu");
+
+  toggle.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Fecha outros dropdowns
+    dropdowns.forEach((otherDropdown) => {
+      if (otherDropdown !== dropdown) {
+        otherDropdown.classList.remove("active");
+        otherDropdown
+          .querySelector(".dropdown-toggle")
+          .setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Toggle do dropdown atual
+    const isActive = dropdown.classList.contains("active");
+    dropdown.classList.toggle("active");
+    toggle.setAttribute("aria-expanded", !isActive);
+  });
+});
+
+// Fecha dropdown ao clicar fora
+document.addEventListener("click", function (e) {
+  if (!e.target.closest(".dropdown")) {
+    dropdowns.forEach((dropdown) => {
+      dropdown.classList.remove("active");
+      dropdown
+        .querySelector(".dropdown-toggle")
+        .setAttribute("aria-expanded", "false");
+    });
+  }
+});
+
+/* ===========================================
+  MENU HAMBÚRGUER
+=========================================== */
+const menuToggle = document.querySelector(".menu-toggle");
 const navbar = document.querySelector(".navbar-principal");
 
-toggle.addEventListener("click", () => {
-  navbar.classList.toggle("menu-open");
+menuToggle.addEventListener("click", () => {
 
   // Animar o ícone do hambúrguer
   if (navbar.classList.contains("menu-open")) {
-    toggle.innerHTML = "✕";
-    toggle.setAttribute("aria-expanded", "true");
+    menuToggle.innerHTML = '<i class="bi bi-x"></i>';
+    menuToggle.setAttribute("aria-expanded", "true");
   } else {
-    toggle.innerHTML = "☰";
-    toggle.setAttribute("aria-expanded", "false");
+    menuToggle.innerHTML = '<i class="bi bi-list"></i>';
+    menuToggle.setAttribute("aria-expanded", "false");
   }
 });
 
@@ -22,17 +62,17 @@ toggle.addEventListener("click", () => {
 document.querySelectorAll(".navbar-principal a").forEach((link) => {
   link.addEventListener("click", () => {
     navbar.classList.remove("menu-open");
-    toggle.innerHTML = "☰";
-    toggle.setAttribute("aria-expanded", "false");
+    menuToggle.innerHTML = '<i class="bi bi-list"></i>';
+    menuToggle.setAttribute("aria-expanded", "false");
   });
 });
 
 // Fechar menu ao clicar fora dele
 document.addEventListener("click", (e) => {
-  if (!toggle.contains(e.target) && !navbar.contains(e.target)) {
+  if (!menuToggle.contains(e.target) && !navbar.contains(e.target)) {
     navbar.classList.remove("menu-open");
-    toggle.innerHTML = "☰";
-    toggle.setAttribute("aria-expanded", "false");
+    menuToggle.innerHTML = '<i class="bi bi-list"></i>';
+    menuToggle.setAttribute("aria-expanded", "false");
   }
 });
 
@@ -40,16 +80,15 @@ document.addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && navbar.classList.contains("menu-open")) {
     navbar.classList.remove("menu-open");
-    toggle.innerHTML = "☰";
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.focus();
+    menuToggle.innerHTML = '<i class="bi bi-list"></i>';
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.focus();
   }
 });
 
 /* ===========================================
-    SMOOTH SCROLL PARA ÂNCORAS
+  SMOOTH SCROLL PARA ÂNCORAS
 =========================================== */
-
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -63,6 +102,21 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       window.scrollTo({
         top: targetPosition,
         behavior: "smooth",
+      });
+
+      // Fecha menu mobile se estiver aberto
+      if (navbar.classList.contains("menu-open")) {
+        navbar.classList.remove("menu-open");
+        menuToggle.innerHTML = '<i class="bi bi-list"></i>';
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+
+      // Fecha dropdown se estiver aberto
+      dropdowns.forEach((dropdown) => {
+        dropdown.classList.remove("active");
+        dropdown
+          .querySelector(".dropdown-toggle")
+          .setAttribute("aria-expanded", "false");
       });
     }
   });
