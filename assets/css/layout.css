@@ -937,6 +937,10 @@
         gap: var(--space-lg);
     }
 
+    .sobre-nos-info {
+        align-items: center;
+    }
+
 }
 
 /* ===========================================
