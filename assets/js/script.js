@@ -429,57 +429,242 @@ document.addEventListener("DOMContentLoaded", () => {
     CAROUSEL DE DEPOIMENTOS
 =========================================== */
 
+// Configurações do carrossel
+const carouselConfig = {
+  autoplayDelay: 5000, // 5 segundos para melhor leitura
+  transitionDuration: 400,
+  swipeThreshold: 75,
+  preloadDistance: 1, // Quantas imagens carregar antecipadamente
+};
+
+// Variáveis globais
 let slideAtual = 0;
 let autoplayInterval;
+let isTransitioning = false;
 const slides = document.querySelectorAll(".depoimento");
 const totalSlides = slides.length;
 const carrossel = document.getElementById("carrossel");
 const indicadoresContainer = document.getElementById("indicadores");
 let indicadores = [];
+let prevButton, nextButton;
 
-// Gerar indicadores dinamicamente
+// Criar botões de navegação
+function criarBotoesNavegacao() {
+  const carrosselContainer = document.querySelector(".carrossel-container");
+  if (!carrosselContainer || totalSlides <= 1) return;
+
+  // Botão anterior
+  prevButton = document.createElement("button");
+  prevButton.className = "carousel-nav prev";
+  prevButton.type = "button";
+  prevButton.setAttribute("aria-label", "Ir para depoimento anterior");
+  prevButton.innerHTML = `
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="15,18 9,12 15,6"></polyline>
+    </svg>
+  `;
+  prevButton.addEventListener("click", () => moverCarrossel(-1));
+
+  // Botão próximo
+  nextButton = document.createElement("button");
+  nextButton.className = "carousel-nav next";
+  nextButton.type = "button";
+  nextButton.setAttribute("aria-label", "Ir para próximo depoimento");
+  nextButton.innerHTML = `
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="9,18 15,12 9,6"></polyline>
+    </svg>
+  `;
+  nextButton.addEventListener("click", () => moverCarrossel(1));
+
+  // Adicionar ao container
+  carrosselContainer.appendChild(prevButton);
+  carrosselContainer.appendChild(nextButton);
+
+  // Event listeners para pausar autoplay
+  [prevButton, nextButton].forEach((button) => {
+    button.addEventListener("mouseenter", pararAutoplay);
+    button.addEventListener("mouseleave", iniciarAutoplay);
+    button.addEventListener("focus", pararAutoplay);
+    button.addEventListener("blur", iniciarAutoplay);
+  });
+}
+
+// Atualizar estados dos botões
+function atualizarBotoesNavegacao() {
+  if (!prevButton || !nextButton) return;
+
+  // Em carrossel circular, todos os botões ficam sempre habilitados
+  // Mas podemos adicionar feedback visual
+  prevButton.classList.toggle("disabled", false);
+  nextButton.classList.toggle("disabled", false);
+
+  // Opcional: desabilitar em carrossel linear
+  // prevButton.disabled = slideAtual === 0;
+  // nextButton.disabled = slideAtual === totalSlides - 1;
+}
 function criarIndicadores() {
-  indicadoresContainer.innerHTML = ""; // Limpa indicadores existentes
+  if (!indicadoresContainer || totalSlides === 0) return;
+
+  indicadoresContainer.innerHTML = "";
+  indicadoresContainer.setAttribute("role", "tablist");
+  indicadoresContainer.setAttribute("aria-label", "Navegação dos depoimentos");
+
   indicadores = [];
 
   for (let i = 0; i < totalSlides; i++) {
-    const indicador = document.createElement("div");
+    const indicador = document.createElement("button");
     indicador.classList.add("indicador");
+    indicador.setAttribute("role", "tab");
+    indicador.setAttribute("type", "button");
+    indicador.setAttribute(
+      "aria-label",
+      `Ver depoimento ${i + 1} de ${totalSlides}`
+    );
+    indicador.setAttribute("aria-selected", i === 0 ? "true" : "false");
+    indicador.setAttribute("tabindex", i === 0 ? "0" : "-1");
+
     if (i === 0) indicador.classList.add("ativo");
 
-    // Adiciona evento de clique
+    // Eventos do indicador
     indicador.addEventListener("click", () => irParaSlide(i));
+    indicador.addEventListener("keydown", handleIndicatorKeydown);
 
     indicadoresContainer.appendChild(indicador);
     indicadores.push(indicador);
   }
 }
 
-// Calcula a largura de um slide incluindo o gap
+// Navegação por teclado nos indicadores
+function handleIndicatorKeydown(e) {
+  const currentIndex = indicadores.indexOf(e.target);
+  let newIndex = currentIndex;
+
+  switch (e.key) {
+    case "ArrowLeft":
+    case "ArrowUp":
+      e.preventDefault();
+      newIndex = currentIndex > 0 ? currentIndex - 1 : totalSlides - 1;
+      break;
+    case "ArrowRight":
+    case "ArrowDown":
+      e.preventDefault();
+      newIndex = currentIndex < totalSlides - 1 ? currentIndex + 1 : 0;
+      break;
+    case "Home":
+      e.preventDefault();
+      newIndex = 0;
+      break;
+    case "End":
+      e.preventDefault();
+      newIndex = totalSlides - 1;
+      break;
+    case "Enter":
+    case " ":
+      e.preventDefault();
+      irParaSlide(currentIndex);
+      return;
+  }
+
+  if (newIndex !== currentIndex) {
+    indicadores[newIndex].focus();
+    irParaSlide(newIndex);
+  }
+}
+
+// Calcula largura do slide com gap
 function getSlideWidth() {
   if (slides.length === 0) return 0;
 
   const slide = slides[0];
-  const computedStyle = getComputedStyle(slide);
   const slideWidth = slide.offsetWidth;
-  const gap = parseFloat(getComputedStyle(carrossel).gap) || 24; // Pega o gap do próprio carrossel
+  const gap = parseFloat(getComputedStyle(carrossel).gap) || 24;
   return slideWidth + gap;
 }
 
+// Atualiza posição e estados visuais
 function atualizarCarrossel() {
-  if (!carrossel || indicadores.length === 0) return;
+  if (!carrossel || indicadores.length === 0 || isTransitioning) return;
+
+  isTransitioning = true;
 
   const slideWidth = getSlideWidth();
   const translateX = slideAtual * slideWidth;
+
+  // Aplica transformação suave
+  carrossel.style.transition = `transform ${carouselConfig.transitionDuration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
   carrossel.style.transform = `translateX(-${translateX}px)`;
 
   // Atualizar indicadores
   indicadores.forEach((indicador, index) => {
-    indicador.classList.toggle("ativo", index === slideAtual);
+    const isActive = index === slideAtual;
+    indicador.classList.toggle("ativo", isActive);
+    indicador.setAttribute("aria-selected", isActive);
+    indicador.setAttribute("tabindex", isActive ? "0" : "-1");
+  });
+
+  // Marcar slides ativos/inativos
+  slides.forEach((slide, index) => {
+    slide.classList.toggle("ativo", index === slideAtual);
+    slide.setAttribute("aria-hidden", index !== slideAtual);
+  });
+
+  // Atualizar aria-live para leitores de tela
+  carrossel.setAttribute(
+    "aria-label",
+    `Depoimento ${slideAtual + 1} de ${totalSlides}`
+  );
+
+  // Atualizar botões de navegação
+  atualizarBotoesNavegacao();
+
+  // Preload de imagens próximas
+  preloadAdjacentImages();
+
+  // Reset da flag de transição
+  setTimeout(() => {
+    isTransitioning = false;
+  }, carouselConfig.transitionDuration);
+}
+
+// Preload inteligente de imagens (apenas se necessário)
+function preloadAdjacentImages() {
+  const imagesToPreload = [];
+
+  for (let i = 1; i <= carouselConfig.preloadDistance; i++) {
+    // Próximas imagens
+    const nextIndex = (slideAtual + i) % totalSlides;
+    // Imagens anteriores
+    const prevIndex =
+      slideAtual - i < 0 ? totalSlides + (slideAtual - i) : slideAtual - i;
+
+    imagesToPreload.push(nextIndex, prevIndex);
+  }
+
+  imagesToPreload.forEach((index) => {
+    const slide = slides[index];
+    if (!slide) return;
+
+    const img = slide.querySelector(".user-info img[data-src]");
+    if (img && !img.complete) {
+      const preloadImg = new Image();
+      preloadImg.onload = () => {
+        img.src = img.dataset.src;
+        img.removeAttribute("data-src");
+        img.classList.remove("loading");
+      };
+      preloadImg.onerror = () => {
+        img.classList.add("error");
+      };
+      preloadImg.src = img.dataset.src;
+    }
   });
 }
 
+// Move carrossel com validações
 function moverCarrossel(direcao) {
+  if (isTransitioning || totalSlides <= 1) return;
+
   slideAtual += direcao;
 
   if (slideAtual >= totalSlides) {
@@ -490,21 +675,52 @@ function moverCarrossel(direcao) {
 
   atualizarCarrossel();
   reiniciarAutoplay();
+
+  // Anunciar mudança para leitores de tela
+  anunciarMudancaSlide();
 }
 
+// Ir para slide específico
 function irParaSlide(index) {
+  if (
+    isTransitioning ||
+    index === slideAtual ||
+    index < 0 ||
+    index >= totalSlides
+  )
+    return;
+
   slideAtual = index;
   atualizarCarrossel();
   reiniciarAutoplay();
+  anunciarMudancaSlide();
 }
 
-function iniciarAutoplay() {
-  // Limpa qualquer interval existente antes de criar um novo
-  pararAutoplay();
+// Anuncia mudanças para leitores de tela
+function anunciarMudancaSlide() {
+  const announcement = document.createElement("div");
+  announcement.setAttribute("aria-live", "polite");
+  announcement.setAttribute("aria-atomic", "true");
+  announcement.className = "sr-only";
+  announcement.textContent = `Mostrando depoimento ${
+    slideAtual + 1
+  } de ${totalSlides}`;
 
+  document.body.appendChild(announcement);
+
+  setTimeout(() => {
+    document.body.removeChild(announcement);
+  }, 1000);
+}
+
+// Gerenciamento do autoplay
+function iniciarAutoplay() {
+  if (totalSlides <= 1) return;
+
+  pararAutoplay();
   autoplayInterval = setInterval(() => {
     moverCarrossel(1);
-  }, 3000);
+  }, carouselConfig.autoplayDelay);
 }
 
 function pararAutoplay() {
@@ -519,83 +735,282 @@ function reiniciarAutoplay() {
   iniciarAutoplay();
 }
 
-// Aguarda o DOM estar pronto
+function toggleAutoplay() {
+  if (autoplayInterval) {
+    pararAutoplay();
+  } else {
+    iniciarAutoplay();
+  }
+}
+
+// Configurar acessibilidade do container
+function configurarAcessibilidade() {
+  if (!carrossel) return;
+
+  carrossel.setAttribute("role", "region");
+  carrossel.setAttribute("aria-label", "Carrossel de depoimentos de clientes");
+  carrossel.setAttribute("aria-live", "polite");
+  carrossel.setAttribute("tabindex", "0");
+
+  // Adicionar texto para leitores de tela
+  const instructions = document.createElement("div");
+  instructions.className = "sr-only";
+  instructions.textContent =
+    "Use as setas do teclado para navegar entre os depoimentos, ou pressione espaço para pausar/retomar a reprodução automática";
+  carrossel.parentNode.insertBefore(instructions, carrossel);
+}
+
+// Navegação global por teclado
+function adicionarNavegacaoTeclado() {
+  document.addEventListener("keydown", (e) => {
+    const carrosselContainer = document.querySelector(".carrossel-container");
+    if (
+      !carrosselContainer ||
+      !carrosselContainer.contains(document.activeElement)
+    )
+      return;
+
+    switch (e.key) {
+      case "ArrowLeft":
+        e.preventDefault();
+        moverCarrossel(-1);
+        break;
+      case "ArrowRight":
+        e.preventDefault();
+        moverCarrossel(1);
+        break;
+      case " ": // Spacebar para pausar/retomar
+        e.preventDefault();
+        toggleAutoplay();
+        break;
+      case "Home":
+        e.preventDefault();
+        irParaSlide(0);
+        break;
+      case "End":
+        e.preventDefault();
+        irParaSlide(totalSlides - 1);
+        break;
+      case "Escape":
+        e.preventDefault();
+        carrossel.blur();
+        break;
+    }
+  });
+}
+
+// Gerenciamento de touch/swipe
+function configurarTouch(carrosselContainer) {
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let touchStartY = 0;
+  let touchEndY = 0;
+  let isDragging = false;
+
+  carrosselContainer.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+      isDragging = true;
+      pararAutoplay();
+    },
+    { passive: true }
+  );
+
+  carrosselContainer.addEventListener(
+    "touchmove",
+    (e) => {
+      if (!isDragging) return;
+
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+
+      // Previne scroll vertical se for swipe horizontal
+      const deltaX = Math.abs(touchEndX - touchStartX);
+      const deltaY = Math.abs(touchEndY - touchStartY);
+
+      if (deltaX > deltaY && deltaX > 10) {
+        e.preventDefault();
+      }
+    },
+    { passive: false }
+  );
+
+  carrosselContainer.addEventListener(
+    "touchend",
+    (e) => {
+      if (!isDragging) return;
+
+      isDragging = false;
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+      iniciarAutoplay();
+    },
+    { passive: true }
+  );
+
+  function handleSwipe() {
+    const deltaX = touchStartX - touchEndX;
+    const deltaY = Math.abs(touchStartY - touchEndY);
+
+    // Só processa swipe se for mais horizontal que vertical
+    if (
+      Math.abs(deltaX) < carouselConfig.swipeThreshold ||
+      deltaY > Math.abs(deltaX)
+    )
+      return;
+
+    if (deltaX > 0) {
+      moverCarrossel(1); // Swipe esquerda - próximo
+    } else {
+      moverCarrossel(-1); // Swipe direita - anterior
+    }
+  }
+}
+
+// Observer para lazy loading (apenas se usar data-src)
+function configurarLazyLoading() {
+  // Verificar se existem imagens com data-src
+  const lazyImages = document.querySelectorAll("img[data-src]");
+  if (lazyImages.length === 0) {
+    return; // Não há lazy loading para fazer
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    // Fallback para navegadores antigos
+    slides.forEach(loadSlideImages);
+    return;
+  }
+
+  const imageObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          loadSlideImages(entry.target);
+          imageObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      rootMargin: "50px",
+    }
+  );
+
+  slides.forEach((slide) => imageObserver.observe(slide));
+}
+
+function loadSlideImages(slide) {
+  const images = slide.querySelectorAll("img[data-src]");
+  images.forEach((img) => {
+    img.classList.add("loading");
+
+    const tempImg = new Image();
+    tempImg.onload = () => {
+      img.src = img.dataset.src;
+      img.removeAttribute("data-src");
+      img.classList.remove("loading");
+    };
+    tempImg.onerror = () => {
+      img.classList.add("error");
+      img.classList.remove("loading");
+    };
+    tempImg.src = img.dataset.src;
+  });
+}
+
+// Inicialização principal
 document.addEventListener("DOMContentLoaded", () => {
-  // Verifica se os elementos existem
+  // Verificações de segurança
   if (!carrossel || slides.length === 0 || !indicadoresContainer) {
     console.error("Elementos do carrossel não encontrados");
     return;
   }
 
   const carrosselContainer = document.querySelector(".carrossel-container");
-
   if (!carrosselContainer) {
     console.error("Container do carrossel não encontrado");
     return;
   }
 
-  // Inicializar carrossel
+  // Configurações iniciais
+  configurarAcessibilidade();
+  criarBotoesNavegacao();
   criarIndicadores();
+  configurarLazyLoading();
+  adicionarNavegacaoTeclado();
+  configurarTouch(carrosselContainer);
+
+  // Estado inicial
   atualizarCarrossel();
   iniciarAutoplay();
 
-  // Event listeners para pausar/retomar autoplay
+  // Event listeners do container
   carrosselContainer.addEventListener("mouseenter", pararAutoplay);
   carrosselContainer.addEventListener("mouseleave", iniciarAutoplay);
 
-  // Suporte a scroll com rodinha do mouse
-  carrosselContainer.addEventListener("wheel", (e) => {
-    e.preventDefault(); // Impede o scroll vertical da página
+  // Suporte a scroll com roda do mouse
+  carrosselContainer.addEventListener(
+    "wheel",
+    (e) => {
+      e.preventDefault();
 
-    // Detecta direção do scroll
-    if (e.deltaY > 0) {
-      // Scroll para baixo = próximo slide
-      moverCarrossel(1);
-    } else {
-      // Scroll para cima = slide anterior
-      moverCarrossel(-1);
-    }
-  });
-
-  // Suporte a touch/swipe para dispositivos móveis
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  carrosselContainer.addEventListener("touchstart", (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    pararAutoplay();
-  });
-
-  carrosselContainer.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-    iniciarAutoplay();
-  });
-
-  function handleSwipe() {
-    const swipeThreshold = 50;
-    const diff = touchStartX - touchEndX;
-
-    if (Math.abs(diff) > swipeThreshold) {
-      if (diff > 0) {
-        moverCarrossel(1); // Swipe para esquerda - próximo
+      if (e.deltaY > 0) {
+        moverCarrossel(1);
       } else {
-        moverCarrossel(-1); // Swipe para direita - anterior
+        moverCarrossel(-1);
       }
-    }
-  }
+    },
+    { passive: false }
+  );
 
-  // Atualizar carrossel no redimensionamento da janela
+  // Redimensionamento da janela
+  let resizeTimeout;
   window.addEventListener("resize", () => {
-    atualizarCarrossel();
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      atualizarCarrossel();
+    }, 250);
   });
+
+  // Focus management
+  carrossel.addEventListener("focus", pararAutoplay);
+  carrossel.addEventListener("blur", iniciarAutoplay);
 });
 
-// Parar autoplay quando a aba não está visível (otimização)
+// Gerenciamento de visibilidade da página
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) {
     pararAutoplay();
-  } else {
+  } else if (slides.length > 1) {
     iniciarAutoplay();
   }
 });
+
+// Tratamento de erros globais
+window.addEventListener("error", (e) => {
+  if (e.target.tagName === "IMG" && e.target.closest(".depoimento")) {
+    e.target.classList.add("error");
+    console.warn("Erro ao carregar imagem do depoimento:", e.target.src);
+  }
+});
+
+// Utility: classe para screen readers
+if (!document.querySelector(".sr-only-styles")) {
+  const style = document.createElement("style");
+  style.className = "sr-only-styles";
+  style.textContent = `
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+  `;
+  document.head.appendChild(style);
+}

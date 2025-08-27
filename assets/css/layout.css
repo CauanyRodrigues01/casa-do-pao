@@ -626,6 +626,33 @@
     height: 12px;
 }
 
+
+/* Botões de navegação */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.carousel-nav.prev {
+    left: 20px;
+}
+
+.carousel-nav.next {
+    right: 20px;
+}
+
+/* Estados de loading */
+.depoimento img {
+    position: relative;
+}
+
+
 @media (max-width: 768px) {
 
     .carrossel-container {
@@ -640,6 +667,19 @@
         padding-bottom: 60px;
     }
 
+    .carousel-nav {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-nav.prev {
+        left: 10px;
+    }
+
+    .carousel-nav.next {
+        right: 10px;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -647,6 +687,11 @@
     .depoimento {
         min-width: 280px;
         max-width: 280px;
+    }
+
+    .carousel-nav {
+        width: 36px;
+        height: 36px;
     }
 
 }
