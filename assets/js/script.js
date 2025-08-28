@@ -1014,3 +1014,252 @@ if (!document.querySelector(".sr-only-styles")) {
   `;
   document.head.appendChild(style);
 }
+
+/* ===========================================
+    FORMULÁRIOS
+=========================================== */
+
+class SmartForm {
+  constructor(formId, config) {
+    this.form = document.getElementById(formId);
+    this.config = config || {};
+    this.validators = {};
+
+    if (!this.form) {
+      throw new Error(`Formulário com ID "${formId}" não encontrado.`);
+    }
+    this.init();
+  }
+
+  init() {
+    this.setupEventListeners();
+    this.setupPasswordStrength();
+    this.setupPasswordConfirmation();
+  }
+
+  addValidator(fieldName, validatorFunction, errorMessage) {
+    this.validators[fieldName] = {
+      validate: validatorFunction,
+      message: errorMessage,
+    };
+  }
+
+  setupEventListeners() {
+    this.form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      this.handleSubmit();
+    });
+
+    this.form.querySelectorAll("input, select, textarea").forEach((field) => {
+      field.addEventListener("blur", () => this.validateField(field));
+      field.addEventListener("input", () => {
+        if (field.checkValidity()) {
+          this.hideError(field);
+        }
+      });
+    });
+
+    const clearBtn = this.form.querySelector("#clearBtn");
+    if (clearBtn) {
+      clearBtn.addEventListener("click", () => this.handleClear());
+    }
+  }
+
+  validateForm() {
+    let isValid = true;
+    this.form.querySelectorAll("input, select, textarea").forEach((field) => {
+      if (!this.validateField(field)) {
+        isValid = false;
+      }
+    });
+    return isValid;
+  }
+
+  validateField(field) {
+    const isValid = field.checkValidity();
+    const customValidator = this.validators[field.name];
+
+    if (isValid && customValidator) {
+      const customValid = customValidator.validate(field.value, field);
+      if (!customValid) {
+        this.showError(field, customValidator.message);
+        return false;
+      }
+    }
+
+    if (isValid) {
+      this.hideError(field);
+      return true;
+    } else {
+      let message = this.getValidationMessage(field);
+      this.showError(field, message);
+      return false;
+    }
+  }
+
+  getValidationMessage(field) {
+    if (field.validity.valueMissing) {
+      return "Este campo é obrigatório";
+    } else if (field.validity.typeMismatch) {
+      return "Por favor, insira um formato válido";
+    } else if (field.validity.tooShort) {
+      return `Mínimo de ${field.minLength} caracteres`;
+    } else if (field.validity.tooLong) {
+      return `Máximo de ${field.maxLength} caracteres`;
+    } else if (field.validity.rangeUnderflow) {
+      return `Valor mínimo: ${field.min}`;
+    } else if (field.validity.rangeOverflow) {
+      return `Valor máximo: ${field.max}`;
+    }
+    return "Por favor, corrija este campo";
+  }
+
+  showError(field, message) {
+    const errorElement = document.getElementById(field.id + "-error");
+    if (errorElement) {
+      errorElement.textContent = message;
+      errorElement.style.display = "block";
+    }
+  }
+
+  hideError(field) {
+    const errorElement = document.getElementById(field.id + "-error");
+    if (errorElement) {
+      errorElement.style.display = "none";
+    }
+  }
+
+  setupPasswordStrength() {
+    const passwordField = this.form.querySelector("#password");
+    const strengthBar = this.form.querySelector("#password-strength-bar");
+    const strengthText = this.form.querySelector("#password-strength-text");
+
+    if (passwordField && strengthBar && strengthText) {
+      passwordField.addEventListener("input", () => {
+        const strength = this.calculatePasswordStrength(passwordField.value);
+        this.updatePasswordStrength(strengthBar, strengthText, strength);
+      });
+    }
+  }
+
+  calculatePasswordStrength(password) {
+    let strength = 0;
+    let feedback = [];
+
+    if (password.length >= 8) strength++;
+    else feedback.push("pelo menos 8 caracteres");
+
+    if (/[a-z]/.test(password)) strength++;
+    else feedback.push("letras minúsculas");
+
+    if (/[A-Z]/.test(password)) strength++;
+    else feedback.push("letras maiúsculas");
+
+    if (/[0-9]/.test(password)) strength++;
+    else feedback.push("números");
+
+    if (/[^A-Za-z0-9]/.test(password)) strength++;
+    else feedback.push("caracteres especiais");
+
+    return { strength, feedback };
+  }
+
+  updatePasswordStrength(strengthBar, strengthText, { strength, feedback }) {
+    strengthBar.className = "strength-bar";
+
+    if (strength <= 2) {
+      strengthBar.classList.add("strength-weak");
+      strengthText.textContent = `Senha fraca. Adicione: ${feedback
+        .slice(0, 2)
+        .join(", ")}`;
+    } else if (strength <= 4) {
+      strengthBar.classList.add("strength-medium");
+      strengthText.textContent = `Senha média. Considere adicionar: ${feedback.join(
+        ", "
+      )}`;
+    } else {
+      strengthBar.classList.add("strength-strong");
+      strengthText.textContent = "Senha forte! ✓";
+    }
+  }
+
+  setupPasswordConfirmation() {
+    const passwordField = this.form.querySelector("#password");
+    const confirmField = this.form.querySelector("#confirmPassword");
+
+    if (passwordField && confirmField) {
+      confirmField.addEventListener("input", () => {
+        if (confirmField.value && passwordField.value !== confirmField.value) {
+          this.showError(confirmField, "As senhas não coincidem");
+          confirmField.setCustomValidity("As senhas não coincidem");
+        } else {
+          this.hideError(confirmField);
+          confirmField.setCustomValidity("");
+        }
+      });
+    }
+  }
+
+  handleSubmit() {
+    if (this.validateForm()) {
+      const submitBtn = this.form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Criando conta...";
+
+      setTimeout(() => {
+        const successMessage = this.form.querySelector("#successMessage");
+        if (successMessage) {
+          successMessage.style.display = "block";
+          setTimeout(() => (successMessage.style.display = "none"), 5000);
+        }
+
+        // Lógica de envio do formulário aqui (AJAX, fetch, etc.)
+        const formData = new FormData(this.form);
+        for (const [key, value] of formData.entries()) {
+          console.log(`${key}: ${value}`);
+        }
+
+        this.form.reset();
+        this.resetPasswordStrength();
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }, 1500);
+    }
+  }
+
+  handleClear() {
+    if (confirm("Tem certeza que deseja limpar todos os campos?")) {
+      this.form.reset();
+      this.form.querySelectorAll(".error-message").forEach((error) => {
+        error.style.display = "none";
+      });
+      this.resetPasswordStrength();
+    }
+  }
+
+  resetPasswordStrength() {
+    const strengthBar = this.form.querySelector("#password-strength-bar");
+    const strengthText = this.form.querySelector("#password-strength-text");
+    if (strengthBar && strengthText) {
+      strengthBar.className = "strength-bar";
+      strengthText.textContent = "Digite uma senha forte";
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const registerForm = new SmartForm("registerForm");
+
+  // Exemplo de uso de validador customizado
+  registerForm.addValidator(
+    "email",
+    (value) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(value);
+    },
+    "Por favor, insira um e-mail válido."
+  );
+});
