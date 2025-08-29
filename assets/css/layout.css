@@ -143,28 +143,8 @@
 
 @media (max-width: 992px) {
 
-    .cabecalho-container {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "logo "
-            "navbar-principal"
-            "botoes-autenticacao";
-        gap: var(--space-sm);
-    }
-
-    .navbar-principal {
-        justify-self: stretch;
-    }
-
-    .menu {
-        gap: var(--space-md);
-        flex-wrap: wrap;
-        justify-content: flex-start;
-    }
-
     .botoes-autenticacao {
-        justify-self: start;
-        gap: var(--space-sm);
+        gap: var(--space-xs);
     }
 
 }
@@ -240,7 +220,7 @@
 }
 
 /* ===========================================
-    SEÇÃO HERO
+    SEÇÃO HERO DO INDEX
 =========================================== */
 
 .hero {
@@ -256,6 +236,7 @@
     gap: var(--space-2xl);
     align-items: center;
     padding: var(--space-lg) 0;
+    min-height: 80vh;
 }
 
 .hero-content {
@@ -288,15 +269,6 @@
 .container-section-grid {
     display: grid;
     justify-content: center;
-}
-
-
-@media (max-width: 992px) {
-
-    .hero {
-        margin-top: 177px;
-    }
-
 }
 
 @media (max-width: 768px) {
@@ -362,7 +334,7 @@
 }
 
 /* ===========================================
-    INTRO PARA TODAS AS SEÇÕES
+    INTRO PARA TODAS AS SEÇÕES DO INDEX
 =========================================== */
 
 .intro-section {
@@ -388,7 +360,8 @@
 #galeria,
 #venha-visitar,
 #sobre-nos,
-#rodape {
+#rodape,
+#cadastro {
     scroll-margin-top: 77px;
 }
 
@@ -423,7 +396,7 @@
 }
 
 /* ===========================================
-    SEÇÃO PRODUTOS DESTAQUE
+    SEÇÃO PRODUTOS DESTAQUE DO INDEX
 =========================================== */
 
 #produtos-destaque {
@@ -554,7 +527,7 @@
 }
 
 /* ===========================================
-    SEÇÃO DEPOIMENTOS
+    SEÇÃO DEPOIMENTOS DO INDEX
 =========================================== */
 
 #depoimentos {
@@ -626,8 +599,6 @@
     height: 12px;
 }
 
-
-/* Botões de navegação */
 .carousel-nav {
     position: absolute;
     top: 50%;
@@ -647,7 +618,6 @@
     right: 20px;
 }
 
-/* Estados de loading */
 .depoimento img {
     position: relative;
 }
@@ -697,7 +667,7 @@
 }
 
 /* ===========================================
-    SEÇÃO DIFERENCIAIS
+    SEÇÃO DIFERENCIAIS DO INDEX
 =========================================== */
 
 #diferenciais {
@@ -730,7 +700,7 @@
 }
 
 /* ===========================================
-    SEÇÃO CADASTRO
+    SEÇÃO CADASTRO DO INDEX
 =========================================== */
 
 #cadastro {
@@ -786,7 +756,7 @@
 }
 
 /* ===========================================
-    SEÇÃO GALERIA
+    SEÇÃO GALERIA DO INDEX
 =========================================== */
 
 #galeria {
@@ -827,7 +797,7 @@
 }
 
 /* ===========================================
-    SEÇÃO VENHA VISITAR
+    SEÇÃO VENHA VISITAR DO INDEX
 =========================================== */
 
 #venha-visitar {
@@ -895,7 +865,7 @@
 }
 
 /* ===========================================
-    SEÇÃO SOBRE NOS
+    SEÇÃO SOBRE NOS DO INDEX
 =========================================== */
 
 #sobre-nos {
@@ -985,4 +955,12 @@
         text-align: center;
     }
 
+}
+
+/* ===========================================
+    FORMULÁRIO GERAL
+=========================================== */
+
+#cadastro {
+    margin-top: 110px;
 }
