@@ -7,6 +7,9 @@
   --primary-color: #552814; /* Marrom forte: identidade da marca */
   --secondary-color: #BB793E; /* Caramelo: tom de apoio */
   --accent-color: #6B8E23; /* Verde oliva: destaques, links, botões */
+  --success-color: #10b981; /* Verde: sucesso */
+  --warning-color: #f59e0b; /* Amarelo: aviso */
+  --error-color: #e82525; /* Vermelho: erro */
 
   /* Variações para interações */
   --accent-hover: #819C4D; /* Verde oliva mais claro (hover) */
