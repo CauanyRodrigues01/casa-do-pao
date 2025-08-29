@@ -1,4 +1,6 @@
-/* ===== BOTÕES - COMPONENTES ===== */
+/* ===========================================
+    BOTÕES - COMPONENTES
+=========================================== */
 
 /* Base do botão */
 .btn {
@@ -15,7 +17,7 @@
     font-size: var(--font-size-base);
     text-align: center;
     line-height: 1.5;
-    min-height: 44px; 
+    min-height: 44px;
     gap: var(--space-xs);
 }
 
@@ -49,7 +51,7 @@
 .btn-secondary {
     background-color: transparent;
     color: var(--text-dark);
-    border-color: var(--border-color);
+    border-color: var(--border-dark);
 }
 
 /* ===== BOTÃO PARA FUNDO ESCURO ===== */
@@ -98,8 +100,8 @@
 */
 
 .setas-produtos {
-   padding: var(--space-xs) var(--space-xs);
-   border-radius: 50%;
+    padding: var(--space-xs) var(--space-xs);
+    border-radius: 50%;
 }
 
 .setas-produtos:hover {
@@ -111,4 +113,141 @@
     opacity: 0.5;
     cursor: not-allowed;
     transform: none;
+}
+
+/* ===========================================
+    FORMULÁRIO GERAL
+=========================================== */
+
+/* ===== CONTAINER & LAYOUT DE FORMULÁRIO ===== */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.form-container.wide {
+    max-width: 800px;
+}
+
+.form-container.narrow {
+    max-width: 400px;
+}
+
+/* === FORM HEADER === */
+.form-header {
+    padding: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    background: var(--gradient);
+    text-align: center;
+    color: var(--text-light);
+}
+
+.form-header.simple {
+    background: var(--primary-color);
+}
+
+.form-header.minimal {
+    background: transparent;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-dark);
+}
+
+.form-header a {
+    text-decoration: underline;
+}
+
+.form-header p,
+.form-header small {
+    opacity: 0.9;
+}
+
+/* === BASE FORM === */
+.smart-form {
+    padding: var(--space-2xl);
+}
+
+.smart-form.compact {
+    padding: var(--space-xl);
+}
+
+/* === FIELDSETS === */
+fieldset {
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-lg);
+}
+
+fieldset.borderless {
+    border: none;
+    padding: var(--space-lg) 0;
+    font-size: var(--text-xs);
+}
+
+legend {
+    font-weight: var(--font-weight-medium);
+    padding: 0 var(--space-xs);
+}
+
+/* === FIELD GROUPS === */
+.field-group {
+    margin-bottom: var(--space-sm);
+    position: relative;
+}
+
+.field-group:last-child {
+    margin-bottom: 0;
+}
+
+.field-group.inline {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: flex-end;
+}
+
+.field-group.inline>div {
+    flex: 1;
+}
+
+/* === LABELS === */
+label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+.required {
+    color: var(--error-color);
+}
+
+/* === INPUTS === */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--space-xs);
+    border: 2px solid var(--border-dark);
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow);
 }
