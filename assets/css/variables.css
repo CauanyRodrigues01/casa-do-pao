@@ -26,7 +26,6 @@
   --bg-dark: #3B1D10; /* Tom mais escuro do marrom: rodapés, cabeçalhos */
   --bg-muted: #7A6146; /* Fundo suave para caixas ou cards */
 
-
   /* Tipografia */
   --font-family-primary: "Open Sans", sans-serif;
   --font-family-secondary: "Domine", serif;
@@ -74,4 +73,7 @@
   --transition-fast: 150ms ease-in-out;
   --transition-normal: 250ms ease-in-out;
   --transition-slow: 350ms ease-in-out;
+
+  /* Gradiente */
+  --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
