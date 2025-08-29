@@ -112,7 +112,7 @@ h5,
 h6 {
     font-family: var(--font-family-secondary);
     line-height: 1.2;
-    color: var(--text-dark);
+    color: inherit;
 }
 
 h1 {
