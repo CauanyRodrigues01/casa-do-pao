@@ -6,16 +6,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-@import url('variables.css');
 /* 1º - Definir */
-@import url('reset.css');
+@import url('variables.css');
 /* 2º - Limpar */
-@import url('layout.css');
+@import url('reset.css');
 /* 3º - Estrutura */
-@import url('utilities.css');
+@import url('layout.css');
 /* 4º - Utilitários */
-@import url('components.css');
+@import url('utilities.css');
 /* 5º - Componentes */
+@import url('components.css');
 
 /* ESTILOS ESPECÍFICOS DO PROJETO */
 
@@ -205,8 +205,8 @@
 }
 
 .depoimento.ativo {
-    opacity: 1;
-    transform: scale(1);
+   opacity: 1;
+   transform: scale(1);
 }
 
 .depoimento:hover {
@@ -238,43 +238,51 @@
 
 /* Botões de navegação */
 .carousel-nav {
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.95);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-  color: var(--color-text, #333);
+   transform: translateY(-50%);
+   background: rgba(255, 255, 255, 0.95);
+   border: none;
+   border-radius: 50%;
+   cursor: pointer;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+   transition: all 0.3s ease;
+   color: var(--color-text, #333);
 }
 
 .carousel-nav:hover {
-  background: white;
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+   background: white;
+   transform: translateY(-50%) scale(1.1);
+   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-nav:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
+   outline: 2px solid var(--primary-color);
+   outline-offset: 2px;
 }
 
 /* Estados de loading */
 .depoimento img {
-    background: var(--accent-muted);
+   background: var(--accent-muted);
 }
 
 .depoimento img[data-src] {
-    background-image: url('data:image/svg+xml,<svg>...</svg>'); /* Placeholder */
+   background-image: url('data:image/svg+xml,<svg>...</svg>');
+   /* Placeholder */
 }
 
 .depoimento img.loading {
-    animation: pulse 1.5s ease-in-out infinite;
+   animation: pulse 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+
+   0%,
+   100% {
+      opacity: 1;
+   }
+
+   50% {
+      opacity: 0.5;
+   }
 }
 
 /* ===========================================
