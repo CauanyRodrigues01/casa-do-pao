@@ -86,7 +86,8 @@
           </div>
 
           <form class="smart-form" id="registerForm" novalidate>
-            <div class="success-message" id="successMessage"><i class="bi bi-check-lg"></i> Conta criada com sucesso!</div>
+            <div class="success-message" id="successMessage"><i class="bi bi-check-lg"></i> Conta criada com sucesso!
+            </div>
 
             <fieldset>
               <legend>Dados Pessoais</legend>
@@ -134,7 +135,9 @@
 
               <div class="field-group">
                 <div class="checkbox-group">
-                  <input type="checkbox" name="promotions" id="promotions" aria-describedby="promotions-error">
+                  <input type="checkbox" class="checkbox" name="promotions" id="promotions"
+                    aria-describedby="promotions-error">
+                  <span class="checkbox"></span>
                   <label for="promotions">Quero receber ofertas e promoções por e-mail</label>
                 </div>
                 <div class="error-message" id="promotions-error" role="alert"></div>
@@ -142,7 +145,9 @@
 
               <div class="field-group">
                 <div class="checkbox-group">
-                  <input type="checkbox" name="terms" id="terms" required="" aria-describedby="terms-error">
+                  <input type="checkbox" class="checkbox" name="terms" id="terms" required=""
+                    aria-describedby="terms-error">
+                  <span class="checkbox"></span>
                   <label for="terms">Li e aceito os termos de uso e política de privacidade<span class="required"
                       aria-label="obrigatório">*</span></label>
                 </div>
@@ -150,7 +155,7 @@
               </div>
             </fieldset>
 
-            <div class="form-buttons">
+            <div class="form-buttons center">
               <button class="btn btn-primary" type="submit">Criar minha conta</button>
               <button class="btn btn-secondary" type="button" id="clearBtn">Limpar formulário</button>
             </div>

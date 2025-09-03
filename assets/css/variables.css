@@ -7,7 +7,7 @@
   --primary-color: #552814; /* Marrom forte: identidade da marca */
   --secondary-color: #BB793E; /* Caramelo: tom de apoio */
   --accent-color: #6B8E23; /* Verde oliva: destaques, links, botões */
-  --success-color: #10b981; /* Verde: sucesso */
+  --success-color: #8cce06; /* Verde: sucesso */
   --warning-color: #f59e0b; /* Amarelo: aviso */
   --error-color: #e82525; /* Vermelho: erro */
 
@@ -23,11 +23,13 @@
   --text-dark: #552814; /* Mesmo tom do primary: boa leitura e consistência */
   --text-light: #F5EDE3; /* Para fundos escuros */
   --text-muted: #7A6146; /* Tom intermediário para subtítulos ou informações menos importantes */
+  --text-success: #065f46; /* Verde: sucesso */
 
   /* Cores de fundo */
   --bg-light: #F5EDE3; /* Cor neutra */
   --bg-dark: #3B1D10; /* Tom mais escuro do marrom: rodapés, cabeçalhos */
   --bg-muted: #7A6146; /* Fundo suave para caixas ou cards */
+  --bg-success: #d1fae5;
 
   /* Tipografia */
   --font-family-primary: "Open Sans", sans-serif;
@@ -35,6 +37,7 @@
 
   /* Tamanhos de fonte - Regra do 8 (múltiplos de 8px) */
   --text-xs: 0.5rem;     /* 8px */
+  --text-sm: 0.875rem;    /* 14px */
   --text-base: 1rem;       /* 16px */
   --text-md: 1.25rem;    /* 20px */
   --text-lg: 1.5rem;     /* 24px */
