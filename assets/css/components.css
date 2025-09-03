@@ -251,3 +251,54 @@ textarea:focus {
     border-color: var(--accent-color);
     box-shadow: var(--shadow);
 }
+
+input:invalid:not(:placeholder-shown),
+select:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+    border-color: var(--error-color);
+}
+
+input:invalid:focus:not(:placeholder-shown),
+select:invalid:focus:not(:placeholder-shown),
+textarea:invalid:focus:not(:placeholder-shown) {
+    box-shadow: var(--shadow);
+}
+
+/* === CHECKBOXES & RADIOS === */
+.checkbox-group,
+.radio-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: var(--space-sm);
+    height: var(--space-sm);
+    accent-color: var(--primary-color);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checkbox-group label,
+.radio-group label {
+    margin: 0;
+    cursor: pointer;
+}
+
+/* === CUSTOM SELECT === */
+select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right var(--space-xs) center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+/* == TEXTAREA == */
+textarea {
+    resize: vertical;
+}
