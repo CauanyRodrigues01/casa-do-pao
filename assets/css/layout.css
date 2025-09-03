@@ -962,6 +962,7 @@
     FORMULÁRIO GERAL
 =========================================== */
 
-#cadastro {
+#cadastro,
+#login {
     margin-top: 110px;
 }

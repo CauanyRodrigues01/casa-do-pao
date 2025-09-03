@@ -133,7 +133,7 @@
 }
 
 .form-container.narrow {
-    max-width: 400px;
+    max-width: 500px;
 }
 
 /* === FORM HEADER === */
@@ -179,7 +179,7 @@
 
 /* === FIELDSETS === */
 fieldset {
-    border: 1px solid var(--border-dark);
+    border: 1px solid #55271446;
     border-radius: var(--radius);
     margin-bottom: var(--space-lg);
     padding: var(--space-lg);
