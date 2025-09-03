@@ -23,194 +23,262 @@
 
 <body>
 
-  <!-- Cabeçalho-->
-  <header id="cabecalho-principal">
-    <div class="container">
-      <div class="cabecalho-container">
-        <!-- Logo -->
-        <a href="index.html" class="logo">
-          <img src="./assets/img/logo.png" alt="Logo da padaria Casa do Pão">
-        </a>
-        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-        <!-- Navegação principal -->
-        <nav class="navbar-principal">
-          <ul class="menu">
-            <li><a href="#hero">Início</a></li>
-            <li><a href="#depoimentos">Depoimentos</a></li>
-            <li><a href="#diferenciais">Diferenciais</a></li>
-            <li><a href="cadastro.html" target="_blank" rel="noopener noreferrer">Cadastro</a></li>
-            <li><a href="#galeria">Galeria</a></li>
-            <li><a href="#venha-visitar">Onde estamos</a></li>
-            <li><a href="#sobre-nos">Sobre nós</a></li>
-            <li><a href="fale-conosco.html">Contato</a></li>
-          </ul>
-        </nav>
-        <div class="botoes-autenticacao">
-          <a href="" class="btn btn-principal-para-fundo-escuro">Criar conta</a>
-          <a href="" class="btn btn-secundario-para-fundo-escuro">Entrar</a>
+  <div class="main-grid">
+
+    <!-- Cabeçalho-->
+    <header id="cabecalho-principal">
+      <div class="container">
+        <div class="cabecalho-container">
+
+          <!-- Logo -->
+          <a href="index.html" aria-label="Voltar para a página inicial">
+            <img src="./assets/img/logo-cabecalho.png" class="logo-cabecalho" alt="Logo da padaria Casa do Pão">
+          </a>
+
+          <!-- Botão de menu -->
+          <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <!-- Navegação principal -->
+          <nav class="navbar-principal" role="navigation">
+            <ul class="menu">
+              <li class="menu-item dropdown">
+                <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                  Início
+                </button>
+                <div class="dropdown-menu" role="menu">
+                  <a href="/index.html#produtos-destaque" class="dropdown-item" role="menuitem">Produtos Principais</a>
+                  <a href="/index.html#depoimentos" class="dropdown-item" role="menuitem">Depoimentos</a>
+                  <a href="/index.html#diferenciais" class="dropdown-item" role="menuitem">Diferenciais</a>
+                  <a href="/index.html#cadastro" class="dropdown-item" role="menuitem">Cadastro</a>
+                  <a href="/index.html#galeria" class="dropdown-item" role="menuitem">Galeria</a>
+                  <a href="/index.html#venha-visitar" class="dropdown-item" role="menuitem">Onde estamos</a>
+                  <a href="/index.html#sobre-nos" class="dropdown-item" role="menuitem">Sobre nós</a>
+                </div>
+              </li>
+              <li class="menu-item"><a href="cardapio.html" class="menu-link">Cardápio</a></li>
+              <li class="menu-item"><a href="contato.html" class="menu-link">Contato</a></li>
+              <li class="menu-item"><a href="sobre-nos.html" class="menu-link">Sobre nós</a></li>
+            </ul>
+          </nav>
+
+          <div class="botoes-autenticacao">
+            <a href="carrinho.html" class="btn bi bi-cart"></a>
+            <a href="cadastro.html" class="btn btn-primary-dark">Criar conta</a>
+            <a href="login.html" class="btn btn-secondary-dark">Entrar</a>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- Conteúdo principal -->
-  <main>
+    <!-- Conteúdo principal -->
+    <main>
 
-    <h1>Fale Conosco</h1>
-    <fieldset>
-      <legend>Fale Conosco</legend>
+      <h1>Fale Conosco</h1>
+      <fieldset>
+        <legend>Fale Conosco</legend>
 
-      <div>
-        <label for="nome">Nome *</label>
-        <input type="text" id="nome" name="nome" required>
+        <div>
+          <label for="nome">Nome *</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+
+        <div>
+          <label for="email">E-mail *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div>
+          <label for="assunto">Assunto *</label>
+          <input type="text" id="assunto" name="assunto" required>
+        </div>
+
+        <div>
+          <label for="mensagem">Mensagem *</label>
+          <textarea id="mensagem" name="mensagem" required></textarea>
+        </div>
+
+        <div>
+          <button type="submit">Enviar</button>
+        </div>
+      </fieldset>
+      <!-- Feedback -->
+
+      <form>
+        <!-- Categorias -->
+        <fieldset>
+          <legend>O que você gostaria de avaliar? <em>(marque todas que se aplicam)</em></legend>
+
+          <div>
+            <input type="checkbox" name="categorias[]" id="categoria-produtos" value="produtos">
+            <label for="categoria-produtos">🍞 Produtos</label>
+          </div>
+
+          <div>
+            <input type="checkbox" name="categorias[]" id="categoria-atendimento" value="atendimento">
+            <label for="categoria-atendimento">😊 Atendimento</label>
+          </div>
+
+          <div>
+            <input type="checkbox" name="categorias[]" id="categoria-ambiente" value="ambiente">
+            <label for="categoria-ambiente">🏪 Ambiente</label>
+          </div>
+
+          <div>
+            <input type="checkbox" name="categorias[]" id="categoria-precos" value="precos">
+            <label for="categoria-precos">💰 Preços</label>
+          </div>
+        </fieldset>
+
+        <!-- Avaliação -->
+        <fieldset>
+          <legend>Como você avalia nossa padaria? *</legend>
+
+          <div>
+            <input type="radio" name="avaliacao" id="avaliacao-excelente" value="5" required>
+            <label for="avaliacao-excelente">🌟 Excelente (5 estrelas)</label>
+          </div>
+
+          <div>
+            <input type="radio" name="avaliacao" id="avaliacao-bom" value="4">
+            <label for="avaliacao-bom">👍 Bom (4 estrelas)</label>
+          </div>
+
+          <div>
+            <input type="radio" name="avaliacao" id="avaliacao-regular" value="3">
+            <label for="avaliacao-regular">😐 Regular (3 estrelas)</label>
+          </div>
+
+          <div>
+            <input type="radio" name="avaliacao" id="avaliacao-ruim" value="2">
+            <label for="avaliacao-ruim">👎 Ruim (2 estrelas)</label>
+          </div>
+
+          <div>
+            <input type="radio" name="avaliacao" id="avaliacao-pessimo" value="1">
+            <label for="avaliacao-pessimo">😞 Péssimo (1 estrela)</label>
+          </div>
+        </fieldset>
+
+        <!-- Campo de comentário -->
+        <div>
+          <label for="comentario">Conte-nos mais sobre sua experiência *</label>
+          <textarea id="comentario" name="comentario" required maxlength="500" rows="5"
+            aria-describedby="comentario-help"
+            placeholder="Compartilhe os detalhes da sua visita, o que mais gostou, sugestões de melhoria..."></textarea>
+          <small id="comentario-help">Máximo de 500 caracteres. Seja específico para nos ajudar a melhorar.</small>
+        </div>
+
+        <!-- Dados pessoais -->
+        <fieldset>
+          <legend>Dados para contato</legend>
+
+          <div>
+            <label for="nome">Seu nome *</label>
+            <input type="text" name="nome" id="nome" required maxlength="50" autocomplete="name"
+              placeholder="Como podemos te chamar?">
+          </div>
+
+          <div>
+            <label for="email">Seu email</label>
+            <input type="email" name="email" id="email" maxlength="100" autocomplete="email"
+              aria-describedby="email-help" placeholder="seuemail@exemplo.com">
+            <small id="email-help">Opcional. Para respondermos se necessário.</small>
+          </div>
+        </fieldset>
+
+        <!-- Consentimento e privacidade -->
+        <fieldset>
+          <legend>Consentimento</legend>
+
+          <div>
+            <input type="checkbox" name="publicar_autorizado" id="publicar" value="sim" checked>
+            <label for="publicar">
+              Autorizo a publicação do meu feedback no site para ajudar outros clientes
+            </label>
+          </div>
+
+          <div>
+            <input type="checkbox" name="contato_autorizado" id="contato" value="sim">
+            <label for="contato">
+              Aceito ser contatado pela Casa do Pão sobre este feedback
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Botões -->
+        <div>
+          <button type="submit">Enviar Feedback</button>
+          <button type="reset">Limpar Formulário</button>
+        </div>
+
+        <!-- Informações adicionais -->
+        <small>
+          <strong>Política de Privacidade:</strong>
+          Seus dados serão utilizados apenas para melhorar nossos serviços.
+          Não compartilhamos informações pessoais com terceiros.
+        </small>
+
+      </form>
+    </main>
+
+    <!-- Rodapé -->
+    <footer id="rodape">
+      <div class="container">
+        <div class="rodape-container">
+          <div class="rodape-informacoes">
+            <div class="informacoes">
+              <h4>Informações</h4>
+              <ul>
+                <li>Política de Privacidade</li>
+                <li>Termos de Uso</li>
+                <li>Política de Cookies</li>
+                <li>Perguntas Frequentes</li>
+              </ul>
+            </div>
+            <div class="contato-footer">
+              <h4>Contato</h4>
+              <ul>
+                <li><a href="contato.html">Fale conosco</a></li>
+                <li><a href="sobre-nos.html">Trabalhe conosco</a></li>
+                <li><a href="contato.html">Deixe seu feedback</a></li>
+                <li>(11) 9 9999-9999</li>
+                <li>contato@casadopao.com.br</li>
+              </ul>
+            </div>
+            <div class="certificacoes">
+              <h4>Certificações</h4>
+              <ul>
+                <li>ISO 9001</li>
+                <li>ANVISA</li>
+                <li>Orgânico Certificado</li>
+              </ul>
+            </div>
+            <div class="redes-sociais">
+              <h4>Siga-nos</h4>
+              <ul>
+                <li>Facebook</li>
+                <li>Instagram</li>
+                <li>WhatsApp</li>
+                <li>YouTube</li>
+              </ul>
+            </div>
+          </div>
+          <div class="endereco">Rua Augusta, 1508 – Consolação, São Paulo – SP, 01304-001</div>
+          <div class="divisor"></div>
+          <div class="footer-detalhes">
+            <p>&copy; 2024 Padaria do Pão. Todos os direitos reservados.</p>
+            <p>CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ por <a
+                href="https://www.linkedin.com/in/cauany-rodrigues-78700b193/">Cauany Rodrigues</a></p>
+          </div>
+        </div>
       </div>
+    </footer>
 
-      <div>
-        <label for="email">E-mail *</label>
-        <input type="email" id="email" name="email" required>
-      </div>
+  </div>
 
-      <div>
-        <label for="assunto">Assunto *</label>
-        <input type="text" id="assunto" name="assunto" required>
-      </div>
-
-      <div>
-        <label for="mensagem">Mensagem *</label>
-        <textarea id="mensagem" name="mensagem" required></textarea>
-      </div>
-
-      <div>
-        <button type="submit">Enviar</button>
-      </div>
-    </fieldset>
-
-  </main>
-
-  <!-- Feedback -->
-
-  <form>
-    <!-- Categorias -->
-    <fieldset>
-      <legend>O que você gostaria de avaliar? <em>(marque todas que se aplicam)</em></legend>
-
-      <div>
-        <input type="checkbox" name="categorias[]" id="categoria-produtos" value="produtos">
-        <label for="categoria-produtos">🍞 Produtos</label>
-      </div>
-
-      <div>
-        <input type="checkbox" name="categorias[]" id="categoria-atendimento" value="atendimento">
-        <label for="categoria-atendimento">😊 Atendimento</label>
-      </div>
-
-      <div>
-        <input type="checkbox" name="categorias[]" id="categoria-ambiente" value="ambiente">
-        <label for="categoria-ambiente">🏪 Ambiente</label>
-      </div>
-
-      <div>
-        <input type="checkbox" name="categorias[]" id="categoria-precos" value="precos">
-        <label for="categoria-precos">💰 Preços</label>
-      </div>
-    </fieldset>
-
-    <!-- Avaliação -->
-    <fieldset>
-      <legend>Como você avalia nossa padaria? *</legend>
-
-      <div>
-        <input type="radio" name="avaliacao" id="avaliacao-excelente" value="5" required>
-        <label for="avaliacao-excelente">🌟 Excelente (5 estrelas)</label>
-      </div>
-
-      <div>
-        <input type="radio" name="avaliacao" id="avaliacao-bom" value="4">
-        <label for="avaliacao-bom">👍 Bom (4 estrelas)</label>
-      </div>
-
-      <div>
-        <input type="radio" name="avaliacao" id="avaliacao-regular" value="3">
-        <label for="avaliacao-regular">😐 Regular (3 estrelas)</label>
-      </div>
-
-      <div>
-        <input type="radio" name="avaliacao" id="avaliacao-ruim" value="2">
-        <label for="avaliacao-ruim">👎 Ruim (2 estrelas)</label>
-      </div>
-
-      <div>
-        <input type="radio" name="avaliacao" id="avaliacao-pessimo" value="1">
-        <label for="avaliacao-pessimo">😞 Péssimo (1 estrela)</label>
-      </div>
-    </fieldset>
-
-    <!-- Campo de comentário -->
-    <div>
-      <label for="comentario">Conte-nos mais sobre sua experiência *</label>
-      <textarea id="comentario" name="comentario" required maxlength="500" rows="5" aria-describedby="comentario-help"
-        placeholder="Compartilhe os detalhes da sua visita, o que mais gostou, sugestões de melhoria..."></textarea>
-      <small id="comentario-help">Máximo de 500 caracteres. Seja específico para nos ajudar a melhorar.</small>
-    </div>
-
-    <!-- Dados pessoais -->
-    <fieldset>
-      <legend>Dados para contato</legend>
-
-      <div>
-        <label for="nome">Seu nome *</label>
-        <input type="text" name="nome" id="nome" required maxlength="50" autocomplete="name"
-          placeholder="Como podemos te chamar?">
-      </div>
-
-      <div>
-        <label for="email">Seu email</label>
-        <input type="email" name="email" id="email" maxlength="100" autocomplete="email" aria-describedby="email-help"
-          placeholder="seuemail@exemplo.com">
-        <small id="email-help">Opcional. Para respondermos se necessário.</small>
-      </div>
-    </fieldset>
-
-    <!-- Consentimento e privacidade -->
-    <fieldset>
-      <legend>Consentimento</legend>
-
-      <div>
-        <input type="checkbox" name="publicar_autorizado" id="publicar" value="sim" checked>
-        <label for="publicar">
-          Autorizo a publicação do meu feedback no site para ajudar outros clientes
-        </label>
-      </div>
-
-      <div>
-        <input type="checkbox" name="contato_autorizado" id="contato" value="sim">
-        <label for="contato">
-          Aceito ser contatado pela Casa do Pão sobre este feedback
-        </label>
-      </div>
-    </fieldset>
-
-    <!-- Botões -->
-    <div>
-      <button type="submit">Enviar Feedback</button>
-      <button type="reset">Limpar Formulário</button>
-    </div>
-
-    <!-- Informações adicionais -->
-    <small>
-      <strong>Política de Privacidade:</strong>
-      Seus dados serão utilizados apenas para melhorar nossos serviços.
-      Não compartilhamos informações pessoais com terceiros.
-    </small>
-
-  </form>
-
-  <!-- Rodapé -->
-  <footer>
-    <p>&copy; 2024 Padaria do Pão. Todos os direitos reservados.</p>
-    <p>CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ por <a
-        href="https://www.linkedin.com/in/cauany-rodrigues-78700b193/">Cauany Rodrigues</a></p>
-  </footer>
+  <script src="assets/js/script.js"></script>
 
 </body>
 
