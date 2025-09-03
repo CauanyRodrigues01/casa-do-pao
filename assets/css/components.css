@@ -124,7 +124,6 @@
     max-width: 500px;
     margin: 0 auto;
     overflow: hidden;
-
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
@@ -165,6 +164,7 @@
 
 .form-header p,
 .form-header small {
+    margin: 0;
     opacity: 0.9;
 }
 
@@ -268,16 +268,30 @@ textarea:invalid:focus:not(:placeholder-shown) {
 .checkbox-group,
 .radio-group {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--space-xs);
     margin-bottom: var(--space-sm);
+    position: relative;
 }
 
+.checkbox-group:last-child,
+.radio-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Ocultar inputs nativos */
 input[type="checkbox"],
 input[type="radio"] {
-    display: none;
+    opacity: 0;
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+    margin: 0;
+    z-index: 2;
 }
 
+/* Checkbox e radio customizado */
 .checkbox,
 .radio {
     width: var(--space-sm);
@@ -286,36 +300,69 @@ input[type="radio"] {
     flex-shrink: 0;
     background-color: var(--bg-light);
     border: 1px solid var(--border-dark);
-}
-
-.checkbox {
     border-radius: 3px;
+    position: relative;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    margin-top: 0.3rem;
 }
 
+/* Ícone de check */
+.checkbox::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.8rem;
+    height: 0.8rem;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6 10.293l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: all 0.15s ease;
+}
+
+/* Estados do checkbox e radio */
+input[type="checkbox"]:checked+.checkbox,
+input[type="radio"]:checked+.radio {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+input[type="checkbox"]:checked+.checkbox::after,
+input[type="radio"]:checked+.radio::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+input[type="checkbox"]:focus+.checkbox,
+input[type="radio"]:focus+.radio {
+    box-shadow: var(--shadow);
+}
+
+input[type="checkbox"]:disabled+.checkbox,
+input[type="radio"]:disabled+.radio {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Radio customizado */
 .radio {
     border-radius: var(--radius);
 }
 
-.checkbox::after {
-    content: "";
-    position: absolute;
-    display: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-input[type="checkbox"]:checked + .checkbox,
-input[type="radio"]:checked + .radio {
-    background-color: var(--accent-color);
-    display: block;
-}
 
 .checkbox-group label,
 .radio-group label {
     margin: 0;
     cursor: pointer;
+    font-weight: normal;
+    line-height: 1.5;
 }
+
 
 /* === CUSTOM SELECT === */
 select {
@@ -342,22 +389,28 @@ textarea {
 
 /* === PASSWORD STRENGTH INDICATOR === */
 .password-strength {
+    display: block;
     margin-top: var(--space-xs);
     font-size: var(--text-sm);
 }
 
 .strength-indicator {
     height: 4px;
-    background-color: var(--bg-muted);
     border-radius: var(--radius);
     overflow: hidden;
 }
 
 .strength-bar {
     height: 100%;
-    width: 0;
+    width: 0%;
     transition: all 0.3s ease;
     border-radius: var(--radius);
+}
+
+.strength-text {
+    font-size: var(--text-sm);
+    display: block;
+    margin-top: var(--space-xs);
 }
 
 .strength-weak {
@@ -365,14 +418,26 @@ textarea {
     width: 33%;
 }
 
+.strength-weak-text {
+    color: var(--error-color); /* A cor vermelha que você já tem */
+}
+
 .strength-medium {
     background-color: var(--warning-color);
     width: 66%;
 }
 
+.strength-medium-text {
+    color: var(--warning-color); 
+}
+
 .strength-strong {
     background-color: var(--success-color);
     width: 100%;
+}
+
+.strength-strong-text {
+    color: var(--success-color); /* A cor verde que você já tem */
 }
 
 /* === SUCCESS MESSAGES == */
@@ -415,4 +480,34 @@ textarea {
         padding: var(--space-md);
     }
 
+    .smart-form.compact {
+        padding: var(--space-md);
+    }
+
+    .form-buttons:not(.stack) {
+        flex-direction: column;
+    }
+
+    .field-group.inline {
+        flex-direction: column;
+        gap: 0;
+    }
+
+}
+
+/* === ANIMAÇÕES === */
+.field-group {
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

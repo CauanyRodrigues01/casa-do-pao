@@ -1172,14 +1172,17 @@ class SmartForm {
       strengthText.textContent = `Senha fraca. Adicione: ${feedback
         .slice(0, 2)
         .join(", ")}`;
+        strengthText.classList.add('strength-weak-text');
     } else if (strength <= 4) {
       strengthBar.classList.add("strength-medium");
       strengthText.textContent = `Senha média. Considere adicionar: ${feedback.join(
         ", "
       )}`;
+      strengthText.classList.add('strength-medium-text');
     } else {
       strengthBar.classList.add("strength-strong");
       strengthText.textContent = "Senha forte! ✓";
+      strengthText.classList.add('strength-strong-text');
     }
   }
 
