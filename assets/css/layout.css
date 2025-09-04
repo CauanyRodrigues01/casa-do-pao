@@ -967,3 +967,47 @@
 #contato {
     margin-top: 110px;
 }
+
+/* ===========================================
+    PÁGINA SOBRE NOS
+=========================================== */
+
+#sobre-nos {
+    margin-top: 110px;
+}
+
+#intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 40vh;
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-width: 500px;
+}
+
+.img-sobre-nos {
+    width: 30%;
+}
+
+#sobre-nos h3 {
+    text-align: center;
+    margin: var(--space-lg) 0;
+}
+
+.section-container-sobre-nos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2xl);
+}
+
+.section-content-sobre-nos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
