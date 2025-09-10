@@ -1016,128 +1016,308 @@ if (!document.querySelector(".sr-only-styles")) {
 }
 
 /* ===========================================
-    FORMULÁRIOS
+    FORMULÁRIO
 =========================================== */
 
 class SmartForm {
-  constructor(formId, config) {
+  constructor(formId, onSubmit, options = {}) {
+    // Referência ao formulário
     this.form = document.getElementById(formId);
-    this.config = config || {};
-    this.validators = {};
-
     if (!this.form) {
       throw new Error(`Formulário com ID "${formId}" não encontrado.`);
     }
+
+    // Validação do onSubmit: verifica se é uma função
+    if (typeof onSubmit !== "function") {
+      throw new Error("A função onSubmit é obrigatória e deve ser uma função.");
+    }
+
+    // Objeto de configurações. Ele define os valores padrão para a validação
+    this.config = {
+      validateOnBlur: true,
+      validateOnInput: true,
+      showMessages: true,
+      ...options,
+      onSubmit: onSubmit,
+    };
+
+    this.fieldRules = {};
+    this.isSubmitting = false;
     this.init();
   }
 
+  // Inicializa o formulário
   init() {
+    this.form.setAttribute("novalidate", "true");
     this.setupEventListeners();
-    this.setupPasswordStrength();
-    this.setupPasswordConfirmation();
+    this.createErrorElements(); // Garante que as mensagens de erro estejam prontas desde o início
   }
 
-  addValidator(fieldName, validatorFunction, errorMessage) {
-    this.validators[fieldName] = {
-      validate: validatorFunction,
-      message: errorMessage,
-    };
-  }
-
+  // Configura os event listeners para o formulário e seus campos
   setupEventListeners() {
+    // Intercepta o envio do formulário
     this.form.addEventListener("submit", (e) => {
       e.preventDefault();
       this.handleSubmit();
     });
 
+    // Adiciona listeners para validação em blur e input
     this.form.querySelectorAll("input, select, textarea").forEach((field) => {
-      field.addEventListener("blur", () => this.validateField(field));
-      field.addEventListener("input", () => {
-        if (field.checkValidity()) {
-          this.hideError(field);
-        }
-      });
+      if (this.config.validateOnBlur) {
+        field.addEventListener("blur", () => this.validateField(field, true));
+      }
+      if (this.config.validateOnInput) {
+        field.addEventListener("input", () => this.validateField(field));
+      }
     });
 
-    const clearBtn = this.form.querySelector("#clearBtn");
+    // Botão de limpar formulário
+    const clearBtn = this.form.querySelector("#clearBtn, [data-clear]");
     if (clearBtn) {
-      clearBtn.addEventListener("click", () => this.handleClear());
+      clearBtn.addEventListener("click", () => this.clearForm());
     }
   }
 
+  // Lida com o envio do formulário
+  async handleSubmit() {
+    // Evita envios múltiplos
+    if (this.isSubmitting) return;
+
+    // Valida o formulário antes de enviar
+    if (!this.validateForm()) {
+      this.focusFirstError();
+      return;
+    }
+
+    // Inicia o envio
+    this.isSubmitting = true;
+    const submitBtn = this.form.querySelector('button[type="submit"]');
+    const originalText = submitBtn?.textContent;
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Enviando...";
+    }
+    // Chama a função de envio fornecida
+    try {
+      await this.config.onSubmit(this.getFormData());
+      this.showSuccess();
+      this.clearForm();
+    } catch (error) {
+      this.showError(null, `Erro: ${error.message}`);
+    } finally {
+      // Finaliza o estado de envio
+      this.isSubmitting = false;
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    }
+  }
+
+  // Valida todos os campos do formulário
   validateForm() {
     let isValid = true;
     this.form.querySelectorAll("input, select, textarea").forEach((field) => {
-      if (!this.validateField(field)) {
+      if (!this.validateField(field, true)) {
         isValid = false;
       }
     });
     return isValid;
   }
 
-  validateField(field) {
-    const isValid = field.checkValidity();
-    const customValidator = this.validators[field.name];
+  // Foca no primeiro campo com erro
+  focusFirstError() {
+    // querySelector vai pegar a primeira ocorrência de .is-invalid
+    const firstError = this.form.querySelector(".is-invalid");
+    if (firstError) {
+      firstError.focus();
+    }
+  }
 
-    if (isValid && customValidator) {
-      const customValid = customValidator.validate(field.value, field);
-      if (!customValid) {
-        this.showError(field, customValidator.message);
-        return false;
-      }
+  // Valida um campo individualmente e opcionalmente o limpa
+  validateField(field, performClean = false) {
+    // Limpa o campo se necessário (Por exemplo, no evento input, não é necessário chamar o cleanField)
+    if (performClean) {
+      this.cleanField(field);
+    }
+    const fieldRule = this.fieldRules[field.name];
+    let message = "";
+    let isValid = true;
+
+    // Validação nativa do HTML5
+    if (!field.checkValidity()) {
+      message = this.getValidationMessage(field);
+      isValid = false;
+    }
+    // Validação customizada
+    else if (fieldRule?.validator && !fieldRule.validator(field.value)) {
+      message = fieldRule.message;
+      isValid = false;
     }
 
+    // Mostra ou esconde a mensagem de erro
     if (isValid) {
       this.hideError(field);
-      return true;
     } else {
-      let message = this.getValidationMessage(field);
       this.showError(field, message);
-      return false;
+    }
+    return isValid;
+  }
+
+  // Limpa o valor do campo com base na regra definida ou na limpeza genérica
+  cleanField(field) {
+    const fieldRule = this.fieldRules[field.name];
+    const cleaner = fieldRule?.cleaner || this.getGenericCleaner(field);
+    if (cleaner) {
+      field.value = cleaner(field.value);
     }
   }
 
+  // Gera mensagens de erro baseadas na validação nativa do HTML5
   getValidationMessage(field) {
-    if (field.validity.valueMissing) {
-      return "Este campo é obrigatório";
-    } else if (field.validity.typeMismatch) {
-      return "Por favor, insira um formato válido";
-    } else if (field.validity.tooShort) {
-      return `Mínimo de ${field.minLength} caracteres`;
-    } else if (field.validity.tooLong) {
-      return `Máximo de ${field.maxLength} caracteres`;
-    } else if (field.validity.rangeUnderflow) {
-      return `Valor mínimo: ${field.min}`;
-    } else if (field.validity.rangeOverflow) {
-      return `Valor máximo: ${field.max}`;
+    const validity = field.validity;
+    if (validity.valueMissing) return "Este campo é obrigatório.";
+    if (validity.typeMismatch) {
+      if (field.type === "email") return "Digite um email válido.";
+      if (field.type === "url") return "Digite uma URL válida.";
+      return "Formato inválido.";
     }
-    return "Por favor, corrija este campo";
+    if (validity.tooShort) return `Mínimo de ${field.minLength} caracteres.`;
+    if (validity.tooLong) return `Máximo de ${field.maxLength} caracteres.`;
+    if (validity.rangeUnderflow) return `Valor mínimo: ${field.min}.`;
+    if (validity.rangeOverflow) return `Valor máximo: ${field.max}.`;
+    if (validity.patternMismatch) return "Formato não aceito.";
+    return "Campo inválido.";
   }
 
+  // Cria elementos para exibir mensagens de erro
+  createErrorElements() {
+    this.form.querySelectorAll("input, select, textarea").forEach((field) => {
+      // Se o campo tem um ID, vamos associá-lo à mensagem de erro
+      if (!field.id)
+        // Gera um ID único se o campo não tiver um
+        field.id = `field-${Math.random().toString(36).substring(2, 7)}`;
+      // ID único para o elemento de erro
+      const errorId = `${field.id}-error`;
+      if (!document.getElementById(errorId)) {
+        const errorElement = document.createElement("div");
+        errorElement.id = errorId;
+        errorElement.className = "error-message";
+        // Insere o elemento de erro logo após o campo
+        field.parentNode.insertBefore(errorElement, field.nextSibling);
+      }
+    });
+  }
+
+  // Adiciona uma regra de validação e limpeza para um campo específico
+  addFieldRule(fieldName, options = {}) {
+    this.fieldRules[fieldName] = {
+      cleaner: options.cleaner || null,
+      validator: options.validator || null,
+      message: options.message || "Campo inválido.",
+    };
+    return this;
+  }
+
+  // Retorna uma função de limpeza genérica baseada no tipo ou tag do campo
+  getGenericCleaner(field) {
+    const cleaners = {
+      email: (value) => value.toLowerCase().trim().replace(/\s+/g, ""),
+      tel: (value) => value.replace(/[^\d\s\-\(\)\+]/g, "").trim(),
+      number: (value) => value.replace(/[^\d\.\-]/g, "").trim(),
+      url: (value) => value.toLowerCase().trim(),
+      text: (value) => value.trim().replace(/\s+/g, " "),
+      textarea: (value) => value.trim().replace(/\s+/g, " "),
+    };
+    return (
+      // Tenta encontrar uma regra de limpeza baseada no type do campo
+      cleaners[field.type] ||
+      // Se não encontrar, tenta pela tagName (ex.: textarea)
+      cleaners[field.tagName.toLowerCase()] ||
+      // Limpeza genérica: remove espaços extras
+      ((value) => value.trim())
+    );
+  }
+
+  // Coleta os dados do formulário em um objeto
+  getFormData() {
+    const data = {};
+    new FormData(this.form).forEach((value, key) => (data[key] = value));
+    return data;
+  }
+
+  // Exibe uma mensagem de sucesso após o envio do formulário
+  showSuccess() {
+    if (!this.config.showMessages) return; // Impede a exibição de mensagens de erro se a configuração estiver desativada
+    let successMsg = document.getElementById("form-success");
+    if (!successMsg) {
+      successMsg = document.createElement("div");
+      successMsg.id = "form-success";
+      successMsg.className = "success-message";
+      // Insere a mensagem de sucesso no início do formulário
+      this.form.insertBefore(successMsg, this.form.firstChild);
+    }
+    successMsg.textContent = "Formulário enviado com sucesso!";
+    successMsg.style.display = "block";
+    // Oculta a mensagem após 3 segundos
+    setTimeout(() => (successMsg.style.display = "none"), 3000);
+  }
+
+  // Esconde a mensagem de erro de um campo
+  hideError(field) {
+    const errorElement = document.getElementById(`${field.id}-error`);
+    if (errorElement) {
+      errorElement.style.display = "none";
+    }
+    field.classList.remove("is-invalid");
+    field.removeAttribute("aria-invalid");
+  }
+
+  // Mostra a mensagem de erro de um campo
   showError(field, message) {
-    const errorElement = document.getElementById(field.id + "-error");
+    if (!this.config.showMessages) return; // Impede a exibição de mensagens de erro se a configuração estiver desativada
+    const errorElement = document.getElementById(`${field.id}-error`);
     if (errorElement) {
       errorElement.textContent = message;
       errorElement.style.display = "block";
     }
+    field.classList.add("is-invalid");
+    field.setAttribute("aria-invalid", "true");
   }
 
-  hideError(field) {
-    const errorElement = document.getElementById(field.id + "-error");
-    if (errorElement) {
-      errorElement.style.display = "none";
-    }
+  // Limpa o formulário, removendo erros e resetando os campos
+  clearForm() {
+    this.form.reset();
+    this.form.querySelectorAll(".error-message").forEach((error) => {
+      error.style.display = "none";
+    });
+    this.form.querySelectorAll(".is-invalid").forEach((field) => {
+      field.classList.remove("is-invalid");
+      field.removeAttribute("aria-invalid");
+    });
+  }
+}
+
+class PasswordStrengthChecker {
+  constructor(passwordField, strengthBar, strengthText, formInstance) {
+    this.passwordField = passwordField;
+    this.strengthBar = strengthBar;
+    this.strengthText = strengthText;
+    this.formInstance = formInstance;
+    this.init();
   }
 
-  setupPasswordStrength() {
-    const passwordField = this.form.querySelector("#password");
-    const strengthBar = this.form.querySelector("#password-strength-bar");
-    const strengthText = this.form.querySelector("#password-strength-text");
-
-    if (passwordField && strengthBar && strengthText) {
-      passwordField.addEventListener("input", () => {
-        const strength = this.calculatePasswordStrength(passwordField.value);
-        this.updatePasswordStrength(strengthBar, strengthText, strength);
+  init() {
+    if (this.passwordField && this.strengthBar && this.strengthText) {
+      this.passwordField.addEventListener("input", () => {
+        const strengthData = this.calculatePasswordStrength(
+          this.passwordField.value
+        );
+        this.updatePasswordStrength(strengthData);
+        this.formInstance.validateField(this.passwordField);
+      });
+      this.passwordField.addEventListener("blur", () => {
+        this.formInstance.validateField(this.passwordField, true);
       });
     }
   }
@@ -1145,124 +1325,114 @@ class SmartForm {
   calculatePasswordStrength(password) {
     let strength = 0;
     let feedback = [];
-
     if (password.length >= 8) strength++;
     else feedback.push("pelo menos 8 caracteres");
-
     if (/[a-z]/.test(password)) strength++;
     else feedback.push("letras minúsculas");
-
     if (/[A-Z]/.test(password)) strength++;
     else feedback.push("letras maiúsculas");
-
     if (/[0-9]/.test(password)) strength++;
     else feedback.push("números");
-
     if (/[^A-Za-z0-9]/.test(password)) strength++;
     else feedback.push("caracteres especiais");
-
     return { strength, feedback };
   }
 
-  updatePasswordStrength(strengthBar, strengthText, { strength, feedback }) {
-    strengthBar.className = "strength-bar";
-
+  updatePasswordStrength({ strength, feedback }) {
+    this.strengthBar.className = "strength-bar";
     if (strength <= 2) {
-      strengthBar.classList.add("strength-weak");
-      strengthText.textContent = `Senha fraca. Adicione: ${feedback
+      this.strengthBar.classList.add("strength-weak");
+      this.strengthText.textContent = `Senha fraca. Adicione: ${feedback
         .slice(0, 2)
         .join(", ")}`;
-        strengthText.classList.add('strength-weak-text');
+      this.strengthText.classList.add("strength-weak-text");
     } else if (strength <= 4) {
-      strengthBar.classList.add("strength-medium");
-      strengthText.textContent = `Senha média. Considere adicionar: ${feedback.join(
+      this.strengthBar.classList.add("strength-medium");
+      this.strengthText.textContent = `Senha média. Considere adicionar: ${feedback.join(
         ", "
       )}`;
-      strengthText.classList.add('strength-medium-text');
+      this.strengthText.classList.add("strength-medium-text");
     } else {
-      strengthBar.classList.add("strength-strong");
-      strengthText.textContent = "Senha forte! ✓";
-      strengthText.classList.add('strength-strong-text');
-    }
-  }
-
-  setupPasswordConfirmation() {
-    const passwordField = this.form.querySelector("#password");
-    const confirmField = this.form.querySelector("#confirmPassword");
-
-    if (passwordField && confirmField) {
-      confirmField.addEventListener("input", () => {
-        if (confirmField.value && passwordField.value !== confirmField.value) {
-          this.showError(confirmField, "As senhas não coincidem");
-          confirmField.setCustomValidity("As senhas não coincidem");
-        } else {
-          this.hideError(confirmField);
-          confirmField.setCustomValidity("");
-        }
-      });
-    }
-  }
-
-  handleSubmit() {
-    if (this.validateForm()) {
-      const submitBtn = this.form.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Criando conta...";
-
-      setTimeout(() => {
-        const successMessage = this.form.querySelector("#successMessage");
-        if (successMessage) {
-          successMessage.style.display = "block";
-          setTimeout(() => (successMessage.style.display = "none"), 5000);
-        }
-
-        // Lógica de envio do formulário aqui (AJAX, fetch, etc.)
-        const formData = new FormData(this.form);
-        for (const [key, value] of formData.entries()) {
-          console.log(`${key}: ${value}`);
-        }
-
-        this.form.reset();
-        this.resetPasswordStrength();
-
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-      }, 1500);
-    }
-  }
-
-  handleClear() {
-    if (confirm("Tem certeza que deseja limpar todos os campos?")) {
-      this.form.reset();
-      this.form.querySelectorAll(".error-message").forEach((error) => {
-        error.style.display = "none";
-      });
-      this.resetPasswordStrength();
+      this.strengthBar.classList.add("strength-strong");
+      this.strengthText.textContent = "Senha forte! ✓";
+      this.strengthText.classList.add("strength-strong-text");
     }
   }
 
   resetPasswordStrength() {
-    const strengthBar = this.form.querySelector("#password-strength-bar");
-    const strengthText = this.form.querySelector("#password-strength-text");
-    if (strengthBar && strengthText) {
-      strengthBar.className = "strength-bar";
-      strengthText.textContent = "Digite uma senha forte";
+    if (this.strengthBar && this.strengthText) {
+      this.strengthBar.className = "strength-bar";
+      this.strengthText.textContent = "";
     }
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const registerForm = new SmartForm("registerForm");
-
-  // Exemplo de uso de validador customizado
-  registerForm.addValidator(
-    "email",
-    (value) => {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(value);
+// REGRAS DE VALIDAÇÃO E LIMPEZA CUSTOMIZADAS
+const FieldRules = {
+  // Regra para o campo de senha de usuário
+  password: {
+    validator: (value) => value.length >= 8,
+    message: "Senha deve ter pelo menos 8 caracteres.",
+  },
+  // Regra para o campo de confirmação de senha do usuário
+  confirmPassword: {
+    validator: (value) => {
+      const passwordField = document.querySelector('input[name="password"]');
+      console.log(passwordField);
+      return passwordField && value === passwordField.value;
     },
-    "Por favor, insira um e-mail válido."
+    message: "As senhas não coincidem.",
+  },
+};
+
+// INICIALIZAÇÃO DO FORMULÁRIO DE REGISTRO
+document.addEventListener("DOMContentLoaded", () => {
+  const registerForm = new SmartForm(
+    // ID do formulário
+    "registerForm",
+
+    // Função de envio
+    async (data) => {
+      console.log("Dados do formulário:", data);
+      // Aqui se faria a requisição real
+
+      // atraso artificial para simular a requisição de rede
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      // return fetch('/api/submit', { method: 'POST', body: JSON.stringify(data) });
+    },
+    // Opções de configuração
+    {
+      validateOnBlur: true,
+      validateOnInput: true,
+      showMessages: true,
+    }
   );
+
+  // Adiciona regras customizadas aos campos (regra de validação e limpeza de campos específicos))
+  registerForm
+    .addFieldRule("password", FieldRules.password)
+    .addFieldRule("confirmPassword", FieldRules.confirmPassword);
+
+  const passwordField = document.querySelector("#password");
+  const strengthBar = document.querySelector("#password-strength-bar");
+  const strengthText = document.querySelector("#password-strength-text");
+
+  if (passwordField && strengthBar && strengthText) {
+    new PasswordStrengthChecker(
+      passwordField,
+      strengthBar,
+      strengthText,
+      registerForm
+    );
+  }
+
+  const confirmPasswordField = document.querySelector("#confirmPassword");
+
+  // Adiciona listener para validar a confirmação da senha em tempo real
+  if (passwordField && confirmPasswordField) {
+    passwordField.addEventListener("input", () => {
+      registerForm.validateField(confirmPasswordField);
+    });
+  }
 });

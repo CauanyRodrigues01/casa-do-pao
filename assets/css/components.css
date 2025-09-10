@@ -72,49 +72,6 @@
     color: var(--text-light);
 }
 
-/*
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            
-        .carousel-btn:hover {
-            background: var(--accent-color);
-            color: var(--text-light);
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(210, 105, 30, 0.3);
-        }
-
-        .carousel-btn:active {
-            transform: scale(0.95);
-        }
-
-        .carousel-btn i {
-            font-size: var(--text-xl);
-        }
-
-        .carousel-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-        }
-*/
-
-.setas-produtos {
-    padding: var(--space-xs) var(--space-xs);
-    border-radius: 50%;
-}
-
-.setas-produtos:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
-}
-
-.setas-produtos:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-}
-
 /* ===========================================
     FORMULÁRIO GERAL
 =========================================== */
@@ -252,16 +209,20 @@ textarea:focus {
     box-shadow: var(--shadow);
 }
 
-input:invalid:not(:placeholder-shown),
-select:invalid:not(:placeholder-shown),
-textarea:invalid:not(:placeholder-shown) {
-    border-color: var(--error-color);
+/* Estilo do texto dentro das entradas de dados */
+input::placeholder,
+textarea::placeholder,
+select,
+input[type="date"] {
+    color: var(--secondary-color);
+    opacity: 0.7;
 }
 
-input:invalid:focus:not(:placeholder-shown),
-select:invalid:focus:not(:placeholder-shown),
-textarea:invalid:focus:not(:placeholder-shown) {
-    box-shadow: var(--shadow);
+/* Classe que será adicionada ao html pelo js quando o campo estiver inválido */
+input.is-invalid,
+select.is-invalid,
+textarea.is-invalid {
+    border-color: var(--error-color);
 }
 
 /* === CHECKBOXES & RADIOS === */
@@ -354,7 +315,6 @@ input[type="radio"]:disabled+.radio {
     border-radius: var(--radius);
 }
 
-
 .checkbox-group label,
 .radio-group label {
     margin: 0;
@@ -362,7 +322,6 @@ input[type="radio"]:disabled+.radio {
     font-weight: normal;
     line-height: 1.5;
 }
-
 
 /* === CUSTOM SELECT === */
 select {
@@ -421,7 +380,7 @@ textarea {
 }
 
 .strength-weak-text {
-    color: var(--error-color); /* A cor vermelha que você já tem */
+    color: var(--error-color);
 }
 
 .strength-medium {
@@ -439,7 +398,7 @@ textarea {
 }
 
 .strength-strong-text {
-    color: var(--success-color); /* A cor verde que você já tem */
+    color: var(--success-color); 
 }
 
 /* === SUCCESS MESSAGES == */
