@@ -228,10 +228,17 @@
                             </div>
 
                             <div class="field-group">
-                                <label for="curriculum">Currículo (PDF)<span class="required"
-                                        aria-label="obrigatório">*</span></label>
-                                <input type="file" id="curriculum" name="curriculum" accept=".pdf" required=""
-                                    aria-describedby="curriculum-error">
+                                <label for="fileUpload">Currículo (PDF)<span class="required"
+                                            aria-label="obrigatório">*</span></label>
+
+                                <div class="file-upload-input">
+                                    <input type="file" id="fileUpload" name="resumeFile" accept=".pdf" required=""
+                                    aria-describedby="fileUpload-error">
+                                    <span class="file-name">Nenhum arquivo selecionado...</span>
+                                    <i class="bi bi-upload"></i>
+                                    
+                                </div>
+
                             </div>
 
                             <div class="field-group">

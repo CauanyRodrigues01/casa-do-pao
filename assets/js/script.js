@@ -1069,6 +1069,26 @@ class SmartForm {
       if (this.config.validateOnInput) {
         field.addEventListener("input", () => this.validateField(field));
       }
+
+      // Validação ao mudar o valor
+      field.addEventListener("change", () => this.validateField(field));
+    });
+
+    // Lógica específica para o campo de upload de arquivo
+    this.form.querySelectorAll('input[type="file"]').forEach((fileInput) => {
+      fileInput.addEventListener("change", () => {
+        const fileNameElement = fileInput.nextElementSibling.querySelector(".file-name");
+
+        if(fileInput.files.length > 0) {
+          // Se um arquivo foi selecionado, mostra o nome dele
+          fileNameElement.textContent = fileInput.files[0].name;
+          // Valida o campo para remover a borda de erro, se houver
+          this.validateField(fileInput);
+        } else {
+          // Se nenhum arquivo foi selecionado, mostra o texto padrão
+          fileNameElement.textContent = "Nenhum arquivo selecionado...";
+        }
+      });
     });
 
     // Botão de limpar formulário
@@ -1465,4 +1485,32 @@ document.addEventListener("DOMContentLoaded", () => {
   // Adiciona regras customizadas aos campos (regra de validação e limpeza de campos específicos))
   loginForm.addFieldRule("password", FieldRulesForLogin.password);
 
+})
+
+// ADICIONA REGRAS DE LIMPEZA E VALIDAÇÃO PARA O FORMULÁRIO DE CURRICULO
+const FieldRulesForCurriculum = {
+  file: {
+    validator: (value, field) => {
+      if (field.files.length === 0) {
+        return true;
+      }
+      const file = field.files[0];
+      return file.type === "application/pdf";
+    },
+    message: "Arquivo inválido. Por favor, submeta um arquivo em formato PDF."
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const curriculumForm = new SmartForm(
+    "applyForm",
+
+    async (data) => {
+      console.log("Dados do formulário de currículo:", data);
+      // atraso artificial para simular a requisição de rede
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    }
+  );
+
+  curriculumForm.addFieldRule("file", FieldRulesForCurriculum.file);
 })
