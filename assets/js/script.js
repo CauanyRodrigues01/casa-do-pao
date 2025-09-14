@@ -1464,5 +1464,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Adiciona regras customizadas aos campos (regra de validação e limpeza de campos específicos))
   loginForm.addFieldRule("password", FieldRulesForLogin.password);
-  
+
 })

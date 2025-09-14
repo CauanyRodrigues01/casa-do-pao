@@ -477,3 +477,21 @@ textarea {
         transform: translateY(0);
     }
 }
+
+
+
+/* ===========================================
+    OUTROSGIJOIGFJFG
+=========================================== */
+
+/* ===========================================
+    CAMPO DE UPLOAD DE ARQUIVOS
+=========================================== */
+
+/* Estiliza o contêiner do campo de upload */
+.file-upload-box {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
