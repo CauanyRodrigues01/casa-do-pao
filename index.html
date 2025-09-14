@@ -27,517 +27,514 @@
 
 <body>
 
-  <div class="main-grid">
+  <!-- Cabeçalho-->
+  <header id="cabecalho-principal">
+    <div class="container">
+      <div class="cabecalho-container">
 
-    <!-- Cabeçalho-->
-    <header id="cabecalho-principal">
-      <div class="container">
-        <div class="cabecalho-container">
+        <!-- Logo -->
+        <a href="index.html" aria-label="Voltar para a página inicial">
+          <img src="./assets/img/logo-cabecalho.png" class="logo-cabecalho" alt="Logo da padaria Casa do Pão">
+        </a>
 
-          <!-- Logo -->
-          <a href="index.html" aria-label="Voltar para a página inicial">
-            <img src="./assets/img/logo-cabecalho.png" class="logo-cabecalho" alt="Logo da padaria Casa do Pão">
-          </a>
+        <!-- Botão de menu -->
+        <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <i class="bi bi-list"></i>
+        </button>
 
-          <!-- Botão de menu -->
-          <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
-            <i class="bi bi-list"></i>
-          </button>
+        <!-- Navegação principal -->
+        <nav class="navbar-principal" role="navigation">
+          <ul class="menu">
+            <li class="menu-item dropdown">
+              <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                Início
+              </button>
+              <div class="dropdown-menu" role="menu">
+                <a href="#produtos-destaque" class="dropdown-item" role="menuitem">Produtos Principais</a>
+                <a href="#depoimentos" class="dropdown-item" role="menuitem">Depoimentos</a>
+                <a href="#diferenciais" class="dropdown-item" role="menuitem">Diferenciais</a>
+                <a href="#cadastro" class="dropdown-item" role="menuitem">Cadastro</a>
+                <a href="#galeria" class="dropdown-item" role="menuitem">Galeria</a>
+                <a href="#venha-visitar" class="dropdown-item" role="menuitem">Onde estamos</a>
+                <a href="#sobre-nos" class="dropdown-item" role="menuitem">Sobre nós</a>
+              </div>
+            </li>
+            <li class="menu-item"><a href="cardapio.html" class="menu-link">Cardápio</a></li>
+            <li class="menu-item"><a href="contato.html" class="menu-link">Contato</a></li>
+            <li class="menu-item"><a href="sobre-nos.html" class="menu-link">Sobre nós</a></li>
+          </ul>
+        </nav>
 
-          <!-- Navegação principal -->
-          <nav class="navbar-principal" role="navigation">
-            <ul class="menu">
-              <li class="menu-item dropdown">
-                <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                  Início
-                </button>
-                <div class="dropdown-menu" role="menu">
-                  <a href="#produtos-destaque" class="dropdown-item" role="menuitem">Produtos Principais</a>
-                  <a href="#depoimentos" class="dropdown-item" role="menuitem">Depoimentos</a>
-                  <a href="#diferenciais" class="dropdown-item" role="menuitem">Diferenciais</a>
-                  <a href="#cadastro" class="dropdown-item" role="menuitem">Cadastro</a>
-                  <a href="#galeria" class="dropdown-item" role="menuitem">Galeria</a>
-                  <a href="#venha-visitar" class="dropdown-item" role="menuitem">Onde estamos</a>
-                  <a href="#sobre-nos" class="dropdown-item" role="menuitem">Sobre nós</a>
-                </div>
-              </li>
-              <li class="menu-item"><a href="cardapio.html" class="menu-link">Cardápio</a></li>
-              <li class="menu-item"><a href="contato.html" class="menu-link">Contato</a></li>
-              <li class="menu-item"><a href="sobre-nos.html" class="menu-link">Sobre nós</a></li>
-            </ul>
-          </nav>
-
-          <div class="botoes-autenticacao">
-            <a href="carrinho.html" class="btn bi bi-cart"></a>
-            <a href="cadastro.html" class="btn btn-primary-dark">Criar conta</a>
-            <a href="login.html" class="btn btn-secondary-dark">Entrar</a>
-          </div>
+        <div class="botoes-autenticacao">
+          <a href="carrinho.html" class="btn bi bi-cart"></a>
+          <a href="cadastro.html" class="btn btn-primary-dark">Criar conta</a>
+          <a href="login.html" class="btn btn-secondary-dark">Entrar</a>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-      <div class="container">
-        <div class="hero-container">
-          <div class="hero-content">
-            <h1>Casa do Pão</h1>
-            <h2>Sabor e tradição que você confia!</h2>
-            <p class="hero-description">Pães artesanais, doces irresistíveis e salgados feitos com paixão, fresquinhos
-              para você a cada dia.</p>
-            <div class="hero-buttons">
-              <button class="btn btn-primary"><a href="cardapio.html">Ver cardápio completo</a></button>
-              <button class="btn btn-secondary"><a href="contato.html">Fale conosco</a></button>
-            </div>
-
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1>Casa do Pão</h1>
+          <h2>Sabor e tradição que você confia!</h2>
+          <p class="hero-description">Pães artesanais, doces irresistíveis e salgados feitos com paixão, fresquinhos
+            para você a cada dia.</p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary"><a href="cardapio.html">Ver cardápio completo</a></button>
+            <button class="btn btn-secondary"><a href="contato.html">Fale conosco</a></button>
           </div>
-          <img class="img-hero" src="assets/img/familia feliz.png" alt="imagem de família feliz" height="480">
+
         </div>
+        <img class="img-hero" src="assets/img/familia feliz.png" alt="imagem de família feliz" height="480">
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Produtos em destaque -->
-    <section id="produtos-destaque" class="produtos-section">
-      <div class="container">
-        <div class="produtos-container">
+  <!-- Produtos em destaque -->
+  <section id="produtos-destaque" class="produtos-section">
+    <div class="container">
+      <div class="produtos-container">
 
-          <!-- Introdução -->
-          <div class="intro-section">
-            <img loading="lazy" src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
-            <h2>Nossos produtos mais queridos</h2>
-            <p>Conheça os produtos que fazem sucesso entre nossos clientes</p>
-          </div>
+        <!-- Introdução -->
+        <div class="intro-section">
+          <img loading="lazy" src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
+          <h2>Nossos produtos mais queridos</h2>
+          <p>Conheça os produtos que fazem sucesso entre nossos clientes</p>
+        </div>
 
-          <!-- Carrossel de produtos -->
-          <div class="container-carousel-products">
-            <div class="carousel-wrapper">
+        <!-- Carrossel de produtos -->
+        <div class="container-carousel-products">
+          <div class="carousel-wrapper">
 
-              <!-- Botão anterior -->
-              <button class="btn bi bi-chevron-left setas-produtos" id="prevBtn" aria-label="Produto anterior"></button>
+            <!-- Botão anterior -->
+            <button class="btn bi bi-chevron-left setas-produtos" id="prevBtn" aria-label="Produto anterior"></button>
 
-              <!-- Container dos produtos -->
-              <div class="carousel-track" id="carouselTrack">
-                <!-- Produto 1 -->
-                <div class="product-card">
-                  <div class="product-image">
-                    <img loading="lazy" src="assets/img/cardapio/pao-frances-crocante.png"
-                      alt="Pão francês crocante recém-assado, com uma fatia cortada mostrando o interior macio e a casca dourada e rústica, em uma tábua de madeira.">
-                  </div>
-
-                  <div class="product-info">
-                    <strong>Pão francês crocante</strong>
-                    <div id="product-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                    <p>R$ 0,80 por Kg</p>
-                    <button class="btn btn-tertiary">Adicionar <i class="bi bi-cart-plus-fill"></i></button>
-                  </div>
+            <!-- Container dos produtos -->
+            <div class="carousel-track" id="carouselTrack">
+              <!-- Produto 1 -->
+              <div class="product-card">
+                <div class="product-image">
+                  <img loading="lazy" src="assets/img/cardapio/pao-frances-crocante.png"
+                    alt="Pão francês crocante recém-assado, com uma fatia cortada mostrando o interior macio e a casca dourada e rústica, em uma tábua de madeira.">
                 </div>
-                <!-- Produto 2 -->
-                <div class="product-card">
-                  <div class="product-image">
-                    <img loading="lazy" src="assets/img/cardapio/baguete-tradicional.png"
-                      alt="Uma baguete tradicional, longa e dourada, com a casca crocante e cortes diagonais na superfície, descansando sobre uma tábua de madeira rústica.">
-                  </div>
 
-                  <div class="product-info">
-                    <strong>Baguette tradicional</strong>
-                    <div id="product-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                    <p>R$ 4,50 por unidade</p>
-                    <button class="btn btn-tertiary">Adicionar <i class="bi bi-cart-plus-fill"></i></button>
+                <div class="product-info">
+                  <strong>Pão francês crocante</strong>
+                  <div id="product-rating">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
                   </div>
-                </div>
-                <!-- Produto 3 -->
-                <div class="product-card">
-                  <div class="product-image">
-                    <img loading="lazy" src="assets/img/cardapio/croissant-manteiga.png"
-                      alt="Um croissant de manteiga dourado e folhado, com a superfície brilhante e camadas visíveis, pousado sobre uma tábua de madeira.">
-                  </div>
-                  <div class="product-info">
-                    <strong>Croissant manteiga</strong>
-                    <div id="product-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                    <p>R$ 3,20 por unidade</p>
-                    <button class="btn btn-tertiary">Adicionar <i class="bi bi-cart-plus-fill"></i></button>
-                  </div>
-                </div>
-                <!-- Produto 4 -->
-                <div class="product-card">
-                  <div class="product-image">
-                    <img loading="lazy" src="assets/img/cardapio/pao-doce-recheado.png"
-                      alt="Pão doce trançado e recheado com creme e chocolate, com uma fatia cortada revelando o recheio.">
-                  </div>
-                  <div class="product-info">
-                    <strong>Pão doce recheado</strong>
-                    <div id="product-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                    <p>R$ 2,80 por unidade</p>
-                    <button class="btn btn-tertiary">Adicionar <i class="bi bi-cart-plus-fill"></i></button>
-                  </div>
-                </div>
-                <!-- Produto 5 -->
-                <div class="product-card">
-                  <div class="product-image">
-                    <img loading="lazy" src="assets/img/cardapio/broa-de-milho.png"
-                      alt="Uma broa de milho dourada e macia, cortada em pedaços em uma frigideira de ferro fundido, com manteiga derretendo e um fio de mel por cima.">
-                  </div>
-                  <div class="product-info">
-                    <strong>Broa de milho</strong>
-                    <div id="product-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star"></i>
-                    </div>
-                    <p>R$ 1,50 por fatia</p>
-                    <button class="btn btn-tertiary">Adicionar <i class="bi bi-cart-plus-fill"></i></button>
-                  </div>
-                </div>
-                <!-- Produto 6 -->
-                <div class="product-card">
-                  <div class="product-image">
-                    <img loading="lazy" src="assets/img/cardapio/sonho-com-creme.png"
-                      alt="Um sonho com creme, polvilhado com açúcar em pó, mostrando o recheio de creme claro saindo de um lado.">
-                  </div>
-                  <div class="product-info">
-                    <strong>Sonho com creme</strong>
-                    <div id="product-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star"></i>
-                    </div>
-                    <p>R$ 3,50 por unidade</p>
-                    <button class="btn btn-tertiary">Adicionar <i class="bi bi-cart-plus-fill"></i></button>
-                  </div>
+                  <p>R$ 0,80 por Kg</p>
+                  <button class="btn btn-tertiary">Adicionar <i class="bi bi-cart-plus-fill"></i></button>
                 </div>
               </div>
+              <!-- Produto 2 -->
+              <div class="product-card">
+                <div class="product-image">
+                  <img loading="lazy" src="assets/img/cardapio/baguete-tradicional.png"
+                    alt="Uma baguete tradicional, longa e dourada, com a casca crocante e cortes diagonais na superfície, descansando sobre uma tábua de madeira rústica.">
+                </div>
 
-              <!-- Botão próximo -->
-              <button class="btn bi bi-chevron-right setas-produtos" id="nextBtn" aria-label="Próximo produto"></button>
-            </div>
-
-            <!-- Indicadores do carrossel de produtos -->
-            <div class="carousel-products-indicators" id="carouselProductsIndicators"></div>
-          </div>
-
-          <!-- Botão ver cardápio -->
-          <button class="btn btn-primary"><a href="cardapio.html">Ver Cardápio Completo</a></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Depoimentos -->
-    <section id="depoimentos">
-      <div class="container">
-        <div class="depoimentos-container">
-
-          <!-- Introdução -->
-          <div class="intro-section">
-            <img loading="lazy" src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
-            <h2>O que nossos clientes dizem</h2>
-            <p>Confira os depoimentos de quem já experimentou nossos produtos e serviços</p>
-          </div>
-
-          <!-- Depoimentos -->
-          <div class="carrossel-container">
-            <div class="carousel-track" id="carouselTrack">
-              <div class="depoimentos" id="carrossel">
-                <!-- Depoimento 1 -->
-                <section class="depoimento">
-                  <div id="depoimento-rating">
+                <div class="product-info">
+                  <strong>Baguette tradicional</strong>
+                  <div id="product-rating">
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
                   </div>
-                  <p>“A Casa do Pão virou parte da minha rotina. O cheiro do pão saindo do forno logo cedo é
-                    irresistível!
-                    Tudo é fresquinho e o atendimento é sempre acolhedor.”</p>
-                  <time datetime="2025-07-15">15 de julho, 2025</time>
-                  <footer class="user-info">
-                    <img loading="lazy" src="./assets/img/depoimentos/Maria Silva.png"
-                      alt="Mulher sorrindo com cabelo cacheado escuro preso e com casaco laranja">
-                    <cite>Maria Silva</cite>
-                  </footer>
-                </section>
-                <!-- Depoimento 2 -->
-                <section class="depoimento">
-                  <div id="depoimento-rating">
+                  <p>R$ 4,50 por unidade</p>
+                  <button class="btn btn-tertiary">Adicionar <i class="bi bi-cart-plus-fill"></i></button>
+                </div>
+              </div>
+              <!-- Produto 3 -->
+              <div class="product-card">
+                <div class="product-image">
+                  <img loading="lazy" src="assets/img/cardapio/croissant-manteiga.png"
+                    alt="Um croissant de manteiga dourado e folhado, com a superfície brilhante e camadas visíveis, pousado sobre uma tábua de madeira.">
+                </div>
+                <div class="product-info">
+                  <strong>Croissant manteiga</strong>
+                  <div id="product-rating">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>R$ 3,20 por unidade</p>
+                  <button class="btn btn-tertiary">Adicionar <i class="bi bi-cart-plus-fill"></i></button>
+                </div>
+              </div>
+              <!-- Produto 4 -->
+              <div class="product-card">
+                <div class="product-image">
+                  <img loading="lazy" src="assets/img/cardapio/pao-doce-recheado.png"
+                    alt="Pão doce trançado e recheado com creme e chocolate, com uma fatia cortada revelando o recheio.">
+                </div>
+                <div class="product-info">
+                  <strong>Pão doce recheado</strong>
+                  <div id="product-rating">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>R$ 2,80 por unidade</p>
+                  <button class="btn btn-tertiary">Adicionar <i class="bi bi-cart-plus-fill"></i></button>
+                </div>
+              </div>
+              <!-- Produto 5 -->
+              <div class="product-card">
+                <div class="product-image">
+                  <img loading="lazy" src="assets/img/cardapio/broa-de-milho.png"
+                    alt="Uma broa de milho dourada e macia, cortada em pedaços em uma frigideira de ferro fundido, com manteiga derretendo e um fio de mel por cima.">
+                </div>
+                <div class="product-info">
+                  <strong>Broa de milho</strong>
+                  <div id="product-rating">
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star"></i>
                   </div>
-                  <p>“Os croissants recheados são os melhores que já comi! A qualidade dos produtos e o cuidado no
-                    preparo
-                    fazem toda a diferença. Recomendo de olhos fechados.”</p>
-                  <time datetime="2025-07-12">12 de julho, 2025</time>
-                  <footer class="user-info">
-                    <img loading="lazy" src="./assets/img/depoimentos/Ana Costa.png"
-                      alt="Mulher de cabelo liso solto e loiro sorrindo com uma blusa laranja">
-                    <cite>Ana Souza</cite>
-                  </footer>
-
-                </section>
-                <!-- Depoimento 3 -->
-                <section class="depoimento">
-                  <div id="depoimento-rating">
+                  <p>R$ 1,50 por fatia</p>
+                  <button class="btn btn-tertiary">Adicionar <i class="bi bi-cart-plus-fill"></i></button>
+                </div>
+              </div>
+              <!-- Produto 6 -->
+              <div class="product-card">
+                <div class="product-image">
+                  <img loading="lazy" src="assets/img/cardapio/sonho-com-creme.png"
+                    alt="Um sonho com creme, polvilhado com açúcar em pó, mostrando o recheio de creme claro saindo de um lado.">
+                </div>
+                <div class="product-info">
+                  <strong>Sonho com creme</strong>
+                  <div id="product-rating">
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
                   </div>
-                  <p>“Levo meus filhos todo fim de semana para comprar pãezinhos na Casa do Pão. Eles adoram os pães
-                    doces,
-                    e eu confio na qualidade e higiene. É nossa padaria de confiança!”</p>
-                  <time datetime="2025-07-08">08 de julho, 2025</time>
-                  <footer class="user-info">
-                    <img loading="lazy" src="./assets/img/depoimentos/João Santos.png"
-                      alt="Homem sorrindo de forma sutil com casaco jeans e cabelo black power">
-                    <cite>Rodrigo Mendes</cite>
-                  </footer>
-                </section>
-                <!-- Depoimento 4 -->
-                <section class="depoimento">
-                  <div id="depoimento-rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>"Sempre que tenho visitas em casa, passo na Casa do Pão para comprar os salgados. Todo mundo
-                    elogia!
-                    A variedade e o sabor são incomparáveis."</p>
-                  <time datetime="2025-07-05">05 de julho, 2025</time>
-                  <footer class="user-info">
-                    <img loading="lazy" src="./assets/img/depoimentos/Luiza Costa.png"
-                      alt="Mulher de óculos e cabelo curso redondo preto cacheado">
-                    <cite>Luiza Costa</cite>
-                  </footer>
-                </section>
+                  <p>R$ 3,50 por unidade</p>
+                  <button class="btn btn-tertiary">Adicionar <i class="bi bi-cart-plus-fill"></i></button>
+                </div>
               </div>
             </div>
+
+            <!-- Botão próximo -->
+            <button class="btn bi bi-chevron-right setas-produtos" id="nextBtn" aria-label="Próximo produto"></button>
           </div>
 
-          <!-- Indicadores do carrossel de depoimentos -->
-          <div class="carrossel-indicadores" id="indicadores">
-          </div>
+          <!-- Indicadores do carrossel de produtos -->
+          <div class="carousel-products-indicators" id="carouselProductsIndicators"></div>
         </div>
-    </section>
 
-    <!-- Diferenciais -->
-    <section id="diferenciais">
-      <div class="container">
-        <div class="diferenciais-container">
-          <div class="intro-section">
-            <img loading="lazy" src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
-            <h2>Nossos diferenciais</h2>
-            <p>O que nos torna únicos e especiais para você</p>
-          </div>
-          <ul class="lista-diferenciais">
-            <li>Pães sempre quentinhos e frescos para você</li>
-            <li>Apenas os melhores ingredientes em nossos produtos</li>
-            <li>Receitas de família passadas por gerações</li>
-            <li>Entregamos em até 30 minutos na sua casa</li>
-          </ul>
-        </div>
+        <!-- Botão ver cardápio -->
+        <button class="btn btn-primary"><a href="cardapio.html">Ver Cardápio Completo</a></button>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Cadastro -->
-    <section id="cadastro">
-      <div class="container">
-        <div class="cadastro-container">
-          <div class="intro-section">
-            <img loading="lazy" src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
-            <h2>Junte-se à nossa padaria!</h2>
-            <p>Faça parte da nossa comunidade e aproveite todas as vantagens de ser um cliente cadastrado.</p>
-          </div>
-          <div class="cadastro-content">
-            <video autoplay muted loop class="video-institucional" loading="lazy">
-              <source src="./assets/video/video-institucional-padaria.mp4" type="video/mp4">
-              Seu navegador não suporta vídeos.
-            </video>
-            <div class="cadastro-info">
-              <p>Cadastre-se para fazer pedidos online, receber promoções exclusivas e ficar por dentro das novidades.
-              </p>
-              <a href="cadastro.html" class="btn btn-primary">Criar minha conta</a>
-            </div>
-          </div>
+  <!-- Depoimentos -->
+  <section id="depoimentos">
+    <div class="container">
+      <div class="depoimentos-container">
+
+        <!-- Introdução -->
+        <div class="intro-section">
+          <img loading="lazy" src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
+          <h2>O que nossos clientes dizem</h2>
+          <p>Confira os depoimentos de quem já experimentou nossos produtos e serviços</p>
         </div>
-      </div>
-    </section>
 
-    <!-- Galeria -->
-    <section id="galeria">
-      <div class="container">
-        <div class="galeria-container">
-          <div class="intro-section">
-            <img loading="lazy" src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
-            <h2>Galeria</h2>
-            <p>Confira um pouco do nosso dia a dia e dos nossos produtos</p>
-          </div>
-          <div class="galeria-grid">
-            <img loading="lazy" src="./assets/img/galeria/conjunto-de-bolos-de-padaria-em-mesa-de-madeira.jpg"
-              alt="conjunto de bolos de padaria em mesa de madeira">
-            <img loading="lazy" src="./assets/img/galeria/homem-padeiro-na-cozinha-pelo-carrinho-de-pastelaria.jpg"
-              alt="homem padeiro na cozinha pelo carrinho de pastelaria">
-            <img loading="lazy" src="./assets/img/galeria/mulheres-de-tiro-medio-trabalhando-na-cozinha.jpg"
-              alt="mulheres de tiro medio trabalhando na cozinha">
-            <img loading="lazy" src="./assets/img/galeria/padeiro-de-homem-com-pao-fresco-na-casa-de-padeiro.jpg"
-              alt="padeiro de homem com pao fresco na casa de padeiro">
-            <img loading="lazy" src="./assets/img/galeria/paes-com-geleia-e-frutas-secas.jpg"
-              alt="paes com geleia e frutas secas">
-            <img loading="lazy" src="./assets/img/galeria/salsichas-na-massa.jpg" alt="salsichas na massa" height="150">
-          </div>
-        </div>
-    </section>
-
-    <!-- Venha nos visitar -->
-    <section id="venha-visitar">
-      <div class="container">
-        <div class="venha-visitar-container">
-          <div class="intro-section">
-            <img loading="lazy" src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
-            <h2>Venha nos visitar</h2>
-            <p>Estamos localizados no coração de São Paulo, prontos para receber você!</p>
-          </div>
-          <div class="venha-visitar-content">
-            <iframe class="iframe-localizacao"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17397.563097713!2d-46.6804668840034!3d-23.55453644291876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5832d34d2d31%3A0x95900c1b6b536403!2sR.%20Augusta%2C%201508%20-%20Consola%C3%A7%C3%A3o%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001304-001!5e0!3m2!1spt-BR!2sbr!4v1753713573322!5m2!1spt-BR!2sbr"
-              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <div class="venha-visitar-info">
-              <section class="localizacao">
-                <strong>Localização</strong>
-                <address>Rua Augusta, 1508 – Consolação, 01304-001, São Paulo – SP</address>
+        <!-- Depoimentos -->
+        <div class="carrossel-container">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="depoimentos" id="carrossel">
+              <!-- Depoimento 1 -->
+              <section class="depoimento">
+                <div id="depoimento-rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+                <p>“A Casa do Pão virou parte da minha rotina. O cheiro do pão saindo do forno logo cedo é
+                  irresistível!
+                  Tudo é fresquinho e o atendimento é sempre acolhedor.”</p>
+                <time datetime="2025-07-15">15 de julho, 2025</time>
+                <footer class="user-info">
+                  <img loading="lazy" src="./assets/img/depoimentos/Maria Silva.png"
+                    alt="Mulher sorrindo com cabelo cacheado escuro preso e com casaco laranja">
+                  <cite>Maria Silva</cite>
+                </footer>
               </section>
-              <section class="horario">
-                <strong>Horário de Funcionamento</strong>
-                <ul>
-                  <li>
-                    <div class="marker"></div>Segunda a Sexta: 6h às 19h</dd>
-                  <li>
-                    <div class="marker"></div>Sábado: 6h às 18h
-                  </li>
-                  <li>
-                    <div class="marker"></div>Domingo: 7h às 13h
-                  </li>
-                </ul>
+              <!-- Depoimento 2 -->
+              <section class="depoimento">
+                <div id="depoimento-rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star"></i>
+                </div>
+                <p>“Os croissants recheados são os melhores que já comi! A qualidade dos produtos e o cuidado no
+                  preparo
+                  fazem toda a diferença. Recomendo de olhos fechados.”</p>
+                <time datetime="2025-07-12">12 de julho, 2025</time>
+                <footer class="user-info">
+                  <img loading="lazy" src="./assets/img/depoimentos/Ana Costa.png"
+                    alt="Mulher de cabelo liso solto e loiro sorrindo com uma blusa laranja">
+                  <cite>Ana Souza</cite>
+                </footer>
+
+              </section>
+              <!-- Depoimento 3 -->
+              <section class="depoimento">
+                <div id="depoimento-rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+                <p>“Levo meus filhos todo fim de semana para comprar pãezinhos na Casa do Pão. Eles adoram os pães
+                  doces,
+                  e eu confio na qualidade e higiene. É nossa padaria de confiança!”</p>
+                <time datetime="2025-07-08">08 de julho, 2025</time>
+                <footer class="user-info">
+                  <img loading="lazy" src="./assets/img/depoimentos/João Santos.png"
+                    alt="Homem sorrindo de forma sutil com casaco jeans e cabelo black power">
+                  <cite>Rodrigo Mendes</cite>
+                </footer>
+              </section>
+              <!-- Depoimento 4 -->
+              <section class="depoimento">
+                <div id="depoimento-rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+                <p>"Sempre que tenho visitas em casa, passo na Casa do Pão para comprar os salgados. Todo mundo
+                  elogia!
+                  A variedade e o sabor são incomparáveis."</p>
+                <time datetime="2025-07-05">05 de julho, 2025</time>
+                <footer class="user-info">
+                  <img loading="lazy" src="./assets/img/depoimentos/Luiza Costa.png"
+                    alt="Mulher de óculos e cabelo curso redondo preto cacheado">
+                  <cite>Luiza Costa</cite>
+                </footer>
               </section>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Sobre nós -->
-    <section id="sobre-nos">
-      <div class="container">
-        <div class="sobre-nos-container">
-          <div class="intro-section">
-            <img loading="lazy" src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
-            <h2>Sobre nós</h2>
-            <p>Conheça a história da nossa padaria e nossa missão de levar qualidade e sabor para sua mesa.</p>
-          </div>
-          <div class="sobre-nos-content">
-            <div class="sobre-nos-info">
-              <p>Há mais de 35 anos, a Padaria do Pão tem sido o coração da nossa comunidade, oferecendo pães frescos e
-                produtos de qualidade todos os dias. Nossa história começou em 1985 com o sonho de uma família de trazer
-                o
-                melhor da panificação tradicional para nossa cidade.</p>
-              <p>Cada produto é feito com amor, usando receitas tradicionais e ingredientes cuidadosamente selecionados.
-                Nossa equipe trabalha desde as primeiras horas da manhã para garantir que você sempre encontre pães
-                quentinhos e deliciosos.</p>
-              <a href="sobre-nos.html" class="btn btn-primary">Ver mais</a>
-            </div>
-            <img class="sobre-nos-img" src="./assets/img/equipe.jpg"
-              alt="Três chefs de cozinha posando em uma cozinha profissional, todos usando uniforme branco e avental cinza.">
+        <!-- Indicadores do carrossel de depoimentos -->
+        <div class="carrossel-indicadores" id="indicadores">
+        </div>
+      </div>
+  </section>
+
+  <!-- Diferenciais -->
+  <section id="diferenciais">
+    <div class="container">
+      <div class="diferenciais-container">
+        <div class="intro-section">
+          <img loading="lazy" src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
+          <h2>Nossos diferenciais</h2>
+          <p>O que nos torna únicos e especiais para você</p>
+        </div>
+        <ul class="lista-diferenciais">
+          <li>Pães sempre quentinhos e frescos para você</li>
+          <li>Apenas os melhores ingredientes em nossos produtos</li>
+          <li>Receitas de família passadas por gerações</li>
+          <li>Entregamos em até 30 minutos na sua casa</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cadastro -->
+  <section id="cadastro">
+    <div class="container">
+      <div class="cadastro-container">
+        <div class="intro-section">
+          <img loading="lazy" src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
+          <h2>Junte-se à nossa padaria!</h2>
+          <p>Faça parte da nossa comunidade e aproveite todas as vantagens de ser um cliente cadastrado.</p>
+        </div>
+        <div class="cadastro-content">
+          <video autoplay muted loop class="video-institucional" loading="lazy">
+            <source src="./assets/video/video-institucional-padaria.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+          </video>
+          <div class="cadastro-info">
+            <p>Cadastre-se para fazer pedidos online, receber promoções exclusivas e ficar por dentro das novidades.
+            </p>
+            <a href="cadastro.html" class="btn btn-primary">Criar minha conta</a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Rodapé -->
-    <footer id="rodape">
-      <div class="container">
-        <div class="rodape-container">
-          <div class="rodape-informacoes">
-            <div class="informacoes">
-              <h4>Informações</h4>
+  <!-- Galeria -->
+  <section id="galeria">
+    <div class="container">
+      <div class="galeria-container">
+        <div class="intro-section">
+          <img loading="lazy" src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
+          <h2>Galeria</h2>
+          <p>Confira um pouco do nosso dia a dia e dos nossos produtos</p>
+        </div>
+        <div class="galeria-grid">
+          <img loading="lazy" src="./assets/img/galeria/conjunto-de-bolos-de-padaria-em-mesa-de-madeira.jpg"
+            alt="conjunto de bolos de padaria em mesa de madeira">
+          <img loading="lazy" src="./assets/img/galeria/homem-padeiro-na-cozinha-pelo-carrinho-de-pastelaria.jpg"
+            alt="homem padeiro na cozinha pelo carrinho de pastelaria">
+          <img loading="lazy" src="./assets/img/galeria/mulheres-de-tiro-medio-trabalhando-na-cozinha.jpg"
+            alt="mulheres de tiro medio trabalhando na cozinha">
+          <img loading="lazy" src="./assets/img/galeria/padeiro-de-homem-com-pao-fresco-na-casa-de-padeiro.jpg"
+            alt="padeiro de homem com pao fresco na casa de padeiro">
+          <img loading="lazy" src="./assets/img/galeria/paes-com-geleia-e-frutas-secas.jpg"
+            alt="paes com geleia e frutas secas">
+          <img loading="lazy" src="./assets/img/galeria/salsichas-na-massa.jpg" alt="salsichas na massa" height="150">
+        </div>
+      </div>
+  </section>
+
+  <!-- Venha nos visitar -->
+  <section id="venha-visitar">
+    <div class="container">
+      <div class="venha-visitar-container">
+        <div class="intro-section">
+          <img loading="lazy" src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
+          <h2>Venha nos visitar</h2>
+          <p>Estamos localizados no coração de São Paulo, prontos para receber você!</p>
+        </div>
+        <div class="venha-visitar-content">
+          <iframe class="iframe-localizacao"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17397.563097713!2d-46.6804668840034!3d-23.55453644291876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5832d34d2d31%3A0x95900c1b6b536403!2sR.%20Augusta%2C%201508%20-%20Consola%C3%A7%C3%A3o%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001304-001!5e0!3m2!1spt-BR!2sbr!4v1753713573322!5m2!1spt-BR!2sbr"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="venha-visitar-info">
+            <section class="localizacao">
+              <strong>Localização</strong>
+              <address>Rua Augusta, 1508 – Consolação, 01304-001, São Paulo – SP</address>
+            </section>
+            <section class="horario">
+              <strong>Horário de Funcionamento</strong>
               <ul>
-                <li>Política de Privacidade</li>
-                <li>Termos de Uso</li>
-                <li>Política de Cookies</li>
-                <li>Perguntas Frequentes</li>
+                <li>
+                  <div class="marker"></div>Segunda a Sexta: 6h às 19h</dd>
+                <li>
+                  <div class="marker"></div>Sábado: 6h às 18h
+                </li>
+                <li>
+                  <div class="marker"></div>Domingo: 7h às 13h
+                </li>
               </ul>
-            </div>
-            <div class="contato-footer">
-              <h4>Contato</h4>
-              <ul>
-                <li><a href="contato.html">Fale conosco</a></li>
-                <li><a href="sobre-nos.html">Trabalhe conosco</a></li>
-                <li><a href="contato.html">Deixe seu feedback</a></li>
-                <li>(11) 9 9999-9999</li>
-                <li>contato@casadopao.com.br</li>
-              </ul>
-            </div>
-            <div class="certificacoes">
-              <h4>Certificações</h4>
-              <ul>
-                <li>ISO 9001</li>
-                <li>ANVISA</li>
-                <li>Orgânico Certificado</li>
-              </ul>
-            </div>
-            <div class="redes-sociais">
-              <h4>Siga-nos</h4>
-              <ul>
-                <li>Facebook</li>
-                <li>Instagram</li>
-                <li>WhatsApp</li>
-                <li>YouTube</li>
-              </ul>
-            </div>
-          </div>
-          <div class="endereco">Rua Augusta, 1508 – Consolação, São Paulo – SP, 01304-001</div>
-          <div class="divisor"></div>
-          <div class="footer-detalhes">
-            <p>&copy; 2024 Padaria do Pão. Todos os direitos reservados.</p>
-            <p>CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ por <a
-                href="https://www.linkedin.com/in/cauany-rodrigues-78700b193/">Cauany Rodrigues</a></p>
+            </section>
           </div>
         </div>
       </div>
-    </footer>
-  </div>
+    </div>
+  </section>
 
+  <!-- Sobre nós -->
+  <section id="sobre-nos">
+    <div class="container">
+      <div class="sobre-nos-container">
+        <div class="intro-section">
+          <img loading="lazy" src="./assets/img/logo.png" class="logo-section" alt="Logo da padaria Casa do Pão">
+          <h2>Sobre nós</h2>
+          <p>Conheça a história da nossa padaria e nossa missão de levar qualidade e sabor para sua mesa.</p>
+        </div>
+        <div class="sobre-nos-content">
+          <div class="sobre-nos-info">
+            <p>Há mais de 35 anos, a Padaria do Pão tem sido o coração da nossa comunidade, oferecendo pães frescos e
+              produtos de qualidade todos os dias. Nossa história começou em 1985 com o sonho de uma família de trazer
+              o
+              melhor da panificação tradicional para nossa cidade.</p>
+            <p>Cada produto é feito com amor, usando receitas tradicionais e ingredientes cuidadosamente selecionados.
+              Nossa equipe trabalha desde as primeiras horas da manhã para garantir que você sempre encontre pães
+              quentinhos e deliciosos.</p>
+            <a href="sobre-nos.html" class="btn btn-primary">Ver mais</a>
+          </div>
+          <img class="sobre-nos-img" src="./assets/img/equipe.jpg"
+            alt="Três chefs de cozinha posando em uma cozinha profissional, todos usando uniforme branco e avental cinza.">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer id="rodape">
+    <div class="container">
+      <div class="rodape-container">
+        <div class="rodape-informacoes">
+          <div class="informacoes">
+            <h4>Informações</h4>
+            <ul>
+              <li>Política de Privacidade</li>
+              <li>Termos de Uso</li>
+              <li>Política de Cookies</li>
+              <li>Perguntas Frequentes</li>
+            </ul>
+          </div>
+          <div class="contato-footer">
+            <h4>Contato</h4>
+            <ul>
+              <li><a href="contato.html">Fale conosco</a></li>
+              <li><a href="sobre-nos.html">Trabalhe conosco</a></li>
+              <li><a href="contato.html">Deixe seu feedback</a></li>
+              <li>(11) 9 9999-9999</li>
+              <li>contato@casadopao.com.br</li>
+            </ul>
+          </div>
+          <div class="certificacoes">
+            <h4>Certificações</h4>
+            <ul>
+              <li>ISO 9001</li>
+              <li>ANVISA</li>
+              <li>Orgânico Certificado</li>
+            </ul>
+          </div>
+          <div class="redes-sociais">
+            <h4>Siga-nos</h4>
+            <ul>
+              <li>Facebook</li>
+              <li>Instagram</li>
+              <li>WhatsApp</li>
+              <li>YouTube</li>
+            </ul>
+          </div>
+        </div>
+        <div class="endereco">Rua Augusta, 1508 – Consolação, São Paulo – SP, 01304-001</div>
+        <div class="divisor"></div>
+        <div class="footer-detalhes">
+          <p>&copy; 2024 Padaria do Pão. Todos os direitos reservados.</p>
+          <p>CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ por <a
+              href="https://www.linkedin.com/in/cauany-rodrigues-78700b193/">Cauany Rodrigues</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
   <!-- Botões flutuantes -->
   <div class="botoes-fixos">
     <a href="" class="wpp">

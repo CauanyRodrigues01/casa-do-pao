@@ -10,23 +10,6 @@
     padding: var(--space-xs) var(--space-md);
 }
 
-.main-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-
-    grid-template-areas:
-        "cabecalho-principal"
-        "hero"
-        "produtos-destaque"
-        "depoimentos"
-        "diferenciais"
-        "cadastro"
-        "galeria"
-        "venha-visitar"
-        "sobre-nos"
-        "rodape";
-}
-
 @media (max-width: 768px) {
 
     .container {
@@ -40,7 +23,6 @@
 =========================================== */
 
 #cabecalho-principal {
-    grid-area: cabecalho-principal;
     position: fixed;
     top: 0;
     left: 0;
@@ -224,7 +206,6 @@
 =========================================== */
 
 .hero {
-    grid-area: hero;
     margin-top: 77px;
     position: relative;
 }
@@ -255,7 +236,7 @@
     display: flex;
     gap: var(--space-sm);
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .img-hero {
@@ -400,10 +381,6 @@
     SEÇÃO PRODUTOS DESTAQUE DO INDEX
 =========================================== */
 
-#produtos-destaque {
-    grid-area: produtos-destaque;
-}
-
 .produtos-container {
     display: flex;
     flex-direction: column;
@@ -530,10 +507,6 @@
 /* ===========================================
     SEÇÃO DEPOIMENTOS DO INDEX
 =========================================== */
-
-#depoimentos {
-    grid-area: depoimentos;
-}
 
 .depoimentos-container {
     display: flex;
@@ -671,10 +644,6 @@
     SEÇÃO DIFERENCIAIS DO INDEX
 =========================================== */
 
-#diferenciais {
-    grid-area: diferenciais;
-}
-
 .lista-diferenciais {
     display: flex;
     flex-wrap: wrap;
@@ -703,10 +672,6 @@
 /* ===========================================
     SEÇÃO CADASTRO DO INDEX
 =========================================== */
-
-#cadastro {
-    grid-area: cadastro;
-}
 
 .cadastro-content {
     display: grid;
@@ -760,10 +725,6 @@
     SEÇÃO GALERIA DO INDEX
 =========================================== */
 
-#galeria {
-    grid-area: galeria;
-}
-
 .galeria-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -800,10 +761,6 @@
 /* ===========================================
     SEÇÃO VENHA VISITAR DO INDEX
 =========================================== */
-
-#venha-visitar {
-    grid-area: venha-visitar;
-}
 
 .venha-visitar-content {
     display: grid;
@@ -869,11 +826,6 @@
     SEÇÃO SOBRE NOS DO INDEX
 =========================================== */
 
-#sobre-nos {
-    grid-area: sobre-nos;
-}
-
-
 .sobre-nos-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -919,7 +871,6 @@
 =========================================== */
 
 #rodape {
-    grid-area: rodape;
     margin-top: var(--space-sm);
 }
 
