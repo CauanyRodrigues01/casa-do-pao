@@ -106,7 +106,8 @@
 }
 
 .form-header.simple {
-    background: var(--primary-color);
+    padding: var(--space-sm);
+    gap: var(--space-sm);
 }
 
 .form-header.minimal {
