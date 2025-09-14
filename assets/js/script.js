@@ -1367,8 +1367,8 @@ class PasswordStrengthChecker {
   }
 }
 
-// REGRAS DE VALIDAÇÃO E LIMPEZA CUSTOMIZADAS
-const FieldRules = {
+// REGRAS DE VALIDAÇÃO E LIMPEZA CUSTOMIZADAS PARA REGISTRO DE USUÁRIO
+const FieldRulesForRegister = {
   // Regra para o campo de senha de usuário
   password: {
     validator: (value) => value.length >= 8,
@@ -1378,7 +1378,6 @@ const FieldRules = {
   confirmPassword: {
     validator: (value) => {
       const passwordField = document.querySelector('input[name="password"]');
-      console.log(passwordField);
       return passwordField && value === passwordField.value;
     },
     message: "As senhas não coincidem.",
@@ -1411,8 +1410,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Adiciona regras customizadas aos campos (regra de validação e limpeza de campos específicos))
   registerForm
-    .addFieldRule("password", FieldRules.password)
-    .addFieldRule("confirmPassword", FieldRules.confirmPassword);
+    .addFieldRule("password", FieldRulesForRegister.password)
+    .addFieldRule("confirmPassword", FieldRulesForRegister.confirmPassword);
 
   const passwordField = document.querySelector("#password");
   const strengthBar = document.querySelector("#password-strength-bar");
@@ -1436,3 +1435,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+// ADICIONA REGRAS DE LIMPEZA E VALIDAÇÃO PARA O FORMULÁRIO DE LOGIN
+const FieldRulesForLogin = {
+  password: {
+    validator: (value) => value.length >= 8,
+    message: "Senha deve ter pelo menos 8 caracteres."
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = new SmartForm(
+    "loginForm",
+
+    async (data) => {
+      console.log("Dados do formulário de login:", data);
+      // atraso artificial para simular a requisição de rede
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    },
+
+    {
+      validateOnBlur: true,
+      validateOnInput: true,
+      showMessages: true
+    }
+  );
+
+  // Adiciona regras customizadas aos campos (regra de validação e limpeza de campos específicos))
+  loginForm.addFieldRule("password", FieldRulesForLogin.password);
+  
+})
