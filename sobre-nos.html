@@ -149,6 +149,7 @@
                 <section id="equipe">
                     <h3>Quem Faz a Mágica Acontecer</h3>
                     <div class="section-container-sobre-nos">
+                        <img src="assets/img/equipe.jpg" alt="Equipe da Casa do Pão" class="img-sobre-nos">
                         <div class="section-content-sobre-nos">
                             <p>Nossa equipe é a alma da Casa do Pão. Cada padeiro, balconista e auxiliar é parte da
                                 nossa
@@ -164,7 +165,6 @@
                                     garantir que os pães saiam sempre quentinhos.</li>
                             </ul>
                         </div>
-                        <img src="assets/img/equipe.jpg" alt="Equipe da Casa do Pão" class="img-sobre-nos">
                     </div>
 
                 </section>
@@ -181,27 +181,35 @@
                         </div>
 
                         <form class="smart-form" id="applyForm" novalidate>
-                            <div>
-                                <label for="nome">Nome completo *</label>
-                                <input type="text" id="nome" name="nome" required maxlength="100"
-                                    placeholder="Seu nome">
+                            <div class="field-group">
+                                <label for="fullName">Nome completo<span class="required"
+                                        aria-label="obrigatório">*</span></label>
+                                <input type="text" name="fullName" id="fullName" required="" maxlength="100"
+                                    autocomplete="name" placeholder="Digite seu nome completo"
+                                    aria-describedby="fullName-error">
                             </div>
 
-                            <div>
-                                <label for="email">E-mail *</label>
-                                <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                            <div class="field-group">
+                                <label for="email">E-mail<span class="required"
+                                        aria-label="obrigatório">*</span></label>
+                                <input type="email" name="email" id="email" required="" maxlength="100"
+                                    autocomplete="email" placeholder="seuemail@exemplo.com"
+                                    aria-describedby="email-error">
                             </div>
 
-                            <div>
-                                <label for="telefone">Telefone *</label>
-                                <input type="tel" id="telefone" name="telefone" required placeholder="(XX) XXXX-XXXX"
-                                    pattern="\(?\d{2}\)? ?\d{4,5}-?\d{4}">
+                            <div class="field-group">
+                                <label for="telephone">Telefone<span class="required"
+                                        aria-label="obrigatório">*</span></label>
+                                <input type="tel" id="telephone" name="telephone" required placeholder="(XX) XXXX-XXXX"
+                                    pattern="\(?\d{2}\)? ?\d{4,5}-?\d{4}" aria-describedby="telephone-error">
                             </div>
 
-                            <div>
-                                <label for="cargo">Área de interesse *</label>
-                                <select id="cargo" name="cargo" required>
-                                    <option value="">Selecione</option>
+                            <div class="field-group">
+                                <label for="AreaOfInterest">Área de interesse<span class="required"
+                                        aria-label="obrigatório">*</span></label>
+                                <select id="AreaOfInterest" name="AreaOfInterest" required=""
+                                    aria-describedby="AreaOfInterest-error">
+                                    <option value="" disabled="" selected="">Selecione</option>
                                     <option value="atendimento">Atendimento</option>
                                     <option value="producao">Produção</option>
                                     <option value="entregas">Entregas</option>
@@ -211,31 +219,37 @@
                                 </select>
                             </div>
 
-                            <div>
-                                <label for="mensagem">Apresente-se brevemente *</label>
-                                <textarea id="mensagem" name="mensagem" rows="5" required
-                                    placeholder="Conte um pouco sobre você, sua experiência e por que quer trabalhar conosco."></textarea>
+                            <div class="field-group">
+                                <label for="message">Apresente-se brevemente<span class="required"
+                                        aria-label="obrigatório">*</span></label>
+                                <textarea id="message" name="message" rows="5" required=""
+                                    placeholder="Conte um pouco sobre você, sua experiência e por que quer trabalhar conosco."
+                                    aria-describedby="message-error"></textarea>
                             </div>
 
-                            <div>
-                                <label for="curriculo">Currículo (PDF) *</label>
-                                <input type="file" id="curriculo" name="curriculo" accept=".pdf" required>
+                            <div class="field-group">
+                                <label for="curriculum">Currículo (PDF)<span class="required"
+                                        aria-label="obrigatório">*</span></label>
+                                <input type="file" id="curriculum" name="curriculum" accept=".pdf" required=""
+                                    aria-describedby="curriculum-error">
                             </div>
 
-                            <div>
-                                <input type="checkbox" id="consentimento" name="consentimento" required>
-                                <label for="consentimento">
-                                    Autorizo o uso dos meus dados para fins de recrutamento e seleção conforme a <a
-                                        href="/politica-de-privacidade.html" target="_blank">Política de
-                                        Privacidade</a>. *
-                                </label>
+                            <div class="field-group">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" class="checkbox" id="consent" name="consent" required=""
+                                        aria-describedby="consent-error">
+                                    <span class="checkbox"></span>
+                                    <label for="consent">
+                                        Autorizo o uso dos meus dados para fins de recrutamento e seleção conforme a <a
+                                            href="/politica-de-privacidade.html" target="_blank">Política de
+                                            Privacidade</a>.<span class="required" aria-label="obrigatório">*</span>
+                                    </label>
+                                </div>
                             </div>
 
-                            <div>
-                                <button type="submit">Enviar candidatura</button>
+                            <div class="form-buttons center">
+                                <button class="btn btn-primary" type="submit">Enviar candidatura</button>
                             </div>
-                            <p>Agradecemos sua mensagem! Em breve, pão quentinho e resposta na sua caixa de entrada.
-                            </p>
                         </form>
                     </div>
 

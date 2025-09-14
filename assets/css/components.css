@@ -181,6 +181,10 @@ label {
     font-weight: var(--font-weight-medium);
 }
 
+label a {
+    text-decoration: underline;
+}
+
 .required {
     color: var(--error-color);
 }
