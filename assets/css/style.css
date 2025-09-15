@@ -12,9 +12,7 @@
 @import url('reset.css');
 /* 3º - Estrutura */
 @import url('layout.css');
-/* 4º - Utilitários */
-@import url('utilities.css');
-/* 5º - Componentes */
+/* 4º - Componentes */
 @import url('components.css');
 
 /* ESTILOS ESPECÍFICOS DO PROJETO */
