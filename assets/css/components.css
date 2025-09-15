@@ -197,6 +197,7 @@ input[type="tel"],
 input[type="url"],
 input[type="number"],
 input[type="date"],
+input[type="file"],
 select,
 textarea {
     width: 100%;
@@ -367,6 +368,7 @@ textarea {
     left: 0;
     opacity: 0;
     cursor: pointer;
+    z-index: 10;
 }
 
 .file-upload-input .bi-upload {

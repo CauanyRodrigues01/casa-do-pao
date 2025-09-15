@@ -1077,9 +1077,10 @@ class SmartForm {
     // Lógica específica para o campo de upload de arquivo
     this.form.querySelectorAll('input[type="file"]').forEach((fileInput) => {
       fileInput.addEventListener("change", () => {
-        const fileNameElement = fileInput.nextElementSibling.querySelector(".file-name");
+        const fileUploadInput = fileInput.closest(".file-upload-input");
+        const fileNameElement = fileUploadInput.querySelector(".file-name");
 
-        if(fileInput.files.length > 0) {
+        if (fileInput.files.length > 0) {
           // Se um arquivo foi selecionado, mostra o nome dele
           fileNameElement.textContent = fileInput.files[0].name;
           // Valida o campo para remover a borda de erro, se houver
@@ -1224,7 +1225,20 @@ class SmartForm {
         errorElement.id = errorId;
         errorElement.className = "error-message";
         // Insere o elemento de erro logo após o campo
-        field.parentNode.insertBefore(errorElement, field.nextSibling);
+
+        if (field.type === "file") {
+          // Para inputs de arquivo, insere o erro após o contêiner customizado
+          const customContainer = field.closest(".file-upload-input");
+          if (customContainer && customContainer.parentNode) {
+            customContainer.parentNode.insertBefore(
+              errorElement,
+              customContainer.nextSibling
+            );
+          }
+        } else {
+          // Para outros campos, insere o erro logo após o input
+          field.parentNode.insertBefore(errorElement, field.nextSibling);
+        }
       }
     });
   }
@@ -1456,15 +1470,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
 // ADICIONA REGRAS DE LIMPEZA E VALIDAÇÃO PARA O FORMULÁRIO DE LOGIN
 const FieldRulesForLogin = {
   password: {
     validator: (value) => value.length >= 8,
-    message: "Senha deve ter pelo menos 8 caracteres."
-  }
-}
+    message: "Senha deve ter pelo menos 8 caracteres.",
+  },
+};
 
+// INICIALIZAÇÃO DO FORMULÁRIO DE LOGIN
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = new SmartForm(
     "loginForm",
@@ -1478,29 +1492,30 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       validateOnBlur: true,
       validateOnInput: true,
-      showMessages: true
+      showMessages: true,
     }
   );
 
   // Adiciona regras customizadas aos campos (regra de validação e limpeza de campos específicos))
   loginForm.addFieldRule("password", FieldRulesForLogin.password);
-
-})
+});
 
 // ADICIONA REGRAS DE LIMPEZA E VALIDAÇÃO PARA O FORMULÁRIO DE CURRICULO
 const FieldRulesForCurriculum = {
   file: {
     validator: (value, field) => {
       if (field.files.length === 0) {
-        return true;
+        return false;
       }
       const file = field.files[0];
-      return file.type === "application/pdf";
+      const maxSizeInBytes = 2 * 1024 * 1024; // 2MB
+      return file.type === "application/pdf" && file.size <= maxSizeInBytes;
     },
-    message: "Arquivo inválido. Por favor, submeta um arquivo em formato PDF."
-  }
-}
+    message: "Por favor, submeta um arquivo em formato PDF, com no máximo 2MB.",
+  },
+};
 
+// INICIALIZAÇÃO DO FORMULÁRIO DE CURRÍCULO
 document.addEventListener("DOMContentLoaded", () => {
   const curriculumForm = new SmartForm(
     "applyForm",
@@ -1513,4 +1528,4 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   curriculumForm.addFieldRule("file", FieldRulesForCurriculum.file);
-})
+});
