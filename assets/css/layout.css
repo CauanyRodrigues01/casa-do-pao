@@ -18,6 +18,52 @@
 
 }
 
+#hero,
+#produtos-destaque,
+#depoimentos,
+#diferenciais,
+#cadastro,
+#galeria,
+#venha-visitar,
+#sobre-nos,
+#rodape,
+#cadastro,
+#trabalhe-conosco {
+    scroll-margin-top: 77px;
+}
+
+@media (max-width: 992px) {
+
+    #hero,
+    #produtos-destaque,
+    #depoimentos,
+    #diferenciais,
+    #cadastro,
+    #galeria,
+    #venha-visitar,
+    #sobre-nos,
+    #rodape,
+    #trabalhe-conosco {
+        scroll-margin-top: 177px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    #hero,
+    #produtos-destaque,
+    #depoimentos,
+    #diferenciais,
+    #cadastro,
+    #galeria,
+    #venha-visitar,
+    #sobre-nos,
+    #rodape,
+    #trabalhe-conosco {
+        scroll-margin-top: 93px;
+    }
+}
+
 /* ===========================================
     CABECALHO PRINCIPAL
 =========================================== */
@@ -332,49 +378,6 @@
     width: 80px;
     max-width: 80px;
     height: auto;
-}
-
-#hero,
-#produtos-destaque,
-#depoimentos,
-#diferenciais,
-#cadastro,
-#galeria,
-#venha-visitar,
-#sobre-nos,
-#rodape,
-#cadastro {
-    scroll-margin-top: 77px;
-}
-
-@media (max-width: 992px) {
-
-    #hero,
-    #produtos-destaque,
-    #depoimentos,
-    #diferenciais,
-    #cadastro,
-    #galeria,
-    #venha-visitar,
-    #sobre-nos,
-    #rodape {
-        scroll-margin-top: 177px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    #hero,
-    #produtos-destaque,
-    #depoimentos,
-    #diferenciais,
-    #cadastro,
-    #galeria,
-    #venha-visitar,
-    #sobre-nos,
-    #rodape {
-        scroll-margin-top: 93px;
-    }
 }
 
 /* ===========================================
@@ -937,6 +940,7 @@
 .intro-content {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: var(--space-md);
     max-width: 500px;
 }
