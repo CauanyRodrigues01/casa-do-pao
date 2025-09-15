@@ -347,7 +347,8 @@
 }
 
 .localizacao,
-.horario {
+.horario,
+.contato {
    box-shadow: var(--shadow);
    border-radius: var(--radius);
 }
@@ -416,5 +417,17 @@
 }
 
 #trabalhe-conosco p {
+   text-align: center;
+}
+
+/* ===========================================
+    PÁGINA CONTATO
+=========================================== */
+
+.contact-social i {
+   border: 1.5px solid var(--text-dark);
+}
+
+.contato-intro {
    text-align: center;
 }

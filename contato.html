@@ -76,81 +76,110 @@
   <!-- Conteúdo principal -->
   <main id="contato">
     <div class="container">
-      <div class="form-container wide">
-        <div class="form-header">
-          <h2>Entre em contato</h2>
-          <p>Estamos aqui para ajudar você</p>
+      <div class="contato-container">
+        <div class="contato-intro">
+          <h2>Fale conosco</h2>
+          <p>Sua opinião é o ingrediente secreto que nos ajuda a melhorar!</p>
         </div>
-
-        <form class="smart-form" id="contactForm" novalidate>
-
-          <div class="field-group">
-            <label for="fullName">Nome completo<span class="required" aria-label="obrigatório">*</span></label>
-            <input type="text" name="fullName" id="fullName" required="" maxlength="100" autocomplete="name"
-              placeholder="Digite seu nome completo" aria-describedby="fullName-error">
-          </div>
-
-          <div class="field-group">
-            <label for="email">E-mail<span class="required" aria-label="obrigatório">*</span></label>
-            <input type="email" name="email" id="email" required="" maxlength="100" autocomplete="email"
-              placeholder="seuemail@exemplo.com" aria-describedby="email-error">
-          </div>
-
-          <div class="field-group">
-            <label for="telefone">Telefone</label>
-            <input type="tel" name="telefone" id="telefone" maxlength="15" autocomplete="tel"
-              placeholder="(XX) XXXXX-XXXX" aria-describedby="telefone-error">
-          </div>
-
-          <div class="field-group">
-            <label for="subject">Assunto<span class="required" aria-label="obrigatório">*</span></label>
-            <select name="subject" id="subject" required aria-describedby="subject-error">
-              <option value="" disabled selected>Selecione um assunto</option>
-              <option value="dúvidas">Dúvidas</option>
-              <option value="feedback">Feedback</option>
-              <option value="suporte">Suporte Técnico</option>
-              <option value="vendas">Vendas</option>
-              <option value="parcerias">Parcerias</option>
-              <option value="outros">Outros</option>
-            </select>
-          </div>
-
-          <div class="field-group">
-            <label for="message">Mensagem<span class="required" aria-label="obrigatório">*</span></label>
-            <textarea name="message" id="message" required="" rows="5" placeholder="Digite sua mensagem aqui"
-              aria-describedby="message-error"></textarea>
-          </div>
-
-          <fieldset>
-
-            <legend>Consentimento</legend>
-
-            <div class="field-group">
-              <div class="checkbox-group">
-                <input type="checkbox" class="checkbox" name="publish-feedback" id="publish-feedback"
-                  aria-describedby="publish-feedback-error">
-                <span class="checkbox"></span>
-                <label for="publish-feedback">Autorizo a publicação do meu feedback no site para ajudar outros
-                  clientes</label>
-              </div>
+        <div class="contato-content">
+          <div class="form-container wide">
+            <div class="form-header">
+              <h4>Envie sua mensagem</h4>
+              <p>Estamos aqui para ajudar você e para contar com seu feedback.</p>
             </div>
+            <form class="smart-form" id="contactForm" novalidate>
 
-            <div class="field-group">
-              <div class="checkbox-group">
-                <input type="checkbox" class="checkbox" name="contact-authorization" id="contact-authorization"
-                  aria-describedby="contact-authorization-error">
-                <span class="checkbox"></span>
-                <label for="contact-authorization">Aceito ser contatado pela Casa do Pão sobre este feedback</label>
+              <div class="field-group">
+                <label for="fullName">Nome completo<span class="required" aria-label="obrigatório">*</span></label>
+                <input type="text" name="fullName" id="fullName" required="" maxlength="100" autocomplete="name"
+                  placeholder="Digite seu nome completo" aria-describedby="fullName-error">
               </div>
-            </div>
 
-          </fieldset>
+              <div class="field-group">
+                <label for="email">E-mail<span class="required" aria-label="obrigatório">*</span></label>
+                <input type="email" name="email" id="email" required="" maxlength="100" autocomplete="email"
+                  placeholder="seuemail@exemplo.com" aria-describedby="email-error">
+              </div>
 
-          <div class="form-buttons center">
-            <button class="btn btn-primary" type="submit">Enviar mensagem</button>
-            <button class="btn btn-secondary" type="button" id="clearBtn">Limpar formulário</button>
+              <div class="field-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" name="telefone" id="telefone" maxlength="15" autocomplete="tel"
+                  placeholder="(XX) XXXXX-XXXX" aria-describedby="telefone-error">
+              </div>
+
+              <div class="field-group">
+                <label for="subject">Assunto<span class="required" aria-label="obrigatório">*</span></label>
+                <select name="subject" id="subject" required aria-describedby="subject-error">
+                  <option value="" disabled selected>Selecione um assunto</option>
+                  <option value="dúvidas">Dúvidas</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="suporte">Suporte Técnico</option>
+                  <option value="vendas">Vendas</option>
+                  <option value="parcerias">Parcerias</option>
+                  <option value="outros">Outros</option>
+                </select>
+              </div>
+
+              <div class="field-group">
+                <label for="message">Mensagem<span class="required" aria-label="obrigatório">*</span></label>
+                <textarea name="message" id="message" required="" rows="5" placeholder="Digite sua mensagem aqui"
+                  aria-describedby="message-error"></textarea>
+              </div>
+
+              <fieldset>
+
+                <legend>Consentimento</legend>
+
+                <div class="field-group">
+                  <div class="checkbox-group">
+                    <input type="checkbox" class="checkbox" name="publish-feedback" id="publish-feedback"
+                      aria-describedby="publish-feedback-error">
+                    <span class="checkbox"></span>
+                    <label for="publish-feedback">Aceito que a Casa do Pão utilize meus dados para responder a esta
+                      mensagem. Entendo que, caso meu feedback seja positivo, ele poderá ser publicado no site de forma
+                      anônima ou com meu nome, mediante autorização prévia por e-mail.</label>
+                  </div>
+                </div>
+
+              </fieldset>
+
+              <div class="form-buttons center">
+                <button class="btn btn-primary" type="submit">Enviar mensagem</button>
+                <button class="btn btn-secondary" type="button" id="clearBtn">Limpar formulário</button>
+              </div>
+            </form>
           </div>
-        </form>
+          <div class="other-contacts">
+            <section class="contato">
+              <strong>Contato</strong>
+              <div>(11) 9 9999-9999</div>
+              <div>contato@casadopao.com.br</div>
+              <div class="contact-social"><i class="bi bi-facebook btn btn-secondary"></i> <i
+                  class="bi bi-instagram btn btn-secondary"></i> <i class="bi bi-whatsapp btn btn-secondary"></i>
+              </div>
+            </section>
+            <section class="horario">
+              <strong>Horário de Funcionamento</strong>
+              <ul>
+                <li>
+                  <div class="marker"></div>Segunda a Sexta: 6h às 19h</dd>
+                <li>
+                  <div class="marker"></div>Sábado: 6h às 18h
+                </li>
+                <li>
+                  <div class="marker"></div>Domingo: 7h às 13h
+                </li>
+              </ul>
+            </section>
+            <section class="localizacao">
+              <strong>Localização</strong>
+              <address>Rua Augusta, 1508 – Consolação, 01304-001, São Paulo – SP</address>
+            </section>
+            <iframe class="iframe-localizacao"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17397.563097713!2d-46.6804668840034!3d-23.55453644291876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5832d34d2d31%3A0x95900c1b6b536403!2sR.%20Augusta%2C%201508%20-%20Consola%C3%A7%C3%A3o%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001304-001!5e0!3m2!1spt-BR!2sbr!4v1753713573322!5m2!1spt-BR!2sbr"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </main>

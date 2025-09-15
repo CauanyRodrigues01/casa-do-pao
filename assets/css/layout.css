@@ -788,7 +788,8 @@
 }
 
 .localizacao,
-.horario {
+.horario,
+.contato {
     padding: var(--space-sm);
 }
 
@@ -990,4 +991,23 @@
 
 #trabalhe-conosco .form-container {
     margin: var(--space-lg) auto;
+}
+
+/* ===========================================
+    PÁGINA CONTATO
+=========================================== */
+
+.contato-content {
+    display: flex;
+    gap: var(--space-lg);
+}
+
+.other-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.contato-intro h2, .contato-intro p {
+    margin-bottom: var(--space-md);
 }
