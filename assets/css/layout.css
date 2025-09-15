@@ -966,3 +966,28 @@
     flex-direction: column;
     gap: var(--space-md);
 }
+
+
+.sobre-nos-container ul {
+    padding-left: var(--space-md);
+}
+
+.sobre-nos-container .logo-section {
+    margin: var(--space-lg) auto 0 auto;
+}
+
+.sobre-nos-container img:not(.logo-section):not(.img-logo-sobre-nos) {
+    max-height: 350px;
+    width: 60%;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
+#trabalhe-conosco p {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#trabalhe-conosco .form-container {
+    margin: var(--space-lg) auto;
+}
