@@ -931,6 +931,19 @@
     margin-top: 110px;
 }
 
+#sobre-nos h3 {
+    text-align: center;
+    margin: var(--space-lg) 0;
+}
+
+.sobre-nos-container ul {
+    padding-left: var(--space-md);
+}
+
+.sobre-nos-container .logo-section {
+    margin: var(--space-lg) auto 0 auto;
+}
+
 #intro {
     display: flex;
     align-items: center;
@@ -950,9 +963,11 @@
     width: 30%;
 }
 
-#sobre-nos h3 {
-    text-align: center;
-    margin: var(--space-lg) 0;
+.sobre-nos-container img:not(.logo-section):not(.img-logo-sobre-nos) {
+    max-height: 350px;
+    width: 60%;
+    object-fit: cover;
+    border-radius: var(--radius);
 }
 
 .section-container-sobre-nos {
@@ -968,22 +983,6 @@
     gap: var(--space-md);
 }
 
-
-.sobre-nos-container ul {
-    padding-left: var(--space-md);
-}
-
-.sobre-nos-container .logo-section {
-    margin: var(--space-lg) auto 0 auto;
-}
-
-.sobre-nos-container img:not(.logo-section):not(.img-logo-sobre-nos) {
-    max-height: 350px;
-    width: 60%;
-    object-fit: cover;
-    border-radius: var(--radius);
-}
-
 #trabalhe-conosco p {
     max-width: 800px;
     margin: 0 auto;
@@ -992,6 +991,28 @@
 #trabalhe-conosco .form-container {
     margin: var(--space-lg) auto;
 }
+
+@media (max-width: 768px) {
+
+    .section-container-sobre-nos {
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .intro-content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .img-logo-sobre-nos {
+        display: none;
+    }
+
+}
+
 
 /* ===========================================
     PÁGINA CONTATO
@@ -1010,4 +1031,24 @@
 
 .contato-intro h2, .contato-intro p {
     margin-bottom: var(--space-md);
+}
+
+@media (max-width: 768px) {
+
+    .contato-content {
+        flex-direction: column;
+    }
+
+    .other-contacts {
+        
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+
 }
