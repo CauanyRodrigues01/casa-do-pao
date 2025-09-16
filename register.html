@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Casa do Pão - Crie sua conta na Casa do Pão.">
+  <meta name="keywords" content="padaria, pães, doces, salgados, café da manhã, delivery">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="Cadastro | Casa do pão">
+  <meta property="og:description"
+    content="Crie sua conta na Casa do Pão e faça seus pedidos online com mais facilidade, salve seus favoritos e receba promoções exclusivas.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cauanyrodrigues01.github.io/casa-do-pao/register.html">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <link rel="icon" type="image/x-icon" href="assets/img/logo-aba.png">
+  <title>Cadastro | Casa do pão</title>
+
+</head>
+
+<body>
+
+  <!-- Cabeçalho-->
+  <header id="cabecalho-principal">
+    <div class="container">
+      <div class="cabecalho-container">
+
+        <!-- Logo -->
+        <a href="index.html" aria-label="Voltar para a página inicial">
+          <img src="./assets/img/logo-cabecalho.png" class="logo-cabecalho" alt="Logo da padaria Casa do Pão">
+        </a>
+
+        <!-- Botão de menu -->
+        <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <i class="bi bi-list"></i>
+        </button>
+
+        <!-- Navegação principal -->
+        <nav class="navbar-principal" role="navigation">
+          <ul class="menu">
+            <li class="menu-item dropdown">
+              <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                Início
+              </button>
+              <div class="dropdown-menu" role="menu">
+                <a href="/index.html#produtos-destaque" class="dropdown-item" role="menuitem">Produtos Principais</a>
+                <a href="/index.html#depoimentos" class="dropdown-item" role="menuitem">Depoimentos</a>
+                <a href="/index.html#diferenciais" class="dropdown-item" role="menuitem">Diferenciais</a>
+                <a href="/index.html#cadastro" class="dropdown-item" role="menuitem">Cadastro</a>
+                <a href="/index.html#galeria" class="dropdown-item" role="menuitem">Galeria</a>
+                <a href="/index.html#venha-visitar" class="dropdown-item" role="menuitem">Onde estamos</a>
+                <a href="/index.html#sobre-nos" class="dropdown-item" role="menuitem">Sobre nós</a>
+              </div>
+            </li>
+            <li class="menu-item"><a href="menu.html" class="menu-link">Cardápio</a></li>
+            <li class="menu-item"><a href="contact.html" class="menu-link">Contato</a></li>
+            <li class="menu-item"><a href="about.html" class="menu-link">Sobre nós</a></li>
+          </ul>
+        </nav>
+
+        <div class="botoes-autenticacao">
+          <a href="cart.html" class="btn bi bi-cart"></a>
+          <a href="register.html" class="btn btn-primary-dark">Criar conta</a>
+          <a href="login.html" class="btn btn-secondary-dark">Entrar</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main id="cadastro">
+    <div class="container">
+      <div class="form-container wide">
+        <div class="form-header">
+          <h2>Crie sua conta</h2>
+          <p>Preencha os campos abaixo para criar sua conta na Casa do Pão.</p>
+          <small>Já tem uma conta? <a href="login.html">Entre aqui</a></small>
+        </div>
+
+        <form class="smart-form" id="registerForm" novalidate>
+
+          <fieldset>
+            <legend>Dados Pessoais</legend>
+
+            <div class="field-group">
+              <label for="fullName">Nome completo<span class="required" aria-label="obrigatório">*</span></label>
+              <input type="text" name="fullName" id="fullName" required="" maxlength="100" autocomplete="name"
+                placeholder="Digite seu nome completo" aria-describedby="fullName-error">
+            </div>
+
+            <div class="field-group">
+              <label for="email">E-mail<span class="required" aria-label="obrigatório">*</span></label>
+              <input type="email" name="email" id="email" required="" maxlength="100" autocomplete="email"
+                placeholder="seuemail@exemplo.com" aria-describedby="email-error">
+            </div>
+
+            <div class="field-group">
+              <label for="password">Senha<span class="required" aria-label="obrigatório">*</span></label>
+              <input type="password" name="password" id="password" required="" minlength="8"
+                placeholder="Mínimo 8 caracteres" aria-describedby="password-error">
+              <div class="password-strength" id="password-help">
+                <div class="strength-indicator">
+                  <div class="strength-bar" id="password-strength-bar"></div>
+                </div>
+                <small id="password-strength-text" class="strength-text"></small>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="confirmPassword">Confirmar senha<span class="required"
+                  aria-label="obrigatório">*</span></label>
+              <input type="password" name="confirmPassword" id="confirmPassword" required=""
+                placeholder="Digite a senha novamente" aria-describedby="confirmPassword-error">
+            </div>
+
+          </fieldset>
+
+          <fieldset>
+
+            <legend>Termos e Condições</legend>
+
+            <div class="field-group">
+              <div class="checkbox-group">
+                <input type="checkbox" class="checkbox" name="promotions" id="promotions"
+                  aria-describedby="promotions-error">
+                <span class="checkbox"></span>
+                <label for="promotions">Quero receber ofertas e promoções por e-mail</label>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <div class="checkbox-group">
+                <input type="checkbox" class="checkbox" name="terms" id="terms" required=""
+                  aria-describedby="terms-error">
+                <span class="checkbox"></span>
+                <label for="terms">Li e aceito os termos de uso e política de privacidade<span class="required"
+                    aria-label="obrigatório">*</span></label>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-buttons center">
+            <button class="btn btn-primary" type="submit">Criar minha conta</button>
+            <button class="btn btn-secondary" type="button" id="clearBtn">Limpar formulário</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+  <footer id="rodape">
+    <div class="container">
+      <div class="rodape-container">
+        <div class="rodape-informacoes">
+          <div class="informacoes">
+            <h4>Informações</h4>
+            <ul>
+              <li>Política de Privacidade</li>
+              <li>Termos de Uso</li>
+              <li>Política de Cookies</li>
+              <li>Perguntas Frequentes</li>
+            </ul>
+          </div>
+          <div class="contato-footer">
+            <h4>Contato</h4>
+            <ul>
+              <li><a href="contact.html">Fale conosco</a></li>
+              <li><a href="about.html#trabalhe-conosco">Trabalhe conosco</a></li>
+              <li><a href="contact.html">Deixe seu feedback</a></li>
+              <li>(11) 9 9999-9999</li>
+              <li>contato@casadopao.com.br</li>
+            </ul>
+          </div>
+          <div class="certificacoes">
+            <h4>Certificações</h4>
+            <ul>
+              <li>ISO 9001</li>
+              <li>ANVISA</li>
+              <li>Orgânico Certificado</li>
+            </ul>
+          </div>
+          <div class="redes-sociais">
+            <h4>Siga-nos</h4>
+            <ul>
+              <li>Facebook</li>
+              <li>Instagram</li>
+              <li>WhatsApp</li>
+              <li>YouTube</li>
+            </ul>
+          </div>
+        </div>
+        <div class="endereco">Rua Augusta, 1508 – Consolação, São Paulo – SP, 01304-001</div>
+        <div class="divisor"></div>
+        <div class="footer-detalhes">
+          <p>&copy; 2024 Padaria do Pão. Todos os direitos reservados.</p>
+          <p>CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ por <a
+              href="https://www.linkedin.com/in/cauany-rodrigues-78700b193/">Cauany Rodrigues</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="assets/js/register.js" type="module"></script>
+
+</body>
+
+</html>
