@@ -1,4 +1,7 @@
-import { SmartForm } from './modules/smartForm.js';
+import { SmartForm } from "./modules/smartForm.js";
+import { initializeMobileMenu } from "./modules/menuMobile.js";
+import { smoothScroll } from "./modules/smoothScroll.js";
+import { initializeDropdow } from "./modules/dropdown.js";
 
 class PasswordStrengthChecker {
   constructor(passwordField, strengthBar, strengthText, formInstance) {
@@ -86,8 +89,18 @@ const FieldRulesForRegister = {
   },
 };
 
-// INICIALIZAÇÃO DO FORMULÁRIO DE REGISTRO
+// Inicializa as funções da página de cadastro
 document.addEventListener("DOMContentLoaded", () => {
+  // Inicializa o menu mobile
+  initializeMobileMenu();
+
+  // Inicializa os dropdowns
+  initializeDropdow();
+
+  // Inicializa o smooth scroll para âncoras
+  smoothScroll();
+
+  // INICIALIZAÇÃO DO FORMULÁRIO DE REGISTRO
   const registerForm = new SmartForm(
     // ID do formulário
     "registerForm",
