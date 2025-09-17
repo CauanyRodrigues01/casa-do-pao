@@ -81,7 +81,7 @@
     grid-template-columns: auto 1fr auto;
     align-items: center;
     grid-template-areas:
-        "logo navbar-principal botoes-autenticacao";
+        "logo navbar-principal action-buttons";
     gap: var(--space-sm);
 }
 
@@ -102,6 +102,8 @@
 .navbar-principal {
     grid-area: navbar-principal;
     position: relative;
+    display: flex;
+    justify-content: space-between;
 }
 
 .menu {
@@ -162,8 +164,8 @@
     padding: var(--space-xs) var(--space-sm);
 }
 
-.botoes-autenticacao {
-    grid-area: botoes-autenticacao;
+.action-buttons {
+    grid-area: action-buttons;
     display: flex;
     gap: var(--space-sm);
     justify-self: end;
@@ -171,7 +173,7 @@
 
 @media (max-width: 992px) {
 
-    .botoes-autenticacao {
+    .action-buttons {
         gap: var(--space-xs);
     }
 
@@ -190,6 +192,7 @@
     }
 
     .navbar-principal {
+        display: block;
         position: absolute;
         top: 93px;
         left: 0;
@@ -218,7 +221,11 @@
         margin-bottom: 0;
     }
 
-    .navbar-principal a {
+    .action-buttons {
+        margin: var(--space-xs) auto;
+    }
+
+    .navbar-principal a:not(.action-buttons a) {
         display: block;
         width: 100%;
         padding: var(--space-xs);
@@ -239,10 +246,6 @@
     .dropdown.active .dropdown-menu {
         width: 50%;
         max-width: 50%;
-    }
-
-    .botoes-autenticacao {
-        display: none;
     }
 
 }
