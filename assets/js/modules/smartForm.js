@@ -207,11 +207,19 @@ export class SmartForm {
         const errorElement = document.createElement("div");
         errorElement.id = errorId;
         errorElement.className = "error-message";
-        // Insere o elemento de erro logo após o campo
 
+        // Insere o elemento de erro logo após o campo
         if (field.type === "file") {
           // Para inputs de arquivo, insere o erro após o contêiner customizado
           const customContainer = field.closest(".file-upload-input");
+          if (customContainer && customContainer.parentNode) {
+            customContainer.parentNode.insertBefore(
+              errorElement,
+              customContainer.nextSibling
+            );
+          }
+        } else if (field.type === "checkbox" || field.type === "radio") {
+          const customContainer = field.closest(".checkbox-group, .radio-group");
           if (customContainer && customContainer.parentNode) {
             customContainer.parentNode.insertBefore(
               errorElement,
