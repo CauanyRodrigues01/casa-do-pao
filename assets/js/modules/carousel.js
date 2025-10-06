@@ -20,6 +20,9 @@ export class Carousel {
     this.options = {
       loop: false, // Padrão: Sem loop
       gap: 16, // Padrão: 16px (ajuste para o valor do seu CSS)
+      autoplay: false,
+      autoplayInterval: 5000, // 5 segundos
+      showNavigation: true,
       ...options,
     };
 
@@ -36,11 +39,17 @@ export class Carousel {
     this.totalSlides = this.slides.length;
     this.indicators = [];
 
+    // Estado do Autoplay
+    this.autoplayTimer = null;
+    this.isAutoplaying = false;
+
     // Verifica se há slides suficientes
     if (this.totalSlides <= 1) {
       // Esconde botões e indicadores se houver apenas 1 slide
       if (this.prevBtn) this.prevBtn.style.display = "none";
       if (this.nextBtn) this.nextBtn.style.display = "none";
+      if (this.indicatorsContainer)
+        this.indicatorsContainer.style.display = "none";
       return;
     }
 
@@ -64,19 +73,33 @@ export class Carousel {
     this.createIndicators();
     this.setupNavigation();
     this.setupResizeObserver(); // Inicializa o observer
+    this.setupAutoplay();
     this.updateUI(); // Chama updateUI para garantir o estado inicial
   }
 
   // Método para limpeza (importante para SPAs ou componentes dinâmicos)
   destroy() {
-    this.track.removeEventListener("transitionend", () =>
-      this.handleTransitionEnd()
-    );
-    this.prevBtn.removeEventListener("click", this.handlePrevClick);
-    this.nextBtn.removeEventListener("click", this.handleNextClick);
+    this.track.removeEventListener("transitionend", this.handleTransitionEnd);
+
+    // Remove listeners de navegação (apenas se os botões estiverem visíveis/configurados)
+    if (this.options.showNavigation) {
+      if (this.prevBtn)
+        this.prevBtn.removeEventListener("click", this.handlePrevClick);
+      if (this.nextBtn)
+        this.nextBtn.removeEventListener("click", this.handleNextClick);
+    }
+
     this.indicators.forEach((indicator, i) => {
       indicator.removeEventListener("click", () => this.goToSlide(i));
     });
+
+    // Limpa Autoplay
+    this.stopAutoplay();
+    if (this.options.autoplay) {
+      this.container.removeEventListener("mouseover", this.handleMouseOver);
+      this.container.removeEventListener("mouseout", this.handleMouseOut);
+    }
+
     this.resizeObserver.disconnect();
   }
 
@@ -95,15 +118,85 @@ export class Carousel {
     this.moveCarousel(1);
   };
 
+  // Handlers para pausar no hover
+  handleMouseOver = () => {
+    this.stopAutoplay();
+  };
+
+  handleMouseOut = () => {
+    this.startAutoplay();
+  };
+
   // Configura a navegação (melhoria com referência a métodos)
   setupNavigation() {
+    if (!this.options.showNavigation) {
+      // Garante que os botões fiquem escondidos
+      if (this.prevBtn) this.prevBtn.style.display = "none";
+      if (this.nextBtn) this.nextBtn.style.display = "none";
+      return;
+    }
+
+    // Se a opção for true, garante que os botões sejam exibidos (se já não estiverem)
     if (this.prevBtn) {
+      this.prevBtn.style.display = ""; // Volta ao estilo padrão
       this.prevBtn.addEventListener("click", this.handlePrevClick);
     }
 
     if (this.nextBtn) {
+      this.nextBtn.style.display = ""; // Volta ao estilo padrão
       this.nextBtn.addEventListener("click", this.handleNextClick);
     }
+  }
+
+  // Configura o Autoplay e a Pausa/Retoma ao passar o mouse
+  setupAutoplay() {
+    if (this.options.autoplay) {
+      this.startAutoplay(); // Configura pausa/retoma no hover
+      this.container.addEventListener("mouseover", this.handleMouseOver);
+      this.container.addEventListener("mouseout", this.handleMouseOut);
+    }
+  }
+
+  // Lógica de avanço automático
+  autoAdvance() {
+    // Se não for loop e estiver no último slide, para o autoplay
+    if (!this.options.loop && this.currentIndex === this.totalSlides - 1) {
+      this.stopAutoplay();
+    } else {
+      // Se for o último slide em loop, volta ao primeiro (moveCarousel lida com isso)
+      this.moveCarousel(1);
+    }
+  }
+
+  // Inicia o autoplay
+  startAutoplay() {
+    if (
+      !this.options.autoplay ||
+      this.isAutoplayRunning ||
+      this.totalSlides <= 1
+    ) {
+      return;
+    }
+    this.autoplayTimer = setInterval(
+      () => this.autoAdvance(),
+      this.options.autoplayInterval
+    );
+    this.isAutoplayRunning = true;
+  }
+
+  // Para o autoplay
+  stopAutoplay() {
+    if (this.autoplayTimer) {
+      clearInterval(this.autoplayTimer);
+    }
+    this.autoplayTimer = null;
+    this.isAutoplayRunning = false;
+  }
+
+  // Reinicia o autoplay (útil para eventos externos)
+  restartAutoplay() {
+    this.stopAutoplay();
+    this.startAutoplay();
   }
 
   // Criação dos indicadores
@@ -115,9 +208,7 @@ export class Carousel {
     for (let i = 0; i < this.totalSlides; i++) {
       const indicator = document.createElement("button");
       indicator.className = "carousel-indicator";
-      // Acessibilidade: indica para qual slide o botão leva
       indicator.setAttribute("aria-label", `Ir para slide ${i + 1}`);
-      // Usa 'let' no loop para capturar o índice correto
       indicator.addEventListener("click", () => this.goToSlide(i));
 
       this.indicatorsContainer.appendChild(indicator);
@@ -128,6 +219,12 @@ export class Carousel {
   // Lógica para mover o carrossel
   moveCarousel(direction) {
     if (this.isTransitioning) return;
+
+    // 💡 Reinicia o autoplay se o movimento for manual (prev/next buttons)
+    // Isso evita que o autoplay avance imediatamente após um clique manual.
+    if (this.isAutoplayRunning) {
+      this.restartAutoplay();
+    }
 
     let newIndex = this.currentIndex + direction;
 
@@ -150,6 +247,11 @@ export class Carousel {
   goToSlide(index) {
     // Se já está no índice ou em transição, para.
     if (index === this.currentIndex || this.isTransitioning) return;
+
+    // Reinicia o autoplay se o movimento for manual (indicador)
+    if (this.isAutoplayRunning) {
+      this.restartAutoplay();
+    }
 
     this.currentIndex = index;
     this.updateUI();
@@ -189,9 +291,6 @@ export class Carousel {
     if (!currentTransition || currentTransition.indexOf("transform") === -1) {
       // Define a transição explicitamente usando o valor em milissegundos
       this.track.style.transition = `transform ${duration} ease-in-out`;
-      console.log(
-        `💡 Transição CSS garantida: 'transform ${duration} ease-in-out' aplicada ao track.`
-      );
     }
   }
 
@@ -204,6 +303,9 @@ export class Carousel {
 
   // Atualiza o estado de `disabled` dos botões de navegação
   updateButtons() {
+    // Só atualiza se a navegação estiver ativada
+    if (!this.options.showNavigation) return;
+
     if (this.options.loop) {
       // Se for loop, os botões nunca são desabilitados
       if (this.prevBtn) this.prevBtn.disabled = false;

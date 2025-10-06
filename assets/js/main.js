@@ -16,12 +16,18 @@ document.addEventListener("DOMContentLoaded", () => {
   smoothScroll();
 
   const carouselProdutos = new Carousel("#products-carousel", {
-    loop: true, // Produtos: não faz loop
+    loop: true,
     gap: 16, // Garante que o JS use o mesmo gap do CSS
+    autoplay: true,
+    autoplayInterval: 4000, // 4 segundos
+    showNavigation: true,
   });
 
   const carouselDepoimentos = new Carousel("#testimonials-carousel", {
-    loop: true, // Depoimentos: com loop (opcional)
-    gap: 32, // Ajuste o gap para depoimentos (se for diferente no CSS)
+    loop: true,
+    gap: 32, // Garante que o JS use o mesmo gap do CSS
+    autoplay: true,
+    autoplayInterval: 4000, // 4 segundos
+    showNavigation: false,
   });
 });
