@@ -402,8 +402,7 @@
     max-width: 100%;
     position: relative;
     overflow: hidden;
-    padding: var(--space-sm);
-    padding-top: var(--space-2xl);
+    padding: var(--space-2xl) var(--space-sm);
     margin-bottom: var(--space-md);
 }
 
@@ -414,6 +413,16 @@
     width: 100%;
     justify-content: center;
     max-width: calc(100vw - 100px);
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+
+    /* Ocultar scrollbar */
+    -ms-overflow-style: none;
+    /* Esconde scrollbar no IE/Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .carousel-track {
@@ -553,9 +562,16 @@
 .carousel-indicators {
     display: flex;
     justify-content: center;
+    padding-bottom: 2px;
     gap: var(--space-sm);
+}
+
+#depoimentos .carousel-indicators {
     margin-top: var(--space-xl);
-    padding-bottom: var(--space-xs);
+}
+
+#depoimentos .carousel-track {
+    padding-bottom: var(--space-xl);
 }
 
 .indicador {
@@ -1016,7 +1032,8 @@
     gap: var(--space-lg);
 }
 
-.contato-intro h2, .contato-intro p {
+.contato-intro h2,
+.contato-intro p {
     margin-bottom: var(--space-md);
 }
 
@@ -1027,7 +1044,7 @@
     }
 
     .other-contacts {
-        
+
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
@@ -1035,7 +1052,4 @@
 
 }
 
-@media (max-width: 480px) {
-
-
-}
+@media (max-width: 480px) {}
