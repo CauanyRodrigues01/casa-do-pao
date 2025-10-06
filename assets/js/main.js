@@ -19,11 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
     loop: true, // Produtos: não faz loop
     gap: 16, // Garante que o JS use o mesmo gap do CSS
   });
-  carouselProdutos.init();
 
   const carouselDepoimentos = new Carousel("#testimonials-carousel", {
     loop: true, // Depoimentos: com loop (opcional)
     gap: 32, // Ajuste o gap para depoimentos (se for diferente no CSS)
   });
-  carouselDepoimentos.init();
 });

@@ -41,8 +41,6 @@ export class Carousel {
       // Esconde botões e indicadores se houver apenas 1 slide
       if (this.prevBtn) this.prevBtn.style.display = "none";
       if (this.nextBtn) this.nextBtn.style.display = "none";
-      if (this.indicatorsContainer)
-        this.indicatorsContainer.style.display = "none";
       return;
     }
 
@@ -55,6 +53,8 @@ export class Carousel {
     this.track.addEventListener("transitionend", () =>
       this.handleTransitionEnd()
     );
+
+    this.init();
 
   }
 
