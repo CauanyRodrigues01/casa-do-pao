@@ -107,16 +107,17 @@
         </div>
 
         <!-- Carrossel de produtos -->
-        <div class="container-carousel-products">
+        <div class="container-carousel-products carousel-component" id="products-carousel">
+
           <div class="carousel-wrapper">
 
             <!-- Botão anterior -->
-            <button class="btn bi bi-chevron-left setas-produtos" id="prevBtn" aria-label="Produto anterior"></button>
+            <button class="carousel-nav prev bi bi-chevron-left" aria-label="Produto anterior"></button>
 
             <!-- Container dos produtos -->
-            <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-track">
               <!-- Produto 1 -->
-              <div class="product-card">
+              <div class="product-card carousel-slide">
                 <div class="product-image">
                   <img loading="lazy" src="assets/img/cardapio/pao-frances-crocante.png"
                     alt="Pão francês crocante recém-assado, com uma fatia cortada mostrando o interior macio e a casca dourada e rústica, em uma tábua de madeira.">
@@ -136,7 +137,7 @@
                 </div>
               </div>
               <!-- Produto 2 -->
-              <div class="product-card">
+              <div class="product-card carousel-slide">
                 <div class="product-image">
                   <img loading="lazy" src="assets/img/cardapio/baguete-tradicional.png"
                     alt="Uma baguete tradicional, longa e dourada, com a casca crocante e cortes diagonais na superfície, descansando sobre uma tábua de madeira rústica.">
@@ -156,7 +157,7 @@
                 </div>
               </div>
               <!-- Produto 3 -->
-              <div class="product-card">
+              <div class="product-card carousel-slide">
                 <div class="product-image">
                   <img loading="lazy" src="assets/img/cardapio/croissant-manteiga.png"
                     alt="Um croissant de manteiga dourado e folhado, com a superfície brilhante e camadas visíveis, pousado sobre uma tábua de madeira.">
@@ -175,7 +176,7 @@
                 </div>
               </div>
               <!-- Produto 4 -->
-              <div class="product-card">
+              <div class="product-card carousel-slide">
                 <div class="product-image">
                   <img loading="lazy" src="assets/img/cardapio/pao-doce-recheado.png"
                     alt="Pão doce trançado e recheado com creme e chocolate, com uma fatia cortada revelando o recheio.">
@@ -194,7 +195,7 @@
                 </div>
               </div>
               <!-- Produto 5 -->
-              <div class="product-card">
+              <div class="product-card carousel-slide">
                 <div class="product-image">
                   <img loading="lazy" src="assets/img/cardapio/broa-de-milho.png"
                     alt="Uma broa de milho dourada e macia, cortada em pedaços em uma frigideira de ferro fundido, com manteiga derretendo e um fio de mel por cima.">
@@ -213,7 +214,7 @@
                 </div>
               </div>
               <!-- Produto 6 -->
-              <div class="product-card">
+              <div class="product-card carousel-slide">
                 <div class="product-image">
                   <img loading="lazy" src="assets/img/cardapio/sonho-com-creme.png"
                     alt="Um sonho com creme, polvilhado com açúcar em pó, mostrando o recheio de creme claro saindo de um lado.">
@@ -233,12 +234,14 @@
               </div>
             </div>
 
-            <!-- Botão próximo -->
-            <button class="btn bi bi-chevron-right setas-produtos" id="nextBtn" aria-label="Próximo produto"></button>
+            <!-- Botões próximo -->
+            <button class="carousel-nav next bi bi-chevron-right" aria-label="Próximo produto"></button>
+
           </div>
 
           <!-- Indicadores do carrossel de produtos -->
-          <div class="carousel-products-indicators" id="carouselProductsIndicators"></div>
+          <div class="carousel-indicators"></div>
+
         </div>
 
         <!-- Botão ver cardápio -->
@@ -259,12 +262,17 @@
           <p>Confira os depoimentos de quem já experimentou nossos produtos e serviços</p>
         </div>
 
-        <!-- Depoimentos -->
-        <div class="carrossel-container">
-          <div class="carousel-track" id="carouselTrack">
-            <div class="depoimentos" id="carrossel">
+        <!-- Carrosel de depoimentos -->
+        <div class="carrossel-container carousel-component" id="testimonials-carousel">
+
+          <div class="carousel-wrapper">
+
+            <!-- Botão anterior -->
+            <button class="carousel-nav prev bi bi-chevron-left" aria-label="Depoimento anterior"></button>
+
+            <div class="carousel-track">
               <!-- Depoimento 1 -->
-              <section class="depoimento">
+              <div class="testimonials-card carousel-slide">
                 <div id="depoimento-rating">
                   <i class="bi bi-star-fill"></i>
                   <i class="bi bi-star-fill"></i>
@@ -281,9 +289,9 @@
                     alt="Mulher sorrindo com cabelo cacheado escuro preso e com casaco laranja">
                   <cite>Maria Silva</cite>
                 </footer>
-              </section>
+              </div>
               <!-- Depoimento 2 -->
-              <section class="depoimento">
+              <div class="testimonials-card carousel-slide">
                 <div id="depoimento-rating">
                   <i class="bi bi-star-fill"></i>
                   <i class="bi bi-star-fill"></i>
@@ -301,9 +309,9 @@
                   <cite>Ana Souza</cite>
                 </footer>
 
-              </section>
+              </div>
               <!-- Depoimento 3 -->
-              <section class="depoimento">
+              <div class="testimonials-card carousel-slide">
                 <div id="depoimento-rating">
                   <i class="bi bi-star-fill"></i>
                   <i class="bi bi-star-fill"></i>
@@ -320,9 +328,9 @@
                     alt="Homem sorrindo de forma sutil com casaco jeans e cabelo black power">
                   <cite>Rodrigo Mendes</cite>
                 </footer>
-              </section>
+              </div>
               <!-- Depoimento 4 -->
-              <section class="depoimento">
+              <div class="testimonials-card carousel-slide">
                 <div id="depoimento-rating">
                   <i class="bi bi-star-fill"></i>
                   <i class="bi bi-star-fill"></i>
@@ -339,13 +347,17 @@
                     alt="Mulher de óculos e cabelo curso redondo preto cacheado">
                   <cite>Luiza Costa</cite>
                 </footer>
-              </section>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Indicadores do carrossel de depoimentos -->
-        <div class="carrossel-indicadores" id="indicadores">
+            <!-- Botões próximo -->
+            <button class="carousel-nav next bi bi-chevron-right" aria-label="Próximo depoimento"></button>
+
+          </div>
+
+          <!-- Indicadores do carrossel de depoimentos -->
+          <div class="carousel-indicators" id="indicadores"> </div>
+
         </div>
       </div>
   </section>

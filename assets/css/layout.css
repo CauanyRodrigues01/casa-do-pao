@@ -418,19 +418,10 @@
 
 .carousel-track {
     display: flex;
-    gap: var(--space-sm);
+    gap: var(--space-md);
     padding: var(--space-sm) var(--space-xs);
     flex-wrap: nowrap;
     width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-
-    /* Ocultar scrollbar */
-    -ms-overflow-style: none;
-    /* Esconde scrollbar no IE/Edge */
-    scrollbar-width: none;
-    /* Firefox */
 }
 
 /* Ocultar scrollbar */
@@ -527,14 +518,7 @@
     max-width: calc(100vw - 100px);
 }
 
-.depoimentos {
-    display: flex;
-    gap: var(--space-md);
-    padding-bottom: 70px;
-    max-width: 100%;
-}
-
-.depoimento {
+.testimonials-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -566,7 +550,7 @@
     height: 100px;
 }
 
-.carrossel-indicadores {
+.carousel-indicators {
     display: flex;
     justify-content: center;
     gap: var(--space-sm);
@@ -598,7 +582,7 @@
     right: 20px;
 }
 
-.depoimento img {
+.testimonials-card img {
     position: relative;
 }
 
