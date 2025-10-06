@@ -55,12 +55,12 @@ export class Carousel {
     );
 
     this.init();
-
   }
 
   // Método para iniciar o carrossel
   init() {
     if (!this.container || this.totalSlides <= 1) return;
+    this.ensureCSSTransition();
     this.createIndicators();
     this.setupNavigation();
     this.setupResizeObserver(); // Inicializa o observer
@@ -178,18 +178,25 @@ export class Carousel {
     this.updateButtons();
     this.updateIndicators();
     this.updateAriaAttributes();
-
-    // NOTA: O 'setTimeout' original foi substituído por um 'transitionend' listener (abaixo).
-    // No entanto, para o caso de `updateUI` ser chamado sem transição (ex: no resize),
-    // devemos resetar `isTransitioning` após o cálculo.
-    // A melhor prática é usar o evento `transitionend` (veja `handleTransitionEnd`).
-    // Para garantir o reset em casos de não-transição, podemos usar um timeout curto:
-    // Se a transição CSS não estiver definida, o `transitionend` não será disparado.
-
-    // Se não for usar o `transitionend`, mantenha o setTimeout:
-    // setTimeout(() => { this.isTransitioning = false; }, this.transitionDuration);
   }
 
+  ensureCSSTransition() {
+    const currentTransition = this.track.style.transition;
+    const duration = `${this.transitionDuration}ms`;
+
+    // Verifica se a propriedade 'transition' já está definida no estilo inline.
+    // Se não estiver (ou for vazia), adiciona a transição para 'transform'.
+    if (!currentTransition || currentTransition.indexOf("transform") === -1) {
+      // Define a transição explicitamente usando o valor em milissegundos
+      this.track.style.transition = `transform ${duration} ease-in-out`;
+      console.log(
+        `💡 Transição CSS garantida: 'transform ${duration} ease-in-out' aplicada ao track.`
+      );
+    }
+  }
+
+  // NOTA: garantir que a transição CSS esteja definida no CSS para a propriedade 'transform'
+  // Exemplo: .carousel-track { transition: transform 0.4s ease; }
   // Método chamado quando a transição CSS termina
   handleTransitionEnd() {
     this.isTransitioning = false;
