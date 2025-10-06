@@ -527,8 +527,8 @@
     padding: var(--space-sm);
     padding-bottom: 70px;
     position: relative;
-    min-width: 350px;
-    max-width: 380px;
+    min-width: 330px;
+    max-width: 330px;
     width: 350px;
     flex: 0 0 350px;
     /* Mantém a largura mínima de cada produto */
