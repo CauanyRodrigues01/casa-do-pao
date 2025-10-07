@@ -17,13 +17,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // INICIALIZAÇÃO DO FORMULÁRIO DE CONTATO
   document.addEventListener("DOMContentLoaded", () => {
     const contactForm = new SmartForm(
-      "contactForm",
+      "entrarEmContatoForm",
 
       async (data) => {
         console.log("Dados do formulário de contato:", data);
         // atraso artificial para simular a requisição de rede
         await new Promise((resolve) => setTimeout(resolve, 2000));
-      }
+      },
+
+    {
+      validateOnBlur: true,
+      validateOnInput: true,
+      showMessages: true,
+    }
     );
   });
 });

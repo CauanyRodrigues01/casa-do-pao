@@ -25,7 +25,7 @@
 #cadastro,
 #galeria,
 #venha-visitar,
-#sobre-nos,
+#sobre-nos-preview,
 #rodape,
 #cadastro,
 #trabalhe-conosco {
@@ -41,7 +41,7 @@
     #cadastro,
     #galeria,
     #venha-visitar,
-    #sobre-nos,
+    #sobre-nos-preview,
     #rodape,
     #trabalhe-conosco {
         scroll-margin-top: 177px;
@@ -57,7 +57,7 @@
     #cadastro,
     #galeria,
     #venha-visitar,
-    #sobre-nos,
+    #sobre-nos-preview,
     #rodape,
     #trabalhe-conosco {
         scroll-margin-top: 93px;
@@ -833,41 +833,41 @@
     SEÇÃO SOBRE NOS DO INDEX
 =========================================== */
 
-.sobre-nos-content {
+.sobre-nos-preview-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "sobre-nos-info sobre-nos-img";
+    grid-template-areas: "sobre-nos-preview-info sobre-nos-preview-img";
     gap: var(--space-2xl);
     align-items: center;
     justify-items: center;
     margin-bottom: var(--space-lg);
 }
 
-.sobre-nos-info {
-    grid-area: sobre-nos-info;
+.sobre-nos-preview-info {
+    grid-area: sobre-nos-preview-info;
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
     align-items: flex-start;
 }
 
-.sobre-nos-img {
-    grid-area: sobre-nos-img;
+.sobre-nos-preview-img {
+    grid-area: sobre-nos-preview-img;
     width: 100%;
     height: auto;
 }
 
 @media (max-width: 768px) {
 
-    .sobre-nos-content {
+    .sobre-nos-preview-content {
         grid-template-columns: 1fr;
         grid-template-areas:
-            "sobre-nos-info"
-            "sobre-nos-img";
+            "sobre-nos-preview-info"
+            "sobre-nos-preview-img";
         gap: var(--space-lg);
     }
 
-    .sobre-nos-info {
+    .sobre-nos-preview-info {
         align-items: center;
     }
 
@@ -878,7 +878,7 @@
 =========================================== */
 
 #rodape {
-    margin-top: var(--space-sm);
+    margin-top: 0;
 }
 
 .rodape-container {
@@ -920,9 +920,9 @@
     FORMULÁRIO GERAL
 =========================================== */
 
-#cadastro,
+#fazer-cadastro,
 #login,
-#contato {
+#entrar-em-contato {
     margin-top: 110px;
 }
 
