@@ -724,7 +724,9 @@
     margin-top: var(--space-xl);
 }
 
-.lista-diferenciais li {
+.lista-diferenciais article {
+    flex-direction: column;
+    gap: var(--space-xs);
     padding: var(--space-sm);
     width: 23%;
     min-width: 200px;
@@ -735,7 +737,7 @@
     align-items: center;
 }
 
-.lista-diferenciais li:hover {
+.lista-diferenciais article:hover {
     transform: scale(1.1);
 }
 

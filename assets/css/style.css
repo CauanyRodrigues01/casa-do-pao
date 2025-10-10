@@ -389,7 +389,7 @@
     SEÇÃO DIFERENCIAIS
 =========================================== */
 
-.lista-diferenciais li {
+.lista-diferenciais article {
    text-align: center;
    box-shadow: var(--shadow);
    border-radius: var(--radius);
