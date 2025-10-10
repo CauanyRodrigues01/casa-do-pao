@@ -395,6 +395,11 @@
    border-radius: var(--radius);
 }
 
+.lista-diferenciais article i {
+   font-size: var(--text-md);
+   color: var(--secondary-color);
+}
+
 /* ===========================================
     SEÇÃO CTA CADASTRO
 =========================================== */
@@ -402,23 +407,6 @@
 .video-institucional {
    border-radius: var(--radius);
    box-shadow: var(--shadow);
-}
-
-/* ===========================================
-    SEÇÃO GALERIA
-=========================================== */
-
-.galeria-grid img {
-   border-radius: var(--radius);
-   box-shadow: var(--shadow);
-   transition: var(--transition);
-   cursor: pointer;
-}
-
-.galeria-grid img:hover {
-   transform: translateY(-5px) scale(1.02);
-   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-   filter: brightness(1.05);
 }
 
 /* ===========================================

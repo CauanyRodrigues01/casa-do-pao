@@ -793,42 +793,6 @@
 
 }
 
-/* ===========================================
-    SEÇÃO GALERIA DO INDEX
-=========================================== */
-
-.galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--space-md);
-    justify-content: space-between;
-    align-content: space-evenly;
-    justify-items: center;
-    align-items: center;
-}
-
-.galeria-grid img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-}
-
-@media (max-width: 768px) {
-
-    .galeria-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-
-}
-
-@media (max-width: 480px) {
-
-    .galeria-grid img {
-        width: 70%;
-        height: 200px;
-    }
-
-}
 
 /* ===========================================
     SEÇÃO VENHA VISITAR DO INDEX
