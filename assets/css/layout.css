@@ -243,9 +243,7 @@
     }
 
     .dropdown-menu {
-        position: static;
-        display: none;
-        margin-top: 0;
+        left: 25%;
     }
 
     .dropdown.active .dropdown-menu {
