@@ -211,6 +211,13 @@
    }
 }
 
+/* ===========================================
+    INTRO PARA TODAS AS SEÇÕES DO INDEX
+=========================================== */
+
+.intro-section p {
+   color: var(--secondary-color);
+}
 
 /* ===========================================
     SEÇÃO PRODUTOS DESTAQUE
