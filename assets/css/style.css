@@ -511,3 +511,17 @@
 .contato-intro {
    text-align: center;
 }
+
+/* ===========================================
+    PÁGINA CARDÁPIO
+=========================================== */
+
+.card-em-breve {
+    box-shadow: var(--shadow);
+    border-radius: var(--radius-lg);
+}
+
+.card-em-breve p {
+    text-align: center;
+    font-size: var(--text-md);
+}

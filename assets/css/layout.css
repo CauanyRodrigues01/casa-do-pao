@@ -1088,8 +1088,21 @@
 
 #menu {
     margin-top: 77px;
+    min-height: 37vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.card-em-breve {
+    width: 40%;
+    height: 100px;
+    padding: var(--space-md);
+}
+
+.card-em-breve p {
+    margin: auto;
+}
 
 /* ===========================================
     PÁGINA CARRINHO
