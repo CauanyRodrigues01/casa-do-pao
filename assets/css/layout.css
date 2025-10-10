@@ -1054,6 +1054,7 @@
 .contato-content {
     display: flex;
     gap: var(--space-lg);
+    padding-bottom: var(--space-lg);
 }
 
 .other-contacts {
@@ -1066,6 +1067,11 @@
 .contato-intro p {
     margin-bottom: var(--space-md);
 }
+
+.contato-content .form-container {
+    flex: 1;
+}
+
 
 @media (max-width: 768px) {
 
