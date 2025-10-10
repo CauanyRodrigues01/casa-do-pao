@@ -151,6 +151,12 @@
    color: var(--secondary-color)
 }
 
+.hero-content .btn-secondary:hover, .hero-content .btn-primary:hover {
+   color: var(--text-light);
+   background-color: var(--accent-color);
+   border-color: var(--accent-color);
+}
+
 .hero-imagem {
    animation: fadeInRight 0.8s ease-out;
 }
