@@ -283,7 +283,7 @@
 }
 
 .badge-hero {
-    background-color: #ecaa4730;
+    padding: var(--space-xs) var(--space-sm);
 }
 
 .hero-description {
