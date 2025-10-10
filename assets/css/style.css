@@ -123,9 +123,94 @@
     SEÇÃO HERO
 =========================================== */
 
-.hero {
-   text-shadow: var(--text-shadow);
+
+.hero-content {
+   animation: fadeInLeft 0.8s ease-out;
 }
+
+.badge-hero {
+   background-color: #ecaa4730;
+   border-radius: 50px;
+   font-size: var(--text-sm);
+}
+
+.badge-hero i {
+   color: var(--secondary-color)
+}
+
+.hero-content h2 {
+   color: var(--secondary-color);
+}
+
+.hero-content .btn-primary {
+   background-color: var(--secondary-color);
+}
+
+.hero-content .btn-secondary {
+   border-color: var(--secondary-color);
+   color: var(--secondary-color)
+}
+
+.hero-imagem {
+   animation: fadeInRight 0.8s ease-out;
+}
+
+.foto-destaque {
+   background: #fff8f0;
+   border-radius: 2rem;
+   box-shadow: var(--shadow);
+   transform: rotate(2deg);
+}
+
+.img-hero {
+   object-fit: cover;
+   object-position: center;
+}
+
+.selo {
+   font-size: var(--text-sm);
+   box-shadow: var(--shadow);
+   border-radius: var(--radius);
+   background: var(--bg-light);
+   color: var(--text-dark);
+}
+
+.selo i {
+   font-size: var(--text-md);
+}
+
+.selo.top {
+   transform: rotate(10deg);
+}
+
+.selo.bottom {
+   transform: rotate(-2deg);
+}
+
+@keyframes fadeInLeft {
+   from {
+      opacity: 0;
+      transform: translateX(-30px);
+   }
+
+   to {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+@keyframes fadeInRight {
+   from {
+      opacity: 0;
+      transform: translateX(30px);
+   }
+
+   to {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
 
 /* ===========================================
     SEÇÃO PRODUTOS DESTAQUE
@@ -223,6 +308,7 @@
 .testimonials-card.active {
    opacity: 1;
 }
+
 .testimonials-card:hover {
    transform: translateY(-5px);
    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
@@ -361,7 +447,7 @@
     SEÇÃO SOBRE NOS
 =========================================== */
 
-.sobre-nos-img {
+.sobre-nos-preview-img {
    border-radius: var(--radius);
 }
 

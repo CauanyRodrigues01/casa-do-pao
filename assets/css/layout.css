@@ -27,7 +27,9 @@
 #venha-visitar,
 #sobre-nos-preview,
 #rodape,
-#trabalhe-conosco {
+#trabalhe-conosco,
+#menu,
+#cart {
     scroll-margin-top: 77px;
 }
 
@@ -42,7 +44,9 @@
     #venha-visitar,
     #sobre-nos-preview,
     #rodape,
-    #trabalhe-conosco {
+    #trabalhe-conosco,
+    #menu,
+    #cart {
         scroll-margin-top: 177px;
     }
 }
@@ -58,7 +62,9 @@
     #venha-visitar,
     #sobre-nos-preview,
     #rodape,
-    #trabalhe-conosco {
+    #trabalhe-conosco,
+    #menu,
+    #cart {
         scroll-margin-top: 93px;
     }
 }
@@ -261,18 +267,23 @@
 .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "hero-content img-hero";
+    grid-template-areas: "hero-content hero-imagem";
     gap: var(--space-2xl);
     align-items: center;
-    padding: var(--space-lg) 0;
-    min-height: 80vh;
+    padding-top: var(--space-lg);
+    min-height: 50vh;
 }
 
 .hero-content {
     grid-area: hero-content;
     display: flex;
     flex-direction: column;
-    gap: var(--space-md)
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.badge-hero {
+    background-color: #ecaa4730;
 }
 
 .hero-description {
@@ -287,13 +298,44 @@
     justify-content: flex-start;
 }
 
-.img-hero {
-    grid-area: img-hero;
-    width: 70%;
-    max-height: 480px;
-    object-fit: cover;
-    object-position: center;
+.hero-imagem {
+    grid-area: hero-imagem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
     justify-self: end;
+}
+
+.foto-destaque {
+    padding: 1.5rem;
+    border-radius: 2rem;
+    min-width: 20vw;
+    max-width: 50vw;
+}
+
+.img-hero {
+    border-radius: 1.5rem;
+}
+
+.selo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    padding: var(--space-xs);
+}
+
+.selo.top {
+    top: 0rem;
+    right: -3rem;
+    width: 210px;
+}
+
+.selo.bottom {
+    bottom: 0rem;
+    left: -3rem;
+    width: 200px;
 }
 
 .container-section-grid {
@@ -306,23 +348,23 @@
     .hero {
         margin-top: 93px;
         text-align: center;
-        max-height: 50vh;
     }
 
     .hero-container {
         grid-template-columns: 1fr;
-        grid-template-areas: "hero-content";
+        grid-template-areas:
+            "hero-content"
+            "hero-imagem";
         align-self: center;
-        min-height: 50vh;
+    }
+
+    .hero-imagem {
+        justify-self: center;
     }
 
     .hero-content {
         text-align: center;
         align-items: center;
-    }
-
-    .img-hero {
-        display: none;
     }
 
 }
@@ -1051,4 +1093,19 @@
 
 }
 
-@media (max-width: 480px) {}
+/* ===========================================
+    PÁGINA CARDÁPIO
+=========================================== */
+
+#menu {
+    margin-top: 77px;
+}
+
+
+/* ===========================================
+    PÁGINA CARRINHO
+=========================================== */
+
+#cart {
+    margin-top: 77px;
+}
