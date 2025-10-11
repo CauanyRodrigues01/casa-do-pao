@@ -404,7 +404,7 @@
 
 .lista-diferenciais article {
    text-align: center;
-   box-shadow: var(--shadow);
+   border: 1px solid #55271455;
    border-radius: var(--radius);
 }
 
@@ -428,14 +428,14 @@
 
 .iframe-localizacao {
    border: none;
+   border: 1px solid #55271455;
    border-radius: var(--radius);
-   box-shadow: var(--shadow);
 }
 
 .localizacao,
 .horario,
 .contato {
-   box-shadow: var(--shadow);
+   border: 1px solid #55271455;
    border-radius: var(--radius);
 }
 
