@@ -193,6 +193,11 @@
     justify-self: end;
 }
 
+.action-buttons.hidden {
+    pointer-events: none;
+    display: none;
+}
+
 @media (max-width: 992px) {
 
     .action-buttons {
