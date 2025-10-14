@@ -2,7 +2,6 @@
    LAYOUT GERAL
    =========================================== */
 
-
 .container {
     width: 100%;
     max-width: 1200px;
@@ -66,6 +65,24 @@
     #menu,
     #cart {
         scroll-margin-top: 93px;
+    }
+}
+
+@media (max-width: 452px) {
+
+    #hero,
+    #produtos-destaque,
+    #depoimentos,
+    #diferenciais,
+    #cadastro-preview,
+    #galeria,
+    #venha-visitar,
+    #sobre-nos-preview,
+    #rodape,
+    #trabalhe-conosco,
+    #menu,
+    #cart {
+        scroll-margin-top: 169px;
     }
 }
 
@@ -187,8 +204,7 @@
 @media (max-width: 768px) {
 
     .cabecalho-container {
-        grid-template-columns: auto 1fr auto;
-        grid-template-areas: "logo . menu-toggle";
+        grid-template-areas: "logo action-buttons menu-toggle";
         justify-items: start;
     }
 
@@ -249,6 +265,18 @@
     .dropdown.active .dropdown-menu {
         width: 50%;
         max-width: 50%;
+    }
+
+}
+
+@media (max-width: 452px) {
+    #hero {
+        margin-top: 169px;
+    }
+    .cabecalho-container {
+        grid-template-areas:
+            "logo . menu-toggle"
+            "action-buttons action-buttons action-buttons";
     }
 
 }
