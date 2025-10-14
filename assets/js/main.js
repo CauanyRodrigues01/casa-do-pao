@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 window.addEventListener('scroll', () => {
   const actionButtons = document.querySelector('.action-buttons');
-  console.log(actionButtons);
   if (window.scrollY > 50) {
     actionButtons.classList.add('hidden');
   } else {
