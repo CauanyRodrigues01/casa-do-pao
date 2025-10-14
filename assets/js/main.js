@@ -32,12 +32,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+window.addEventListener("scroll", () => {
+  const actionButtons = document.querySelector(".action-buttons");
+  const cabecalho = document.querySelector(".cabecalho-container");
 
-window.addEventListener('scroll', () => {
-  const actionButtons = document.querySelector('.action-buttons');
+  // Lógica para esconder/mostrar os botões
   if (window.scrollY > 50) {
-    actionButtons.classList.add('hidden');
+    actionButtons.classList.add("hidden");
   } else {
-    actionButtons.classList.remove('hidden');
+    actionButtons.classList.remove("hidden");
+  }
+
+  // Lógica para zerar o gap do grid no mobile
+  if (window.innerWidth <= 452 && window.scrollY >= 50) {
+    cabecalho.classList.add("shrink");
+  } else {
+    cabecalho.classList.remove("shrink");
   }
 });

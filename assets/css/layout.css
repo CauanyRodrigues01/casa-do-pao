@@ -105,6 +105,12 @@
     grid-template-areas:
         "logo navbar-principal action-buttons";
     gap: var(--space-sm);
+    transition: gap 0.3s ease, padding 0.3s ease, height 0.3s ease;
+}
+
+.cabecalho-container.shrink {
+    gap: 0;
+    height: 60px;
 }
 
 .logo-cabecalho {
@@ -193,11 +199,6 @@
     justify-self: end;
 }
 
-.action-buttons.hidden {
-    pointer-events: none;
-    display: none;
-}
-
 @media (max-width: 992px) {
 
     .action-buttons {
@@ -257,7 +258,7 @@
         padding: var(--space-xs);
     }
 
-    .navbar-principal > :last-child {
+    .navbar-principal> :last-child {
         margin-bottom: var(--space-xs);
     }
 
@@ -279,13 +280,22 @@
 }
 
 @media (max-width: 452px) {
+
     #hero {
         margin-top: 169px;
     }
+
     .cabecalho-container {
         grid-template-areas:
             "logo . menu-toggle"
             "action-buttons action-buttons action-buttons";
+    }
+
+    .action-buttons.hidden {
+        opacity: 0;
+        max-height: 0px;
+        /* colapsa a linha */
+        pointer-events: none;
     }
 
 }
